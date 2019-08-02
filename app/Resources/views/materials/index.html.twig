@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="index">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Список материалов</h1>
+                </div>
+                <div class="col-md-12">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col" >Id</th>
+                            <th scope="col" >Название</th>
+                            <th scope="col" >Цена</th>
+                            <th scope="col" >Услуга</th>
+                            <th scope="col" >Цена за ед</th>
+                            <th scope="col" >Единица измерения</th>
+                            <th scope="col" >Рейтинг</th>
+                            <th scope="col">Общий размер</th>
+                            <th scope="col" >Действие</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for material in materials %}
+                            <tr>
+                                <td><a href="{{ path('materials_show', { 'id': material.id }) }}">{{ material.id }}</a></td>
+                                <td>{{ material.name }}</td>
+                                <td>{{ material.price }}</td>
+                                <td>{{ material.serviceId.name }}</td>
+                                <td>{{ material.priceUnit }}</td>
+                                <td>{{ material.measureId.name |raw }}</td>
+                                <td>{{ material.rating }}</td>
+                                <td>{{ material.totalsize }}</td>
+                                <td width="20%">
+                                    <ul style="list-style-type: none; margin:0; padding:0;">
+                                        <li>
+                                            <a style="display:block; margin-top: 20px;" class="btn btn-info" href="{{ path('materials_show', { 'id': material.id }) }}">Показать</a>
+                                        </li>
+                                        <li>
+                                            <a style="display:block; margin-top: 20px;" class="btn btn-success" href="{{ path('materials_edit', { 'id': material.id }) }}">Редактировать</a>
+                                        </li>
+                                        <li>
+                                            {% for key, value in delete_form %}
+                                                {% if key == material.name %}
+                                                    {{ form_start(value) }}
+                                                    <input style="margin-top: 20px; width:100%;" class="btn btn-danger" type="submit" value="Удалить">
+                                                    {{ form_end(value) }}
+                                                {% endif %}
+                                            {% endfor %}
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-12">
+                    <ul style="list-style-type: none; margin:0; padding:0;">
+                        <li>
+                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('materials_new') }}">Создать новый материал</a>
+                        </li>
+                        <li>
+                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('kiraxe_admin_crm_homepage') }}">Назад</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

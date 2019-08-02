@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div id="index">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Калькуляция</h1>
+                </div>
+                <div class="col-md-12">
+                    <table>
+                        <tr>
+                            <td>
+                                {{ form_start(form) }}
+                                <ul id="filter-date">
+                                    <li>{{ form_row(form.dateFrom)}}</li>
+                                    <li>{{ form_row(form.dateTo)}}</li>
+                                    <li><input style="margin-top: 20px;" class="btn btn-secondary" type="submit" value="Подсчитать" /></li>
+                                </ul>
+                                {{ form_end(form) }}
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Общая сумма</th>
+                                <th>Общая зарплата</th>
+                                <th>Общая сумма затрат</th>
+                                <th>Чистая прибль</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ price }}</td>
+                                <td>{{ salary }}</td>
+                                <td>{{ totalExpenses }}</td>
+                                <td>{{ earnings }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block stylesheets %}{% endblock %}

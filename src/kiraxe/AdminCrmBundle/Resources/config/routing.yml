@@ -1,0 +1,43 @@
+kiraxe_admin_crm_workers:
+    resource: "@kiraxeAdminCrmBundle/Resources/config/routing/workers.yml"
+    prefix:   /workers
+
+kiraxe_admin_crm_services:
+    resource: "@kiraxeAdminCrmBundle/Resources/config/routing/services.yml"
+    prefix:   /services
+
+kiraxe_admin_crm_user:
+    resource: "@kiraxeAdminCrmBundle/Resources/config/routing/user.yml"
+    prefix:   /app_users
+
+kiraxe_admin_crm_materials:
+    resource: "@kiraxeAdminCrmBundle/Resources/config/routing/materials.yml"
+    prefix:   /materials
+
+kiraxe_admin_crm_measure:
+    resource: "@kiraxeAdminCrmBundle/Resources/config/routing/measure.yml"
+    prefix:   /measure
+
+kiraxe_admin_crm_orders:
+    resource: "@kiraxeAdminCrmBundle/Resources/config/routing/orders.yml"
+    prefix:   /orders
+
+kiraxe_admin_crm_brand:
+    resource: "@kiraxeAdminCrmBundle/Resources/config/routing/brand.yml"
+    prefix:   /brand
+
+kiraxe_admin_crm_expenses:
+    resource: "@kiraxeAdminCrmBundle/Resources/config/routing/expenses.yml"
+    prefix:   /expenses
+
+kiraxe_admin_crm_model:
+    resource: "@kiraxeAdminCrmBundle/Resources/config/routing/model.yml"
+    prefix:   /model
+
+kiraxe_admin_crm_bodytype:
+    resource: "@kiraxeAdminCrmBundle/Resources/config/routing/bodytype.yml"
+    prefix:   /body_type
+
+kiraxe_admin_crm_homepage:
+    path:     /
+    defaults: { _controller: kiraxeAdminCrmBundle:Default:index }

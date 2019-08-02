@@ -1,0 +1,46 @@
+kiraxe_admin_crm_user:
+    resource: "@kiraxeAdminCrmBundle/Controller/UserController.php"
+    type:     annotation
+
+kiraxe_admin_crm_services:
+    resource: "@kiraxeAdminCrmBundle/Controller/ServicesController.php"
+    type:     annotation
+
+kiraxe_admin_crm_workers:
+    resource: "@kiraxeAdminCrmBundle/Controller/WorkersController.php"
+    type:     annotation
+
+kiraxe_admin_crm_login:
+    resource: "@kiraxeAdminCrmBundle/Controller/SecurityController.php"
+    type:     annotation
+    methods:  [GET, POST]
+
+kiraxe_admin_crm_orders:
+    resource: "@kiraxeAdminCrmBundle/Controller/OrdersController.php"
+    type:     annotation
+    methods:  [GET, POST]
+
+kiraxe_admin_crm_brand:
+    resource: "@kiraxeAdminCrmBundle/Controller/BrandController.php"
+    type:     annotation
+    methods:  [GET, POST]
+
+kiraxe_admin_crm_model:
+    resource: "@kiraxeAdminCrmBundle/Controller/ModelController.php"
+    type:     annotation
+    methods:  [GET, POST]
+
+kiraxe_admin_crm_logout:
+    path: /logout
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+kiraxe_admin_crm:
+    resource: "@kiraxeAdminCrmBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+

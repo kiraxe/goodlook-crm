@@ -1,0 +1,24 @@
+materials_index:
+    path:     /
+    defaults: { _controller: "kiraxeAdminCrmBundle:Materials:index" }
+    methods:  GET
+
+materials_show:
+    path:     /{id}/show
+    defaults: { _controller: "kiraxeAdminCrmBundle:Materials:show" }
+    methods:  GET
+
+materials_new:
+    path:     /new
+    defaults: { _controller: "kiraxeAdminCrmBundle:Materials:new" }
+    methods:  [GET, POST]
+
+materials_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "kiraxeAdminCrmBundle:Materials:edit" }
+    methods:  [GET, POST]
+
+materials_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "kiraxeAdminCrmBundle:Materials:delete" }
+    methods:  DELETE

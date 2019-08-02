@@ -1,0 +1,28 @@
+workers_index:
+    path:     /
+    defaults: { _controller: "kiraxeAdminCrmBundle:Workers:index" }
+    methods:  GET
+
+workers_show:
+    path:     /{id}/show
+    defaults: { _controller: "kiraxeAdminCrmBundle:Workers:show" }
+    methods:  GET
+
+workers_new:
+    path:     /new
+    defaults: { _controller: "kiraxeAdminCrmBundle:Workers:new" }
+    options:
+        expose: true
+    methods:  [GET, POST]
+
+workers_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "kiraxeAdminCrmBundle:Workers:edit" }
+    options:
+        expose: true
+    methods:  [GET, POST]
+
+workers_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "kiraxeAdminCrmBundle:Workers:delete" }
+    methods:  [DELETE, GET]

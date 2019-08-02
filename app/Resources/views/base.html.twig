@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" media="print" href="{{ asset('public/css/print.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('public/libs/jquery-ui-1.12.1.custom/jquery-ui.min.css') }}" />
+        <script src="https://kit.fontawesome.com/48f9136f03.js"></script>
+    </head>
+    <body>
+        <main>
+            {% if app.request.requestUri != '/login/' %}
+                    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+                        <div class="collapse navbar-collapse" id="navbarCollapse">
+                            <ul class="navbar-nav mr-auto sidenav" id="navAccordion">
+                                {% if tables %}
+                                    {% for key, table in tables %}
+                                        <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="http://127.0.0.1:8000/admin/{{key}}">{{table}}</a></li>
+                                    {% endfor %}
+                                {% endif %}
+                                <li class="nav-item">
+                                    <a
+                                            class="nav-link nav-link-collapse"
+                                            href="#"
+                                            id="hasSubItems"
+                                            data-toggle="collapse"
+                                            data-target="#collapseSubItems2"
+                                            aria-controls="collapseSubItems2"
+                                            aria-expanded="false"
+                                    >Автомобили <i class="fas fa-angle-right"></i></a>
+                                    <ul class="nav-second-level collapse" id="collapseSubItems2" data-parent="#navAccordion">
+                                        {% if tables %}
+                                            {% for key, tableCars in tableCars %}
+                                                <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="http://127.0.0.1:8000/admin/{{key}}">{{tableCars}}</a></li>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                            class="nav-link nav-link-collapse"
+                                            href="#"
+                                            id="hasSubItems"
+                                            data-toggle="collapse"
+                                            data-target="#collapseSubItems4"
+                                            aria-controls="collapseSubItems4"
+                                            aria-expanded="false"
+                                    >Настройки <i class="fas fa-angle-right"></i></a>
+                                    <ul class="nav-second-level collapse" id="collapseSubItems4" data-parent="#navAccordion">
+                                        {% if tables %}
+                                            {% for key, tableSettingsName in tableSettingsName %}
+                                                <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="http://127.0.0.1:8000/admin/{{key}}">{{tableSettingsName}}</a></li>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="logout"><span>Привет,{{ user.username }}</span> <a class="btn btn-light" href="{{ path('kiraxe_admin_crm_logout') }}">Выход</a></div>
+                    </nav>
+
+            <div class="content-wrapper">
+                <div class="container-fluid">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
+
+            <footer class="footer">
+                <div class="container">
+                    <div class="text-center">
+                        <span>Create by <a href="https://creart-design.ru">creart-design.ru</a>, 2019</span>
+                    </div>
+                </div>
+            </footer>
+        </main>
+            {% else %}
+                <main id="login">
+                    {% block login %}{% endblock %}
+                </main>
+            {% endif %}
+        {% block print %}{% endblock %}
+    </body>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <style>
+        html,body {
+            position: relative;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        main {
+            display: flex;
+            height: auto;
+            min-height: 100%;
+            width: 100%;
+            position: relative;
+            -webkit-font-smoothing: subpixel-antialiased;
+        }
+
+        main#login {
+            align-items: center;
+        }
+
+        #form .form-button ul,
+        #show ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        #login {
+            width: 100%;
+        }
+
+        #index ul li,
+        #form .form-button ul li,
+        #show ul li {
+             display: inline-block;
+        }
+
+        #index table ul li {
+            display: block;
+        }
+
+        form[name="kiraxe_admincrmbundle_workers"] .form-button + fieldset legend,
+        form[name="kiraxe_admincrmbundle_orders"] .form-button + fieldset legend{
+            display: none;
+        }
+
+        .content-wrapper {
+            padding: 4.5rem 0;
+            height: 100%;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 3.5rem;
+            line-height: 3.5rem;
+            background-color: #ccc;
+        }
+
+        .nav-link:hover {
+            transition: all 0.4s;
+        }
+
+        .nav-item ul.nav-second-level {
+            padding-left: 0;
+        }
+
+        .nav-item ul.nav-second-level > .nav-item {
+            padding-left: 20px;
+        }
+
+        .fa-angle-right {
+            float: right;
+            margin-right: 10px;
+            margin-top: 5px;
+            position: relative;
+            transform: rotate(0deg);
+            transition-property: transform;
+            transition-duration: 1s;
+        }
+
+        .fa-angle-right-active {
+            transform: rotate(90deg);
+            transition-property: transform;
+            transition-duration: 1s;
+        }
+
+        .logout span {
+            color: #fff;
+        }
+
+        .workorder {
+            display:none;
+        }
+
+        #filter-date {
+            margin: 0;
+            padding: 0;
+        }
+
+        #filter-date li {
+            display: inline-block!important;
+        }
+
+        #filter-date li input[type="submit"] {
+            margin-top: -5px!important;
+        }
+
+        @media (min-width: 992px) {
+            .sidenav {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 230px;
+                height: calc(100vh - 3.4rem);
+                margin-top: 3.4rem;
+                background: #343a40;
+                box-sizing: border-box;
+                border-top: 1px solid rgba(0, 0, 0, 0.3);
+            }
+
+            .navbar-expand-lg .sidenav {
+                flex-direction: column;
+            }
+
+            .content-wrapper {
+                margin-left: 230px;
+            }
+
+            .footer {
+                width: calc(100% - 230px);
+                margin-left: 230px;
+            }
+        }
+
+
+    </style>
+    {% block javascripts %}
+        <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+        <script src="{{ asset('public/js/main.js') }}"></script>
+        <script src="{{ asset('public/libs/jquery-ui-1.12.1.custom/jquery-ui.min.js') }}"></script>
+    {% endblock %}
+    {% block ordersform %}{% endblock %}
+</html>

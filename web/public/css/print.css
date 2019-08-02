@@ -1,0 +1,33 @@
+@import url(fonts.css);
+main {
+    display: none!important;
+}
+.workorder.active {
+    display: block!important;
+}
+
+.workorder {
+    color: #000;
+    font-family: 'GilroyRegular';
+    width: 1000px;
+    margin: 0 auto;
+}
+.workorder p {
+    margin: 0;
+    font-family: 'GilroyRegular';
+}
+.workorder b {
+    font-family: 'GilroyBold';
+}
+.workorder table {
+    width: 100%;
+}
+.workorder table td,
+.workorder table th	{
+    padding: 10px;
+}
+
+.workorder table table td,
+.workorder table table th {
+    text-align: center;
+}

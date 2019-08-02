@@ -1,0 +1,123 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="show">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Заказ-наряд</h1>
+                </div>
+                <div class="col-lg-12">
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th scope="row">Id</th>
+                            <td scope="col">{{ order.id }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Дата и время открытия</th>
+                            <td scope="col">{% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Заказ открыл</th>
+                            <td scope="col">{% if order.workeropen %}{{ order.workeropen.name }}{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Дата и время закрытия</th>
+                            <td scope="col">{% if order.dateClose %}{{ order.dateClose|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Дата и время оплаты</th>
+                            <td scope="col">{% if order.datePayment %}{{ order.datePayment|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Заказ закрыл</th>
+                            <td scope="col">{% if order.workerclose %}{{ order.workerclose.name }}{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ФИО владельца авто</th>
+                            <td scope="col">{{ order.name }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Бренд автомобиля</th>
+                            <td scope="col">{{ order.brandId.name }}</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Автомобиль</th>
+                            <td scope="col">{{ order.carId.name }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Тип кузова</th>
+                            <td scope="col">{{ order.bodyId.name }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Номер авто</th>
+                            <td scope="col">{{ order.number }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Телефона</th>
+                            <td scope="col">{{ order.phone }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Стоимость</th>
+                            <td scope="col">{{ order.price }}</td>
+                        </tr>
+                        {% for workerorder in workerorders %}
+                            <tr>
+                                <th scope="row">Сотрудник</th>
+                                <td scope="col">
+                                    {{ workerorder.workers.name }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Услуга</th>
+                                <td scope="col">
+                                    {{ workerorder.services.parent.name }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Вид работы</th>
+                                <td scope="col">
+                                    {{ workerorder.services.name }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Материал</th>
+                                <td scope="col">
+                                    {{ workerorder.materials.name }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Стоимость</th>
+                                <td scope="col">
+                                    {{ workerorder.amountOfMaterial }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        <tr>
+                            <th scope="row">Закрыт</th>
+                            <td scope="col">{% if order.close %}Да{% else %}Нет{% endif %}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-12">
+                    <ul style="list-style-type: none; margin:0; padding:0;">
+                        <li>
+                            <a style="margin-top: 20px;" class="btn btn-success" href="{{ path('orders_edit', { 'id': order.id }) }}">Редактировать</a>
+                        </li>
+                        <li>
+                            {{ form_start(delete_form) }}
+                            <input style="margin-top: 20px;" class="btn btn-danger" type="submit" value="Удалить">
+                            {{ form_end(delete_form) }}
+                        </li>
+                        <li>
+                            <a style="margin-top: 20px;" class="btn btn-primary" href="{{ path('orders_index') }}">Назад</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

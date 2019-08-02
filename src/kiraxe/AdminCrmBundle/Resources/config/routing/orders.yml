@@ -1,0 +1,38 @@
+orders_index:
+    path:     /
+    defaults: { _controller: "kiraxeAdminCrmBundle:Orders:index" }
+    methods:  GET
+
+orders_show:
+    path:     /{id}/show
+    defaults: { _controller: "kiraxeAdminCrmBundle:Orders:show" }
+    methods:  GET
+
+orders_new:
+    path:     /new
+    defaults: { _controller: "kiraxeAdminCrmBundle:Orders:new" }
+    methods:  [GET, POST]
+
+orders_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "kiraxeAdminCrmBundle:Orders:edit" }
+    methods:  [GET, POST]
+
+orders_ajax:
+    path:     /ajax
+    defaults: { _controller: "kiraxeAdminCrmBundle:Orders:ajax" }
+    options:
+        expose: true
+    methods:  [GET, POST]
+
+orders_ajaxmodel:
+    path:     /ajaxmodel
+    defaults: { _controller: "kiraxeAdminCrmBundle:Orders:ajaxmodel" }
+    options:
+        expose: true
+    methods:  [GET, POST]
+
+orders_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "kiraxeAdminCrmBundle:Orders:delete" }
+    methods:  DELETE

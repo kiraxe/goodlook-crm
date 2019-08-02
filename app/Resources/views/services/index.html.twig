@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="index">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Список услуг</h1>
+                </div>
+                <div class="col-md-12">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col" >Id</th>
+                            <th scope="col" >Название</th>
+                            <th scope="col">Действия</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for service in services %}
+                                <tr>
+                                    <td><a href="{{ path('services_show', { 'id': service.id }) }}">{{ service.id }}</a></td>
+                                    <td>
+                                        {% if service.parent != null %}
+                                            {{ service.parent.name }}->{{ service.name }}
+                                        {% else %}
+                                            {{ service.name }}
+                                        {% endif %}
+                                    </td>
+                                    <td width="20%">
+                                        <ul style="list-style-type: none; margin:0; padding:0;">
+                                            <li>
+                                                <a style="display:block; margin-top: 20px;" class="btn btn-info" href="{{ path('services_show', { 'id': service.id }) }}">Показать</a>
+                                            </li>
+                                            <li>
+                                                <a style="display:block; margin-top: 20px;" class="btn btn-success" href="{{ path('services_edit', { 'id': service.id }) }}">Редактировать</a>
+                                            </li>
+                                            <li>
+                                                {% for key, value in delete_form %}
+                                                    {% if key == service.name %}
+                                                        {{ form_start(value) }}
+                                                        <input style="margin-top: 20px; width:100%;" class="btn btn-danger" type="submit" value="Удалить">
+                                                        {{ form_end(value) }}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-12">
+                    <ul style="list-style-type: none; margin:0; padding:0;">
+                        <li>
+                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('services_new') }}">Создать новую услугу</a>
+                        </li>
+                        <li>
+                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('kiraxe_admin_crm_homepage') }}">Назад</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

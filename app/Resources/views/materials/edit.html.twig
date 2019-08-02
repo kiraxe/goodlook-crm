@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="form">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Редактировать материал</h1>
+                </div>
+                <div class="col-md-6">
+                    {{ form_start(edit_form) }}
+                    <div class="formItem">{{ form_row(edit_form.name) }}</div>
+                    <div class="formItem">{{ form_row(edit_form.pricepackage) }}</div>
+                    <div class="formItem">{{ form_row(edit_form.price) }}</div>
+                    <div class="formItem">{{ form_row(edit_form.quantitypack) }}</div>
+                    <div class="formItem">{{ form_row(edit_form.totalsize) }}</div>
+                    <div class="formItem">
+                        <label>Остаток</label>
+                        <p>{{ material.residue }} {{ material.measureId.getName() }}</p>
+                    </div>
+                    <div class="formItem">{{ form_row(edit_form.measureId) }}</div>
+                    <div class="formItem">{{ form_row(edit_form.serviceId) }}</div>
+                    <div class="formItem">{{ form_row(edit_form.priceUnit) }}</div>
+                    <div class="formItem">{{ form_row(edit_form.rating) }}</div>
+                    <div class="formItem form-button">
+                        <ul>
+                            <li>
+                                <input style="margin-top: 20px;" class="btn btn-success" type="submit" value="Сохранить" />
+                                {{ form_end(edit_form) }}
+                            </li>
+                            <li>{{ form_start(delete_form) }}
+                                <input style="margin-top: 20px;" class="btn btn-danger" type="submit" value="Удалить">
+                                {{ form_end(delete_form) }}
+                            </li>
+                            <li>
+                                <a style="margin-top: 20px;" class="btn btn-primary" href="{{ path('materials_index') }}">Назад</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

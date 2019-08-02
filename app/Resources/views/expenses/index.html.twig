@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="index">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Список расходов</h1>
+                </div>
+                <div class="col-md-12">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Название</th>
+                            <th scope="col">Сумма</th>
+                            <th scope="col">Тип оплаты</th>
+                            <th scope="col">Дата</th>
+                            <th scope="col">Комментарий</th>
+                            <th scope="col">Действие</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for expense in expenses %}
+                            <tr>
+                                <td><a href="{{ path('expenses_show', { 'id': expense.id }) }}">{{ expense.id }}</a></td>
+                                <td>{{ expense.name }}</td>
+                                <td>{{ expense.amount }}</td>
+                                <td>{% if expense.type %}Безналичный{% else %}Наличный{% endif %}</td>
+                                <td>{% if expense.date %}{{ expense.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{{ expense.comment }}</td>
+                                <td width="20%">
+                                    <ul style="list-style-type: none; margin:0; padding:0;">
+                                        <li>
+                                            <a style="display:block; margin-top: 20px;" class="btn btn-info" href="{{ path('expenses_show', { 'id': expense.id }) }}">Показать</a>
+                                        </li>
+                                        <li>
+                                            <a style="display:block; margin-top: 20px;" class="btn btn-success" href="{{ path('expenses_edit', { 'id': expense.id }) }}">Редактировать</a>
+                                        </li>
+                                        <li>
+                                            {% for key, value in delete_form %}
+                                                {% if key == expense.name %}
+                                                    {{ form_start(value) }}
+                                                    <input style="margin-top: 20px; width:100%;" class="btn btn-danger" type="submit" value="Удалить">
+                                                    {{ form_end(value) }}
+                                                {% endif %}
+                                            {% endfor %}
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-12">
+                    <ul style="list-style-type: none; margin:0; padding:0;">
+                        <li>
+                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('expenses_new') }}">Создать новый расход</a>
+                        </li>
+                        <li>
+                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('kiraxe_admin_crm_homepage') }}">Назад</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

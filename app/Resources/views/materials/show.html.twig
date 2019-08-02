@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="show">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Материал</h1>
+                </div>
+                <div class="col-lg-12">
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Id</th>
+                                <td scope="col">{{ material.id }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Название</th>
+                                <td scope="col">{{ material.name }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Цена</th>
+                                <td scope="col">{{ material.price }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Услуга</th>
+                                <td scope="col">{{ material.serviceId.name }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Цена за ед</th>
+                                <td scope="col">{{ material.priceUnit }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Общий размер</th>
+                                <td scope="col">{{ material.totalsize }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Единица измерения </th>
+                                <td scope="col">{{ material.measureId.name |raw }}</td>
+                            </tr>
+                            <tr>
+                                <th>Рейтинг</th>
+                                <td>{{ material.rating }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-12">
+                    <ul style="list-style-type: none; margin:0; padding:0;">
+                        <li>
+                            <a style="margin-top: 20px;" class="btn btn-success" href="{{ path('materials_edit', { 'id': material.id }) }}">Редактировать</a>
+                        </li>
+                        <li>
+                            {{ form_start(delete_form) }}
+                            <input style="margin-top: 20px;" class="btn btn-danger" type="submit" value="Удалить">
+                            {{ form_end(delete_form) }}
+                        </li>
+                        <li>
+                            <a style="margin-top: 20px;" class="btn btn-primary" href="{{ path('materials_index') }}">Назад</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

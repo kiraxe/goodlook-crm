@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="show">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Бренд</h1>
+                </div>
+                <div class="col-lg-12">
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th scope="row">Id</th>
+                            <td scope="col">{{ brand.id }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Название</th>
+                            <td scope="col">{{ brand.name }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-12">
+                    <ul style="list-style-type: none; margin:0; padding:0;">
+                        <li>
+                            <a style="margin-top: 20px;" class="btn btn-success" href="{{ path('brand_edit', { 'id': brand.id }) }}">Редактировать</a>
+                        </li>
+                        <li>
+                            {{ form_start(delete_form) }}
+                            <input style="margin-top: 20px;" class="btn btn-danger" type="submit" value="Удалить">
+                            {{ form_end(delete_form) }}
+                        </li>
+                        <li>
+                            <a style="margin-top: 20px;" class="btn btn-primary" href="{{ path('brand_index') }}">Назад</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

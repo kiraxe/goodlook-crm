@@ -1,0 +1,24 @@
+brand_index:
+    path:     /
+    defaults: { _controller: "kiraxeAdminCrmBundle:Brand:index" }
+    methods:  GET
+
+brand_show:
+    path:     /{id}/show
+    defaults: { _controller: "kiraxeAdminCrmBundle:Brand:show" }
+    methods:  GET
+
+brand_new:
+    path:     /new
+    defaults: { _controller: "kiraxeAdminCrmBundle:Brand:new" }
+    methods:  [GET, POST]
+
+brand_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "kiraxeAdminCrmBundle:Brand:edit" }
+    methods:  [GET, POST]
+
+brand_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "kiraxeAdminCrmBundle:Brand:delete" }
+    methods:  DELETE

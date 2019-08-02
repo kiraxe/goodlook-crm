@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="form">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Создать сотрудника</h1>
+                </div>
+                <div class="col-md-6">
+                    {{ form_start(form) }}
+                    <div class="formItem">{{ form_row(form.name) }}</div>
+                    <div class="formItem">{{ form_row(form.phone) }}</div>
+                    <div class="formItem">{{ form_row(form.passport) }}</div>
+                    <div class="formItem">{{ form_row(form.address) }}</div>
+                    <div class="formItem">{{ form_row(form.typeworkers) }}</div>
+                    <div class="formItem">{{ form_label(form.workerservice) }}</div>
+
+                        <div id="worker-percent" class="formItem">
+                            <ul style="list-style-type: none" id="workerservice-fields-list"
+                                data-prototype="{{ form_widget(form.workerservice.vars.prototype)|e('html_attr') }}"
+                                data-widget-tags="{{ '<li></li>'|e }}">
+                                {% for workerserviceField in form.workerservice %}
+                                    <li>
+                                        {{ form_errors(workerserviceField) }}
+                                        {{ form_widget(workerserviceField) }}
+                                        <a href="#" class="remove-tag btn btn-danger">Удалить</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+
+                            <div><button type="button" class="add-another-collection-widget btn btn-info" data-list="#workerservice-fields-list">Добавить услугу</button></div>
+                        </div>
+
+                        <div id="manager-percent" class="formItem">
+                            {% if form.managerpercent.children is empty %}
+                                {{ form_row(form.managerpercent.vars.prototype) }}
+                            {% else %}
+                                {{ form_row(form.managerpercent) }}
+                            {% endif %}
+                        </div>
+
+                    <div class="formItem form-button">
+                        <ul>
+                            <li><input style="margin-top: 20px;" class="btn btn-success" type="submit" value="Создать" /></li>
+                            <li><a style="margin-top: 20px;" class="btn btn-primary" href="{{ path('workers_index') }}">Назад</a></li>
+                        </ul>
+                    </div>
+
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

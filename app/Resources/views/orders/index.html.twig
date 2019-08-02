@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="index">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Список заказ-наряд</h1>
+                </div>
+                <div class="col-md-12">
+                    <table>
+                        <tr>
+                            <td>
+                                {{ form_start(form) }}
+                                    <ul id="filter-date">
+                                        <li>{{ form_row(form.dateFrom)}}</li>
+                                        <li>{{ form_row(form.dateTo)}}</li>
+                                        <li>{{ form_row(form.number) }}</li>
+                                        <li>{{ form_row(form.tel) }}</li>
+                                        <li>{{ form_row(form.manager) }}</li>
+                                        <li><input style="margin-top: 20px;" class="btn btn-secondary" type="submit" value="Фильтр" /></li>
+                                    </ul>
+                                {{ form_end(form) }}
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Дата и время открытия</th>
+                            <th scope="col">Заказ открыл</th>
+                            <th scope="col">Дата и время закрытия</th>
+                            <th scope="col">Дата и время оплаты</th>
+                            <th scope="col">Заказ закрыл</th>
+                            <th scope="col">ФИО владельца авто</th>
+                            <th scope="col">Бренд автомобиля</th>
+                            <th scope="col">Автомобиль</th>
+                            <th scope="col">Тип кузова</th>
+                            <th scope="col">Номер авто</th>
+                            <th scope="col">Телефон</th>
+                            <th scope="col">Стоимость</th>
+                            <th scope="col">Закрыт</th>
+                            <th scope="col">Действие</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for order in orders %}
+                            <tr>
+                                <td scope="row"><a href="{{ path('orders_show', { 'id': order.id }) }}">{{ order.id }}</a></td>
+                                <td>{% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>
+                                    {% if order.workeropen  %}
+                                        {{ order.workeropen.name }}
+                                    {% endif %}
+                                </td>
+                                <td>{% if order.dateClose %}{{ order.dateClose|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{% if order.datePayment %}{{ order.datePayment|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>
+                                    {% if order.workerclose  %}
+                                        {{ order.workerclose.name }}
+                                    {% endif %}
+                                </td>
+                                <td>{{ order.name }}</td>
+                                <td>{{ order.brandId.name }}</td>
+                                <td>{{ order.carId.name }}</td>
+                                <td>{{ order.bodyId.name }}</td>
+                                <td>{{ order.number }}</td>
+                                <td>{{ order.phone }}</td>
+                                <td>{{ order.price }}</td>
+                                <td>{% if order.close %}Да{% else %}Нет{% endif %}</td>
+                                <td width="20%">
+                                    <ul style="list-style-type: none; margin:0; padding:0;">
+                                        <li>
+                                            <a style="display:block; margin-top: 20px;" class="btn btn-info" href="{{ path('orders_show', { 'id': order.id }) }}">Показать</a>
+                                        </li>
+                                        <li>
+                                            <a style="display:block; margin-top: 20px;" class="btn btn-success" href="{{ path('orders_edit', { 'id': order.id }) }}">Редактировать</a>
+                                        </li>
+                                        <li>
+                                            {% for key, value in delete_form %}
+                                                {% if key == order.id %}
+                                                    {{ form_start(value) }}
+                                                    <input style="margin-top: 20px; width:100%;" class="btn btn-danger" type="submit" value="Удалить">
+                                                    {{ form_end(value) }}
+                                                {% endif %}
+                                            {% endfor %}
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-12">
+                    <ul style="list-style-type: none; margin:0; padding:0;">
+                        <li>
+                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('orders_new') }}">Создать новый заказ-наряд</a>
+                        </li>
+                        <li>
+                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('kiraxe_admin_crm_homepage') }}">Назад</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+

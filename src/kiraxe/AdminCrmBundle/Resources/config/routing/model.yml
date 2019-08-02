@@ -1,0 +1,24 @@
+model_index:
+    path:     /
+    defaults: { _controller: "kiraxeAdminCrmBundle:Model:index" }
+    methods:  GET
+
+model_show:
+    path:     /{id}/show
+    defaults: { _controller: "kiraxeAdminCrmBundle:Model:show" }
+    methods:  GET
+
+model_new:
+    path:     /new
+    defaults: { _controller: "kiraxeAdminCrmBundle:Model:new" }
+    methods:  [GET, POST]
+
+model_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "kiraxeAdminCrmBundle:Model:edit" }
+    methods:  [GET, POST]
+
+model_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "kiraxeAdminCrmBundle:Model:delete" }
+    methods:  DELETE
