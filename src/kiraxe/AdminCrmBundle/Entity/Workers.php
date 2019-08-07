@@ -40,14 +40,14 @@ class Workers
     /**
      * @var string
      *
-     * @ORM\Column(name="passport", type="text")
+     * @ORM\Column(name="passport", type="text", nullable=true)
      */
     private $passport;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="address", type="text")
+     * @ORM\Column(name="address", type="text", nullable=true)
      */
     private $address;
 

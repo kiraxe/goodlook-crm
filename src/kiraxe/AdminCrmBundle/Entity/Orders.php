@@ -93,14 +93,14 @@ class Orders
     /**
      * @var string
      *
-     * @ORM\Column(name="color", type="string", length=255)
+     * @ORM\Column(name="color", type="string", length=255, nullable=true)
      */
     private $color;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="vin", type="string", length=255)
+     * @ORM\Column(name="vin", type="string", length=255, nullable=true)
      */
     private $vin;
 
@@ -108,7 +108,7 @@ class Orders
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
      */
     private $email;
 
@@ -157,14 +157,14 @@ class Orders
     /**
      * @var text
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
 
     /**
      * @var text
-     * @ORM\Column(name="damages", type="text")
+     * @ORM\Column(name="damages", type="text", nullable=true)
      */
     private $damages;
 

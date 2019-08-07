@@ -21,8 +21,14 @@ class WorkersType extends AbstractType
     {
         $builder->add('name', null ,array('label' => 'ФИО'))
             ->add('phone',TelType::class, array('label' => 'Телефон'))
-            ->add('passport', null ,array('label' => 'Паспортные данные'))
-            ->add('address', null ,array('label' => 'Адрес'))
+            ->add('passport', null ,array(
+                'label' => 'Паспортные данные',
+                'required' => false,
+            ))
+            ->add('address', null ,array(
+                'label' => 'Адрес',
+                'required' => false,
+            ))
             ->add('typeworkers', ChoiceType::class ,array(
                     'label' => 'Тип сотрудника',
                      'choices' => [

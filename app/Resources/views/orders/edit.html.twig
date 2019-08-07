@@ -45,10 +45,10 @@
                         <div><button type="button" class="add-another-collection-widget btn btn-info" data-list="#workerorders-fields-list">Добавить сотрудника и услугу</button></div>
                     </div>
                     <div class="formItem">
-                        <a data-toggle="1" style="margin-top: 20px; display: block;" href='#' onclick="window.checkContentPrint(this.getAttribute('data-toggle'));">Распечатать Наряд на работу</a>
+                        <a data-toggle="2" style="margin-top: 20px; display: block;" href='#' onclick="window.checkContentPrint(this.getAttribute('data-toggle'));">Распечатать Наряд на работу</a>
                     </div>
                     <div class="formItem">
-                        <a data-toggle="2" style="margin-top: 20px; display: block;" href='#' onclick="window.checkContentPrint(this.getAttribute('data-toggle'));">Распечатать Заказ-наряд</a>
+                        <a data-toggle="1" style="margin-top: 20px; display: block;" href='#' onclick="window.checkContentPrint(this.getAttribute('data-toggle'));">Распечатать Заказ-наряд</a>
                     </div>
                     <div class="formItem form-button">
                         <ul>
@@ -91,7 +91,7 @@
             </thead>
             <tbody>
             <tr>
-                <td style="padding-top: 20px; padding-bottom: 20px;"><p><b>Наряд на работу №{{ order.id }} от {% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d') }}{% endif %}</b></p></td>
+                <td style="padding-top: 20px; padding-bottom: 20px;"><p><b>Заказ-Наряд №{{ order.id }} от {% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d') }}{% endif %}</b></p></td>
             </tr>
             <tr>
                 <td>
@@ -128,7 +128,7 @@
                         {% for workerorder in order.workerorders  %}
                             <tr>
                                 <td>{{ loop.index }}</td>
-                                <td>{{ workerorder.services.name }}</td>
+                                <td>{%  if workerorder.services %}{{ workerorder.services.name }}{% endif %}</td>
                                 <td>{{ workerorder.workers.name }}</td>
                                 <td>{{ workerorder.materials.name }}</td>
                                 <td>{{ workerorder.amountOfMaterial }}</sup></td>
@@ -187,7 +187,7 @@
             </thead>
             <tbody>
             <tr>
-                <td style="padding-top: 20px; padding-bottom: 20px;"><p><b>Заказ-Наряд №{{ order.id }} от {% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d') }}{% endif %}</b></p></td>
+                <td style="padding-top: 20px; padding-bottom: 20px;"><p><b>Наряд на работу №{{ order.id }} от {% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d') }}{% endif %}</b></p></td>
             </tr>
             <tr>
                 <td>
@@ -225,7 +225,7 @@
                         {% for workerorder in order.workerorders  %}
                             <tr>
                                 <td>{{ loop.index }}</td>
-                                <td>{{ workerorder.services.name }}</td>
+                                <td>{%  if workerorder.services %}{{ workerorder.services.name }}{% endif %}</td>
                                 <td>{{ workerorder.workers.name }}</td>
                                 <td>{{ workerorder.materials.name }}</td>
                                 <td>{{ workerorder.amountOfMaterial }}</sup></td>

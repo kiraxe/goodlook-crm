@@ -37,9 +37,18 @@ class MaterialsController extends Controller
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
-        for($i = 0; $i < count($materials); $i++) {
-            $deleteForm[$materials[$i]->getName()] = $this->createDeleteForm($materials[$i])->createView();
+
+        if (count($materials) > 0) {
+
+            for($i = 0; $i < count($materials); $i++) {
+                $deleteForm[$materials[$i]->getName()] = $this->createDeleteForm($materials[$i])->createView();
+            }
+
+        } else {
+            $deleteForm = null;
         }
+
+
 
         return $this->render('materials/index.html.twig', array(
             'materials' => $materials,
@@ -80,7 +89,15 @@ class MaterialsController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             $material->setResidue($material->getTotalsize());
+            $pricepackage = round($material->getPricepackage(), 1);
+            $quantitypack = round($material->getQuantitypack(), 1);
+            $priceUnit = round($pricepackage / $quantitypack, 1);
+            $material->setPriceUnit($priceUnit);
+            $price = $priceUnit * $material->getTotalsize();
+            $material->setPrice(round($price, 1));
+
             $em->persist($material);
+
             $em->flush();
 
             return $this->redirectToRoute('materials_show', array('id' => $material->getId()));

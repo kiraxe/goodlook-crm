@@ -2,6 +2,7 @@
 
 namespace kiraxe\AdminCrmBundle\Form;
 
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -111,13 +112,25 @@ class OrdersType extends AbstractType
                 'placeholder' => 'Выберите тип кузова',
                 'empty_data' => null,
             ])
-            ->add('color', null ,array('label' => 'Цвет'))
-            ->add('number', null ,array('label' => 'Номер авто'))
-            ->add('vin', null ,array('label' => 'VIN'))
-            ->add('description', TextareaType::class ,array('label' => 'Комплектность ДТС, ценные вещи, которые в нем находятся'))
-            ->add('damages', TextareaType::class ,array('label' => 'При приеме ДТС имеет следующие повреждения'))
-            ->add('phone',null ,array('label' => 'Телефона'))
-            ->add('email', EmailType::class ,array('label' => 'E-mail'))
+            ->add('color', TextType::class ,array('label' => 'Цвет'))
+            ->add('number', TextType::class ,array('label' => 'Номер авто'))
+            ->add('vin', TextType::class ,array(
+                'label' => 'VIN',
+                'required' => false,
+            ))
+            ->add('description', TextareaType::class ,array(
+                'label' => 'Комплектность ДТС, ценные вещи, которые в нем находятся',
+                'required' => false,
+            ))
+            ->add('damages', TextareaType::class ,array(
+                'label' => 'При приеме ДТС имеет следующие повреждения',
+                'required' => false,
+            ))
+            ->add('phone',TextType::class ,array('label' => 'Телефона'))
+            ->add('email', EmailType::class ,array(
+                'label' => 'E-mail',
+                'required' => false,
+            ))
             ->add('payment',ChoiceType::class ,array(
                 "label" => "Вид оплаты",
                 'choices'  => [

@@ -345,13 +345,15 @@ class OrdersController extends Controller
             $step++;
         }
         foreach ($orders->getManagerorders() as $order) {
-            $workerId[$step] = $order->getWorkers()->getId();
-            $worker[$step] = array(
-                "id" => $order->getWorkers()->getId(),
-                "name" => $order->getWorkers()->getName(),
-                "salary" => $order->getOpenprice() + $order->getCloseprice()
-            );
-            $step++;
+            if ($order->getWorkers()) {
+                $workerId[$step] = $order->getWorkers()->getId();
+                $worker[$step] = array(
+                    "id" => $order->getWorkers()->getId(),
+                    "name" => $order->getWorkers()->getName(),
+                    "salary" => $order->getOpenprice() + $order->getCloseprice()
+                );
+                $step++;
+            }
         }
 
         $workerId = array_unique($workerId);

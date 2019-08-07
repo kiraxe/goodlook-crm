@@ -38,6 +38,29 @@
                             </tr>
                         </tbody>
                     </table>
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th>ФИО</th>
+                            <th>Зарплата</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% if workerCart %}
+                                {% for workerCart in workerCart %}
+                                    <tr>
+                                        <td>{{workerCart.name}}</td>
+                                        <td>{{ workerCart.salary}}</td>
+                                    </tr>
+                                {% endfor %}
+                            {% else  %}
+                                    <tr>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

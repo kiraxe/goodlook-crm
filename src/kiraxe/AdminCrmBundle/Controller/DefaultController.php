@@ -90,6 +90,8 @@ class DefaultController extends Controller
         $partExpenses = 0;
         $interestpayments = 0;
         $earnings = 0;
+        $workers_id = [];
+        $workerCart = [];
 
 
         if ($expenses != null) {
@@ -99,14 +101,57 @@ class DefaultController extends Controller
         }
 
         if ($orders != null) {
+            $step = 0;
             foreach ($orders as $order) {
                 $price += $order->getPrice();
                 if ($order->getPayment() == 2 || $order->getPayment() == 1) {
                     $interestpayments += ($order->getPrice() / 100) * 2.5;
                 }
                 foreach ($order->getWorkerorders() as $workerorder) {
-                   $salary += $workerorder->getSalary();
-                   $totalExpenses += ($workerorder->getMaterials()->getPriceUnit() * $workerorder->getAmountOfMaterial()) + $workerorder->getSalary() + $interestpayments + $partExpenses;
+                    $salary += $workerorder->getSalary();
+                    $workers_id[$step] = $workerorder->getWorkers()->getId();
+                    $totalExpenses += ($workerorder->getMaterials()->getPriceUnit() * $workerorder->getAmountOfMaterial()) + $workerorder->getSalary() + $interestpayments + $partExpenses;
+                    $step++;
+                }
+                foreach ($order->getManagerorders() as $managerorder) {
+                    if ($managerorder->getWorkers()) {
+                        $salary += $managerorder->getOpenprice() + $managerorder->getCloseprice();
+                        $workers_id[$step] = $managerorder->getWorkers()->getId();
+                        $step++;
+                    }
+                }
+            }
+
+            $workers_id = array_unique($workers_id);
+            $workers_id = array_values($workers_id);
+
+            for ($i = 0; $i < count($workers_id); $i++) {
+                $workerCart[$i] = array(
+                    'id' => $workers_id[$i],
+                    'name' => '',
+                    'salary' => ''
+                );
+            }
+
+            foreach ($orders as $order) {
+
+                foreach ($order->getWorkerorders() as $workerorder) {
+                    for ($i = 0; $i < count($workerCart); $i++) {
+                        if ($workerCart[$i]['id'] == $workerorder->getWorkers()->getId()) {
+                            $workerCart[$i]['name'] = $workerorder->getWorkers()->getName();
+                            $workerCart[$i]['salary'] += $workerorder->getSalary();
+                        }
+                    }
+                }
+                foreach ($order->getManagerorders() as $managerorder) {
+                    if ($managerorder->getWorkers()) {
+                        for ($i = 0; $i < count($workerCart); $i++) {
+                            if ($workerCart[$i]['id'] == $managerorder->getWorkers()->getId()) {
+                                $workerCart[$i]['name'] = $managerorder->getWorkers()->getName();
+                                $workerCart[$i]['salary'] += $managerorder->getOpenprice() + $managerorder->getCloseprice();
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -122,7 +167,8 @@ class DefaultController extends Controller
             'tables' => $tableName,
             'user' => $user,
             'tableSettingsName' => $tableSettingsName,
-            'tableCars' => $tableCars
+            'tableCars' => $tableCars,
+            'workerCart' => $workerCart
         ));
     }
 }

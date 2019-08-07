@@ -57,7 +57,8 @@ class MaterialsType extends AbstractType
                         '4' => 4,
                         '5' => 5,
                     ),
-                    'expanded' => true
+                    'expanded' => true,
+                    'required' => false,
                 )
             );
     }/**

@@ -199,6 +199,13 @@ class ServicesController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            if ($service->getParent()) {
+                $service->setParent(null);
+            }
+            foreach($service->getWorkerOrders() as $order) {
+                $order->setServices(null);
+                $order->setServicesparent(null);
+            }
             $em->remove($service);
             $em->flush();
         }

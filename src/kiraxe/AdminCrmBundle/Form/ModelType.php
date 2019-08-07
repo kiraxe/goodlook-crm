@@ -28,7 +28,10 @@ class ModelType extends AbstractType
                 'empty_data' => null,
             ])
             ->add('name', null ,array('label' => 'Модель'))
-            ->add('year', null ,array('label' => 'Год выпуска'));
+            ->add('year', null ,array(
+                'label' => 'Год выпуска',
+                'required' => false,
+            ));
     }/**
      * {@inheritdoc}
      */

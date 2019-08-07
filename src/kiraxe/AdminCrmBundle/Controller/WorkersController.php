@@ -278,10 +278,35 @@ class WorkersController extends Controller
      */
     public function deleteAction(Request $request, Workers $workers)
     {
+        $id = $workers->getId();
+        $em = $this->getDoctrine()->getManager();
+        $sql = "SELECT o FROM kiraxeAdminCrmBundle:Orders o where o.workeropen = ". $id ." or o.workerclose = " . $id;
+        $orders = $em->createQuery($sql)->getResult();
+        if ($orders) {
+            foreach($orders as $result) {
+
+                if($result->getWorkeropen()->getId() == $id && $result->getWorkerclose()->getId() == $id) {
+                    $result->setWorkerclose(null);
+                    $result->setWorkeropen(null);
+                } elseif ( $result->getWorkeropen()->getId() == $id) {
+                    $result->setWorkeropen(null);
+                } elseif ($result->getWorkerclose()->getId() == $id) {
+                    $result->setWorkerclose();
+                }
+
+
+                foreach($result->getManagerorders() as $managerorder) {
+                    if ($managerorder->getWorkers()->getId() == $id) {
+                        $managerorder->setWorkers(null);
+                    }
+                }
+            }
+        }
         $form = $this->createDeleteForm($workers);
         $form->handleRequest($request);
         $workerservice = $workers->getWorkerService();
         $managerpercent = $workers->getManagerPercent();
+        $workerorders = $workers->getWorkerOrders();
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             foreach($workerservice as $service) {
@@ -292,6 +317,11 @@ class WorkersController extends Controller
             foreach($managerpercent as $managerpercent) {
                 $em->persist($managerpercent);
                 $em->remove($managerpercent);
+            }
+
+            foreach($workerorders as $workerorders) {
+                $em->persist($workerorders);
+                $em->remove($workerorders);
             }
 
             $em->remove($workers);

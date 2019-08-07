@@ -63,7 +63,7 @@ class WorkerOrders
     /**
      * @var float
      *
-     * @ORM\Column(name="marriage", type="float", options={"default":"0"})
+     * @ORM\Column(name="marriage", type="float", options={"default":"0"}, nullable=true)
      */
     private $marriage;
 
@@ -71,7 +71,7 @@ class WorkerOrders
     /**
      * @var float
      *
-     * @ORM\Column(name="fine", type="float", options={"default":"0"})
+     * @ORM\Column(name="fine", type="float", options={"default":"0"}, nullable=true)
      */
     private $fine;
 
