@@ -23,7 +23,7 @@ class ModelType extends AbstractType
                     return $brand->createQueryBuilder('b');
                 },
                 'label' => 'Бренд',
-                'required' => false,
+                'required' => true,
                 'placeholder' => 'Выберите бренд',
                 'empty_data' => null,
             ])

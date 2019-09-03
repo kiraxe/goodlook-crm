@@ -3,6 +3,7 @@
 namespace kiraxe\AdminCrmBundle\Controller;
 
 use kiraxe\AdminCrmBundle\Entity\Materials;
+use kiraxe\AdminCrmBundle\Entity\Orders;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -181,13 +182,14 @@ class MaterialsController extends Controller
             'SELECT w FROM kiraxeAdminCrmBundle:WorkerOrders w where w.materials ='. $id
         )->getResult();
 
+
         if (count($workerorders) == 0) {
             $material->setResidue($material->getTotalsize());
             $em->persist($material);
             $em->flush();
         } elseif (count($workerorders) > 0) {
             foreach ($workerorders as $workerorder) {
-                $residue += $workerorder->getAmountOfMaterial();
+                $residue += $workerorder->getAmountOfMaterial() + $workerorder->getMarriage();;
             }
             $material->setResidue($material->getTotalsize() - $residue);
             $em->persist($material);
@@ -196,13 +198,12 @@ class MaterialsController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
 
-            $pricepackage = round($material->getPricepackage(), 1);
-            $quantitypack = round($material->getQuantitypack(), 1);
-            $priceUnit = round($pricepackage / $quantitypack, 1);
+            $pricepackage = $material->getPricepackage();
+            $quantitypack = $material->getQuantitypack();
+            $priceUnit = $pricepackage / $quantitypack;
             $material->setPriceUnit($priceUnit);
             $price = $priceUnit * $material->getTotalsize();
-            $material->setPrice(round($price, 1));
-
+            $material->setPrice($price);
             $em->flush();
 
             return $this->redirectToRoute('materials_edit', array('id' => $material->getId()));

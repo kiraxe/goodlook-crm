@@ -43,7 +43,7 @@ class DefaultController extends Controller
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
 
 
-        $sql = "SELECT o FROM kiraxeAdminCrmBundle:Orders o where";
+        $sql = "SELECT o FROM kiraxeAdminCrmBundle:Orders o where o.close = 1";
         $sqlExpenses = "SELECT e FROM kiraxeAdminCrmBundle:Expenses e where";
         $orders = null;
         $expenses = null;
@@ -51,7 +51,7 @@ class DefaultController extends Controller
         if (!empty($request->query->get('form')['dateFrom']) && empty($request->query->get('form')['dateTo'])) {
             $dateFrom = $request->query->get('form')['dateFrom'];
             $dateFrom = str_replace("-", "", $dateFrom);
-            $sql .= " date(o.dateOpen) =".$dateFrom;
+            $sql .= " and date(o.dateOpen) =".$dateFrom;
             $sqlExpenses .= " date(e.date) =".$dateFrom;
         }
 
@@ -60,7 +60,7 @@ class DefaultController extends Controller
             $dateTo = $request->query->get('form')['dateTo'];
             $dateFrom = str_replace("-", "", $dateFrom);
             $dateTo = str_replace("-", "", $dateTo);
-            $sql .= " date(o.dateOpen) between " . $dateFrom . " and " . $dateTo;
+            $sql .= " and date(o.dateOpen) between " . $dateFrom . " and " . $dateTo;
             $sqlExpenses .= " date(e.date) between " . $dateFrom . " and " . $dateTo;
         }
 
@@ -129,7 +129,7 @@ class DefaultController extends Controller
                 $workerCart[$i] = array(
                     'id' => $workers_id[$i],
                     'name' => '',
-                    'salary' => ''
+                    'salary' => 0
                 );
             }
 
@@ -168,7 +168,8 @@ class DefaultController extends Controller
             'user' => $user,
             'tableSettingsName' => $tableSettingsName,
             'tableCars' => $tableCars,
-            'workerCart' => $workerCart
+            'workerCart' => $workerCart,
+            'interestpayments'  => $interestpayments           
         ));
     }
 }

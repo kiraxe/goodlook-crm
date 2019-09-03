@@ -21,6 +21,7 @@ class ServicesType extends AbstractType
         $this->obj_id = $options['obj_id'];
 
         $builder->add('name', null ,array('label' => 'Название'))
+            ->add('free', null , array('label' => 'Свободный ввод'))
             ->add('parent', EntityType::class , [
                 'class' => 'kiraxe\AdminCrmBundle\Entity\Services',
                 'choice_label' => 'name',

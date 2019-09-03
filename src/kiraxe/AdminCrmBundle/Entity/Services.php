@@ -52,6 +52,14 @@ class Services
     private $parent;
 
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="free", type="boolean")
+     */
+    private $free;
+
+
     public function __construct()
     {
         $this->workerservice = new ArrayCollection();
@@ -149,6 +157,31 @@ class Services
     public function removeWorkerOrders(WorkerOrders $workerorders)
     {
         $this->workerorders->removeElement($workerorders);
+    }
+
+
+    /**
+     * Set free
+     *
+     * @param boolean $free
+     *
+     * @return Services
+     */
+    public function setFree($free)
+    {
+        $this->free = $free;
+
+        return $this;
+    }
+
+    /**
+     * Get free
+     *
+     * @return bool
+     */
+    public function getFree()
+    {
+        return $this->free;
     }
 
 

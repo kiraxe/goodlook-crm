@@ -27,7 +27,6 @@
                     <div class="formItem">{{ form_row(form.email) }}</div>
                     <div class="formItem">{{ form_row(form.payment) }}</div>
                     <div class="formItem">{{ form_row(form.price) }}</div>
-                    <div class="formItem">{{ form_row(form.close) }}</div>
                     <div class="formItem">
                         <ul style="list-style-type: none" id="workerorders-fields-list"
                             data-prototype="{{ form_widget(form.workerorders.vars.prototype)|e('html_attr') }}"
@@ -40,6 +39,7 @@
                         </ul>
                         <div><button type="button" class="add-another-collection-widget btn btn-info" data-list="#workerorders-fields-list">Добавить сотрудника и услугу</button></div>
                     </div>
+                    <div class="formItem">{{ form_row(form.close) }}</div>
                     <div class="formItem form-button">
                         <ul>
                             <li><input style="margin-top: 20px;" class="btn btn-success" type="submit" value="Создать" /></li>

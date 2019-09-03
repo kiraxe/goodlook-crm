@@ -4,6 +4,7 @@ namespace kiraxe\AdminCrmBundle\Form;
 
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -55,17 +56,22 @@ class WorkerOrdersType extends AbstractType
                 'label' => 'Материал',
                 'placeholder' => 'Выберите материал',
             ])
-            ->add('amountOfMaterial', IntegerType::class, array('label' => 'Количество материала',)
-            )
-            ->add('marriage', IntegerType::class, array(
+            ->add('free', TextareaType::class , [
+                'label' => 'Свободный ввод',
+            ])
+            ->add('amountOfMaterial', null, array(
+                'label' => 'Количество материала',
+                'required' => false
+            ))
+            ->add('marriage', null, array(
                 'label' => 'Брак',
                 'required' => false,
             ))
-            ->add('fine', IntegerType::class, array(
+            ->add('fine', null, array(
                 'label' => 'Штраф',
                 'required' => false,
             ))
-            ->add('price', IntegerType::class, array('label' => 'Стоимость'))
+            ->add('price', null, array('label' => 'Стоимость'))
             ->add('salary', HiddenType::class, array('label' => 'Зарплата'));
     }/**
      * {@inheritdoc}

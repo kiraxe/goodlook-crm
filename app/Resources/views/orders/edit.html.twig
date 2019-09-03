@@ -28,7 +28,6 @@
                     <div class="formItem">{{ form_row(edit_form.email) }}</div>
                     <div class="formItem">{{ form_row(edit_form.payment) }}</div>
                     <div class="formItem">{{ form_row(edit_form.price) }}</div>
-                    <div class="formItem">{{ form_row(edit_form.close) }}</div>
                     <div class="formItem">
                         <ul style="list-style-type: none" id="workerorders-fields-list"
                             data-prototype="{{ form_widget(edit_form.workerorders.vars.prototype)|e('html_attr') }}"
@@ -44,6 +43,11 @@
 
                         <div><button type="button" class="add-another-collection-widget btn btn-info" data-list="#workerorders-fields-list">Добавить сотрудника и услугу</button></div>
                     </div>
+                    {% if not order.close %}
+                        <div class="formItem">{{ form_row(edit_form.close) }}</div>
+                    {% else %}
+                        <div class="formItem" style="display: none;">{{ form_row(edit_form.close, {'attr': {'checked': 'checked'}}) }}</div>
+                    {% endif %}
                     <div class="formItem">
                         <a data-toggle="2" style="margin-top: 20px; display: block;" href='#' onclick="window.checkContentPrint(this.getAttribute('data-toggle'));">Распечатать Наряд на работу</a>
                     </div>
@@ -53,7 +57,11 @@
                     <div class="formItem form-button">
                         <ul>
                             <li>
-                                <input style="margin-top: 20px;" class="btn btn-success" type="submit" value="Сохранить" />
+                                {% if not order.close %}
+                                    <input style="margin-top: 20px;" class="btn btn-success" type="submit" value="Сохранить" />
+                                {% else %}
+                                    <input style="margin-top: 20px;" class="btn btn-success" type="submit" value="Сохранить" disabled />
+                                {% endif %}
                                 {{ form_end(edit_form) }}
                             </li>
                             <li>{{ form_start(delete_form) }}
@@ -104,7 +112,7 @@
                     <p>Email: <span style="border-bottom: 1px solid #000;"></span>{{ order.email }}</p>
                 </td>
                 <td style="vertical-align: top;">
-                    <p>Марка и модель: <span style="border-bottom: 1px solid #000;">{{ order.carId.name }}</span></p>
+                    <p>Марка и модель: <span style="border-bottom: 1px solid #000;">{{ order.brandId.name }} {{ order.carId.name }}</span></p>
                     <p>Тип кузова: <span style="border-bottom: 1px solid #000;">{{ order.bodyId.name }}</span></p>
                     <p>Цвет: <span style="border-bottom: 1px solid #000;">{{ order.color}}</span></p>
                     <p>Гос. <span style="border-bottom: 1px solid #000;">{{ order.number }}</span></p>
@@ -126,12 +134,19 @@
                             <th>Сумма, без НДС</th>
                         </tr>
                         {% for workerorder in order.workerorders  %}
+                            {% set amount =  workerorder.amountOfMaterial + workerorder.marriage  %}
                             <tr>
                                 <td>{{ loop.index }}</td>
-                                <td>{%  if workerorder.services %}{{ workerorder.services.name }}{% endif %}</td>
+                                <td>{%  if workerorder.services %}
+                                        {% if workerorder.services.free %}
+                                            {{ workerorder.free }}
+                                        {% else %}
+                                            {{ workerorder.services.name }}
+                                        {% endif %}
+                                    {% endif %}</td>
                                 <td>{{ workerorder.workers.name }}</td>
                                 <td>{{ workerorder.materials.name }}</td>
-                                <td>{{ workerorder.amountOfMaterial }}</sup></td>
+                                <td>{{ amount }}</sup></td>
                                 <td>{{ workerorder.price }}</td>
                             </tr>
                         {% endfor %}
@@ -200,7 +215,7 @@
                     <p>Email: <span style="border-bottom: 1px solid #000;">{{ order.email }}</span></p>
                 </td>
                 <td style="vertical-align: top;">
-                    <p>Марка и модель: <span style="border-bottom: 1px solid #000;">{{ order.carId.name }}</span></p>
+                    <p>Марка и модель: <span style="border-bottom: 1px solid #000;">{{ order.brandId.name }} {{ order.carId.name }}</span></p>
                     <p>Тип кузова: <span style="border-bottom: 1px solid #000;">{{ order.bodyId.name }}</span></p>
                     <p>Цвет: <span style="border-bottom: 1px solid #000;">{{ order.color }}</span></p>
                     <p>Гос. <span style="border-bottom: 1px solid #000;">{{ order.number }}</span></p>
@@ -223,12 +238,19 @@
                             <th>Сумма, без НДС</th>
                         </tr>
                         {% for workerorder in order.workerorders  %}
+                            {% set amount =  workerorder.amountOfMaterial + workerorder.marriage  %}
                             <tr>
                                 <td>{{ loop.index }}</td>
-                                <td>{%  if workerorder.services %}{{ workerorder.services.name }}{% endif %}</td>
+                                <td>{%  if workerorder.services %}
+                                        {% if workerorder.services.free %}
+                                            {{ workerorder.free }}
+                                        {% else %}
+                                            {{ workerorder.services.name }}
+                                        {% endif %}
+                                    {% endif %}</td>
                                 <td>{{ workerorder.workers.name }}</td>
                                 <td>{{ workerorder.materials.name }}</td>
-                                <td>{{ workerorder.amountOfMaterial }}</sup></td>
+                                <td>{{ amount }}</sup></td>
                                 <td>{{ workerorder.salary|round(1, 'floor') }}</sup></td>
                                 <td>{{ workerorder.price }}</td>
                             </tr>

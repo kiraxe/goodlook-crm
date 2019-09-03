@@ -5,6 +5,7 @@ namespace kiraxe\AdminCrmBundle\Controller;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityRepository;
 use kiraxe\AdminCrmBundle\Entity\ManagerOrders;
+use kiraxe\AdminCrmBundle\Entity\Materials;
 use kiraxe\AdminCrmBundle\Entity\Orders;
 use kiraxe\AdminCrmBundle\Entity\Workers;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -213,52 +214,86 @@ class OrdersController extends Controller
             $order->setPrice($price);
             $priceOrder = $order->getPrice();
 
+            if ($order->getWorkeropen() && $order->getWorkerclose()) {
 
-            if ($order->getWorkeropen()->getId() == $order->getWorkerclose()->getId()) {
+                if ($order->getWorkeropen()->getId() == $order->getWorkerclose()->getId()) {
+                    $managerorder->setWorkers($order->getWorkeropen());
+                    $order->addManagerorders($managerorder);
+
+                    foreach ($order->getWorkeropen()->getManagerPercent() as $percent) {
+                        $openpercent = $percent->getOpenpercent();
+                    }
+
+                    foreach ($order->getWorkerclose()->getManagerPercent() as $percent) {
+                        $closepercent = $percent->getClosepercent();
+                    }
+
+                    $priceOpen = ($priceOrder / 100) * $openpercent;
+                    $priceClose = ($priceOrder / 100) * $closepercent;
+
+
+                    foreach ($order->getManagerorders() as $ord) {
+                        $ord->setOpenprice($priceOpen);
+                        $ord->setCloseprice($priceClose);
+                    }
+
+                } else {
+
+                    $managerorder->setWorkers($order->getWorkeropen());
+                    $managerordersecond->setWorkers($order->getWorkerclose());
+
+                    $order->addManagerorders($managerorder);
+                    $order->addManagerorders($managerordersecond);
+
+                    foreach ($order->getWorkeropen()->getManagerPercent() as $percent) {
+                        $openpercent = $percent->getOpenpercent();
+                    }
+
+                    foreach ($order->getWorkerclose()->getManagerPercent() as $percent) {
+                        $closepercent = $percent->getClosepercent();
+                    }
+
+                    $priceOpen = ($priceOrder / 100) * $openpercent;
+                    $priceClose = ($priceOrder / 100) * $closepercent;
+
+                    foreach ($order->getManagerorders() as $ord) {
+
+                        if ($order->getWorkeropen()->getId() == $ord->getWorkers()->getId()) {
+                            $ord->setOpenprice($priceOpen);
+                        }
+
+                        if ($order->getWorkerclose()->getId() == $ord->getWorkers()->getId()) {
+                            $ord->setCloseprice($priceClose);
+                        }
+                    }
+                }
+            } elseif($order->getWorkeropen()) {
                 $managerorder->setWorkers($order->getWorkeropen());
                 $order->addManagerorders($managerorder);
 
                 foreach ($order->getWorkeropen()->getManagerPercent() as $percent) {
                     $openpercent = $percent->getOpenpercent();
+                    $priceOpen = ($priceOrder / 100) * $openpercent;
+
+                    foreach ($order->getManagerorders() as $ord) {
+
+                        if ($order->getWorkeropen()->getId() == $ord->getWorkers()->getId()) {
+                            $ord->setOpenprice($priceOpen);
+                        }
+
+                    }
                 }
-
-                foreach ($order->getWorkerclose()->getManagerPercent() as $percent) {
-                    $closepercent = $percent->getClosepercent();
-                }
-
-                $priceOpen = ($priceOrder / 100) * $openpercent;
-                $priceClose = ($priceOrder / 100) * $closepercent;
-
-
-                foreach ($order->getManagerorders() as $ord) {
-                    $ord->setOpenprice($priceOpen);
-                    $ord->setCloseprice($priceClose);
-                }
-
-            } else {
-
-                $managerorder->setWorkers($order->getWorkeropen());
+            } elseif($order->getWorkerclose()) {
                 $managerordersecond->setWorkers($order->getWorkerclose());
-
-                $order->addManagerorders($managerorder);
                 $order->addManagerorders($managerordersecond);
 
-                foreach ($order->getWorkeropen()->getManagerPercent() as $percent) {
-                    $openpercent = $percent->getOpenpercent();
-                }
-
                 foreach ($order->getWorkerclose()->getManagerPercent() as $percent) {
                     $closepercent = $percent->getClosepercent();
                 }
 
-                $priceOpen = ($priceOrder / 100) * $openpercent;
                 $priceClose = ($priceOrder / 100) * $closepercent;
 
                 foreach ($order->getManagerorders() as $ord) {
-
-                    if ($order->getWorkeropen()->getId() == $ord->getWorkers()->getId()) {
-                        $ord->setOpenprice($priceOpen);
-                    }
 
                     if ($order->getWorkerclose()->getId() == $ord->getWorkers()->getId()) {
                         $ord->setCloseprice($priceClose);
@@ -335,7 +370,10 @@ class OrdersController extends Controller
         $orders = $entityManager->getRepository(Orders::class)->find($id);
 
         $step = 0;
-        foreach ($orders->getWorkerorders() as $order) {
+        
+        
+       foreach ($orders->getWorkerorders() as $order) {
+            
             $workerId[$step] = $order->getWorkers()->getId();
             $worker[$step] = array(
                 "id" => $order->getWorkers()->getId(),
@@ -343,7 +381,10 @@ class OrdersController extends Controller
                 "salary" => $order->getSalary()
             );
             $step++;
+            
         }
+        
+        
         foreach ($orders->getManagerorders() as $order) {
             if ($order->getWorkers()) {
                 $workerId[$step] = $order->getWorkers()->getId();
@@ -355,6 +396,7 @@ class OrdersController extends Controller
                 $step++;
             }
         }
+        
 
         $workerId = array_unique($workerId);
         $workerCart = [];
@@ -415,7 +457,7 @@ class OrdersController extends Controller
                         if ($unitprice == 0) {
                             $workerorders->setSalary(($workerorders->getPrice() / 100) * $val->getPercent());
                         } else {
-                            $workerorders->setSalary( (($workerorders->getPrice() / 100) * $val->getPercent()) - $unitprice);
+                            $workerorders->setSalary((($workerorders->getPrice() / 100) * $val->getPercent()) - $unitprice);
                         }
 
                         if ($workerorders->getFine() > 0) {
@@ -445,61 +487,193 @@ class OrdersController extends Controller
             $orders->setPrice($price);
             $priceOrder = $orders->getPrice();
 
-            foreach ($orders->getWorkeropen()->getManagerPercent() as $percent) {
-                $openpercent = $percent->getOpenpercent();
+            if ($orders->getWorkeropen()) {
+                foreach ($orders->getWorkeropen()->getManagerPercent() as $percent) {
+                    $openpercent = $percent->getOpenpercent();
+                }
             }
 
-            foreach ($orders->getWorkerclose()->getManagerPercent() as $percent) {
-                $closepercent = $percent->getClosepercent();
+            if ($orders->getWorkerclose()) {
+                foreach ($orders->getWorkerclose()->getManagerPercent() as $percent) {
+                    $closepercent = $percent->getClosepercent();
+                }
             }
 
-            if ($orders->getWorkeropen()->getId() == $orders->getWorkerclose()->getId()) {
+            if (isset($openpercent)) {
+                $priceOpen = ($priceOrder / 100) * $openpercent;
+            }
+
+            if (isset($closepercent)) {
+                $priceClose = ($priceOrder / 100) * $closepercent;
+            }
+
+            if ($orders->getWorkeropen() && $orders->getWorkerclose()) {
+
+                if ($orders->getWorkeropen()->getId() == $orders->getWorkerclose()->getId()) {
+                    foreach ($orders->getManagerorders() as $managerorder) {
+                        if ($managerorder->getWorkers()->getId() != $orders->getWorkeropen()->getId()) {
+                            $entityManager->persist($managerorder);
+                            $entityManager->remove($managerorder);
+                            $entityManager->flush();
+                        }
+                    }
+                }
+            } elseif ($orders->getWorkeropen() && !$orders->getWorkerclose()) {
                 foreach ($orders->getManagerorders() as $managerorder) {
-                    if($managerorder->getWorkers()->getId() != $orders->getWorkeropen()->getId()) {
+                    if ($managerorder->getWorkers()->getId() != $orders->getWorkeropen()->getId()) {
                         $entityManager->persist($managerorder);
                         $entityManager->remove($managerorder);
                         $entityManager->flush();
                     }
                 }
+            } elseif (!$orders->getWorkeropen() && $orders->getWorkerclose()) {
+                foreach ($orders->getManagerorders() as $managerorder) {
+                    if ($managerorder->getWorkers()->getId() != $orders->getWorkerclose()->getId()) {
+                        $entityManager->persist($managerorder);
+                        $entityManager->remove($managerorder);
+                        $entityManager->flush();
+                    }
+                }
+            } elseif (!$orders->getWorkeropen() && !$orders->getWorkerclose()) {
+                foreach ($orders->getManagerorders() as $managerorder) {
+                    $entityManager->persist($managerorder);
+                    $entityManager->remove($managerorder);
+                    $entityManager->flush();
+                }
             }
 
-            $workers = [$orders->getWorkeropen(), $orders->getWorkerclose()];
 
-            if((count($orders->getManagerorders()) == 1) && ($orders->getWorkeropen()->getId() != $orders->getWorkerclose()->getId()) ) {
-                $managerorder = new ManagerOrders();
-                foreach ($workers as $worker) {
+            if ($orders->getWorkeropen() && $orders->getWorkerclose()) {
+                $workers = ["open" => $orders->getWorkeropen(), "close" => $orders->getWorkerclose()];
+            } elseif($orders->getWorkeropen() && !$orders->getWorkerclose()) {
+                $workers = ["open" => $orders->getWorkeropen()];
+            } elseif (!$orders->getWorkeropen() && $orders->getWorkerclose()) {
+                $workers = ["close" => $orders->getWorkerclose()];
+            }
+
+
+
+            if ($orders->getWorkeropen() && $orders->getWorkerclose()) {
+
+                if ((count($orders->getManagerorders()) == 1) && ($orders->getWorkeropen()->getId() != $orders->getWorkerclose()->getId())) {
+                    $managerorder = new ManagerOrders();
+                    foreach ($workers as $key => $worker) {
+                        foreach ($orders->getManagerorders() as $ord) {
+                            if ($worker->getId() != $ord->getWorkers()->getId()) {
+                                $managerorder->setWorkers($worker);
+                                if ($key == "open") {
+                                    $managerorder->setOpenprice($priceOpen);
+                                } elseif ($key == "close") {
+                                    $managerorder->setCloseprice($priceClose);
+                                }
+                            }
+                        }
+                    }
+                    $orders->addManagerorders($managerorder);
+                } elseif ((count($orders->getManagerorders()) == 0) && ($orders->getWorkeropen()->getId() != $orders->getWorkerclose()->getId())) {
+                    $managerorder = new ManagerOrders();
+                    $managerordersecond = new ManagerOrders();
+
+                    $managerorder->setWorkers($orders->getWorkeropen());
+                    $managerordersecond->setWorkers($orders->getWorkerclose());
+
+                    $orders->addManagerorders($managerorder);
+                    $orders->addManagerorders($managerordersecond);
+
                     foreach ($orders->getManagerorders() as $ord) {
-                        if ($worker->getId() != $ord->getWorkers()->getId()) {
-                            $managerorder->setWorkers($worker);
+
+                        if ($orders->getWorkeropen()->getId() == $ord->getWorkers()->getId()) {
+                            $ord->setOpenprice($priceOpen);
+                        }
+
+                        if ($orders->getWorkerclose()->getId() == $ord->getWorkers()->getId()) {
+                            $ord->setCloseprice($priceClose);
+                        }
+                    }
+                } elseif ((count($orders->getManagerorders()) == 0) && ($orders->getWorkeropen()->getId() == $orders->getWorkerclose()->getId())) {
+
+                    $managerorder = new ManagerOrders();
+                    $managerorder->setWorkers($orders->getWorkeropen());
+                    $orders->addManagerorders($managerorder);
+
+                    foreach ($orders->getManagerorders() as $ord) {
+
+                        if ($orders->getWorkeropen()->getId() == $ord->getWorkers()->getId()) {
+                            $ord->setOpenprice($priceOpen);
+                        }
+
+                        if ($orders->getWorkerclose()->getId() == $ord->getWorkers()->getId()) {
+                            $ord->setCloseprice($priceClose);
                         }
                     }
                 }
+            } elseif($orders->getWorkeropen() && !$orders->getWorkerclose()) {
+
+                $managerorder = new ManagerOrders();
+                $managerorder->setWorkers($orders->getWorkeropen());
                 $orders->addManagerorders($managerorder);
+                foreach ($orders->getManagerorders() as $ord) {
+                    $ord->setOpenprice($priceOpen);
+                }
+
+            } elseif (!$orders->getWorkeropen() && $orders->getWorkerclose()) {
+
+                $managerorder = new ManagerOrders();
+                $managerorder->setWorkers($orders->getWorkerclose());
+                $orders->addManagerorders($managerorder);
+                foreach ($orders->getManagerorders() as $ord) {
+
+                    if ($order->getWorkerclose()->getId() == $ord->getWorkers()->getId()) {
+                        $ord->setCloseprice($priceClose);
+                    }
+                }
+
             }
 
-            $priceOpen = ($priceOrder / 100) * $openpercent;
-            $priceClose = ($priceOrder / 100) * $closepercent;
 
 
             foreach ($orders->getManagerorders() as $managerorder) {
 
                 if (count($orders->getManagerorders()) == 2) {
-                    if ($managerorder->getOpenprice() == null) {
-                        $managerorder->setWorkers($orders->getWorkerclose());
-                        $managerorder->setCloseprice($priceClose);
-                    }
-                    if ($managerorder->getCloseprice() == null) {
-                        $managerorder->setWorkers($orders->getWorkeropen());
-                        $managerorder->setOpenprice($priceOpen);
-                    }
-                    if ($managerorder->getCloseprice() != null && $managerorder->getOpenprice() != null) {
-                        $managerorder->setWorkers($orders->getWorkeropen());
-                        $managerorder->setOpenprice($priceOpen);
-                        $managerorder->setCloseprice(null);
+
+                    foreach($workers as $key => $worker) {
+                        if ($worker->getId() == $managerorder->getWorkers()->getId()) {
+                            if ($key == "open") {
+                                $managerorder->setOpenprice($priceOpen);
+                                $managerorder->setCloseprice(null);
+                            } elseif ($key == "close") {
+                                $managerorder->setCloseprice($priceClose);
+                                $managerorder->setOpenprice(null);
+                            }
+                        }
                     }
                 } else {
-                    $managerorder->setCloseprice($priceClose);
-                    $managerorder->setOpenprice($priceOpen);
+
+                    if ($orders->getWorkeropen()) {
+
+                        if (isset($priceClose)) {
+                            $managerorder->setCloseprice($priceClose);
+                        }
+
+                        if (isset($priceOpen)) {
+                            $managerorder->setOpenprice($priceOpen);
+                        }
+
+                        $managerorder->setWorkers($orders->getWorkeropen());
+
+                    } elseif($orders->getWorkerclose()) {
+
+                        if (isset($priceClose)) {
+                            $managerorder->setCloseprice($priceClose);
+                        }
+
+                        if (isset($priceOpen)) {
+                            $managerorder->setOpenprice($priceOpen);
+                        }
+
+                        $managerorder->setWorkers($orders->getWorkerclose());
+                    }
+
                 }
 
             }
@@ -617,6 +791,7 @@ class OrdersController extends Controller
                 $output['services'][$step] = array(
                     'id' => $service->getId(),
                     'name' => $service->getName(),
+                    'free' => $service->getFree()
                 );
                 $step++;
             }

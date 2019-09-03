@@ -55,7 +55,7 @@ class WorkerOrders
     /**
      * @var float
      *
-     * @ORM\Column(name="amount_of_material", type="float")
+     * @ORM\Column(name="amount_of_material", type="float", nullable=true)
      */
     private $amountOfMaterial;
 
@@ -78,7 +78,7 @@ class WorkerOrders
     /**
      * @var float
      *
-     * @ORM\Column(name="salary", type="float")
+     * @ORM\Column(name="salary", type="float", nullable=true)
      */
     private $salary;
 
@@ -88,6 +88,14 @@ class WorkerOrders
      * @ORM\Column(name="price", type="float")
      */
     private $price;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="free", type="text")
+     */
+    private $free;
 
 
     /**
@@ -255,6 +263,18 @@ class WorkerOrders
     public function getFine()
     {
         return $this->fine;
+    }
+
+    public function setFree($free)
+    {
+        $this->free = $free;
+
+        return $this;
+    }
+
+    public function getFree()
+    {
+        return $this->free;
     }
 }
 
