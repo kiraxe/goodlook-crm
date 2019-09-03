@@ -36,7 +36,7 @@ class OrdersController extends Controller
         $deleteForm = null;
 
 
-        $test = "sfsdfdsfsfsdfdsfdsf";
+        $test = "sfsd";
 
         $sql = "SELECT o FROM kiraxeAdminCrmBundle:Orders o where";
 
