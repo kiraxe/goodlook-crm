@@ -35,8 +35,6 @@ class OrdersController extends Controller
         $em = $this->getDoctrine()->getManager();
         $deleteForm = null;
 
-        $git = "ok";
-
         $sql = "SELECT o FROM kiraxeAdminCrmBundle:Orders o where";
 
         if (!empty($request->query->get('form')['dateFrom']) && empty($request->query->get('form')['dateTo'])) {
