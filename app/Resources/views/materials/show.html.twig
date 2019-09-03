@@ -19,6 +19,10 @@
                                 <td scope="col">{{ material.name }}</td>
                             </tr>
                             <tr>
+                                <th scope="row">Остаток</th>
+                                <td scope="col">{{ material.residue }} {{ material.measureId.getName() }}</td>
+                            </tr>
+                            <tr>
                                 <th scope="row">Цена</th>
                                 <td scope="col">{{ material.price }}</td>
                             </tr>

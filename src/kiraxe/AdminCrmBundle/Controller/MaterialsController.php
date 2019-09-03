@@ -39,10 +39,32 @@ class MaterialsController extends Controller
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
 
+        $arithmeticMean = [];
+        $residue = 0;
+
         if (count($materials) > 0) {
 
             for($i = 0; $i < count($materials); $i++) {
                 $deleteForm[$materials[$i]->getName()] = $this->createDeleteForm($materials[$i])->createView();
+                $arithmeticMean[$i] = $materials[$i]->getTotalsize() / 2;
+
+                $workerorders = $em->createQuery(
+                    'SELECT w FROM kiraxeAdminCrmBundle:WorkerOrders w where w.materials ='. $materials[$i]->getId()
+                )->getResult();
+
+
+                if (count($workerorders) == 0) {
+                    $materials[$i]->setResidue($materials[$i]->getTotalsize());
+                    $em->persist($materials[$i]);
+                    $em->flush();
+                } elseif (count($workerorders) > 0) {
+                    foreach ($workerorders as $workerorder) {
+                        $residue += $workerorder->getAmountOfMaterial() + $workerorder->getMarriage();;
+                    }
+                    $materials[$i]->setResidue($materials[$i]->getTotalsize() - $residue);
+                    $em->persist($materials[$i]);
+                    $em->flush();
+                }
             }
 
         } else {
@@ -51,8 +73,11 @@ class MaterialsController extends Controller
 
 
 
+
+
         return $this->render('materials/index.html.twig', array(
             'materials' => $materials,
+            'arithmeticMea' => $arithmeticMean,
             'tables' => $tableName,
             'user' => $user,
             'tableSettingsName' => $tableSettingsName,
