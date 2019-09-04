@@ -58,6 +58,7 @@ class WorkerOrdersType extends AbstractType
             ])
             ->add('free', TextareaType::class , [
                 'label' => 'Свободный ввод',
+                'required' => false,
             ])
             ->add('amountOfMaterial', null, array(
                 'label' => 'Количество материала',
