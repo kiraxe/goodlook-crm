@@ -17,10 +17,10 @@
                         <div id="bars"><i class="fas fa-bars"></i></div>
                         <div class="collapse navbar-collapse" id="navbarCollapse">
                             <ul class="navbar-nav mr-auto sidenav" id="navAccordion">
-                                <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="http://127.0.0.1:8000/admin/">Главная</a></li>
+                                <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="http://goodlook-crm.good-look.moscow/admin/">Главная</a></li>
                                 {% if tables %}
                                     {% for key, table in tables %}
-                                        <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="http://127.0.0.1:8000/admin/{{key}}">{{table}}</a></li>
+                                        <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="http://goodlook-crm.good-look.moscow/admin/{{key}}">{{table}}</a></li>
                                     {% endfor %}
                                 {% endif %}
                                 <li class="nav-item">
@@ -36,7 +36,7 @@
                                     <ul class="nav-second-level collapse" id="collapseSubItems2" data-parent="#navAccordion">
                                         {% if tables %}
                                             {% for key, tableCars in tableCars %}
-                                                <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="http://127.0.0.1:8000/admin/{{key}}">{{tableCars}}</a></li>
+                                                <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="http://goodlook-crm.good-look.moscow/admin/{{key}}">{{tableCars}}</a></li>
                                             {% endfor %}
                                         {% endif %}
                                     </ul>
@@ -54,7 +54,7 @@
                                     <ul class="nav-second-level collapse" id="collapseSubItems4" data-parent="#navAccordion">
                                         {% if tables %}
                                             {% for key, tableSettingsName in tableSettingsName %}
-                                                <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="http://127.0.0.1:8000/admin/{{key}}">{{tableSettingsName}}</a></li>
+                                                <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="http://goodlook-crm.good-look.moscow/admin/{{key}}">{{tableSettingsName}}</a></li>
                                             {% endfor %}
                                         {% endif %}
                                     </ul>
