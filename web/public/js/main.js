@@ -43,6 +43,16 @@ $(document).ready(function(){
         }
     });
 
+
+
+    $('#bars').click(function(){
+        $('#navbarCollapse').slideToggle(300, function(){
+            if ($(this).css('display') === 'none') {
+                $(this).removeAttr('style');
+            }
+        });
+    });
+
     /*$("select[id$='servicesparent']").each(function () {
         $(this).attr('disabled','disabled');
     });

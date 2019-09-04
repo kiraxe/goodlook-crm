@@ -14,6 +14,7 @@
         <main>
 		{% if app.request.requestUri != '/login/' %}
                     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+                        <div id="bars"><i class="fas fa-bars"></i></div>
                         <div class="collapse navbar-collapse" id="navbarCollapse">
                             <ul class="navbar-nav mr-auto sidenav" id="navAccordion">
                                 <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="http://127.0.0.1:8000/admin/">Главная</a></li>
@@ -137,6 +138,12 @@
             height: 100%;
         }
 
+        #bars .fa-bars {
+            color: #ffffff;
+            cursor: pointer;
+            display: none;
+        }
+
         .footer {
             position: absolute;
             bottom: 0;
@@ -245,6 +252,28 @@
             .footer {
                 width: calc(100% - 230px);
                 margin-left: 230px;
+            }
+        }
+
+
+        @media (max-width: 992px) {
+            #bars .fa-bars {
+                display: block;
+            }
+            .content-wrapper {
+                width: 100%;
+            }
+
+            .content-wrapper .container {
+                max-width: 100%;
+            }
+
+            #navbarCollapse {
+                order:3;
+            }
+
+            .logout {
+                order:1;
             }
         }
 

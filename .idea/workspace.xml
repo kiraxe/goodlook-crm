@@ -5,8 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/materials/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/materials/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/materials/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/materials/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/MaterialsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/MaterialsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/js/main.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +90,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../goodlook-crm" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -179,6 +178,7 @@
       <workItem from="1567168536185" duration="14165000" />
       <workItem from="1567406670281" duration="29511000" />
       <workItem from="1567494570676" duration="16607000" />
+      <workItem from="1552970892153" duration="5659000" />
     </task>
     <task id="LOCAL-00001" summary="goodlook-crm first commit">
       <created>1567514895974</created>
@@ -243,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567520711746</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="goodlook-crm first commit">
+      <created>1567523704115</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1567523704115</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
