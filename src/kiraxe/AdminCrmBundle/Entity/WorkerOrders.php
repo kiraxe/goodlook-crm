@@ -93,7 +93,7 @@ class WorkerOrders
     /**
      * @var string
      *
-     * @ORM\Column(name="free", type="text")
+     * @ORM\Column(name="free", type="text", nullable=true)
      */
     private $free;
 
