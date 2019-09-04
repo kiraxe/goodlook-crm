@@ -193,6 +193,7 @@ class OrdersController extends Controller
             foreach ($order->getWorkerorders() as $workerorders) {
                 $price += $workerorders->getPrice();
                 $serviceparent = $workerorders->getServicesparent()->getId();
+                $workerorders->setPriceUnit($workerorders->getMaterials()->getPriceUnit());
                 foreach ($workerorders->getWorkers()->getWorkerService() as $k => $val) {
                     if ($val->getServices()->getId() == $serviceparent) {
                         $unitprice = $workerorders->getMaterials()->getPriceUnit() * $workerorders->getMarriage();
@@ -451,6 +452,7 @@ class OrdersController extends Controller
             foreach ($orders->getWorkerorders() as $workerorders) {
                 $price += $workerorders->getPrice();
                 $serviceparent = $workerorders->getServicesparent()->getId();
+                $workerorders->setPriceUnit($workerorders->getMaterials()->getPriceUnit());
                 foreach ($workerorders->getWorkers()->getWorkerService() as $k => $val) {
                     if ($val->getServices()->getId() == $serviceparent) {
                         $unitprice = $workerorders->getMaterials()->getPriceUnit() * $workerorders->getMarriage();

@@ -97,6 +97,13 @@ class WorkerOrders
      */
     private $free;
 
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="priceUnit", type="float")
+     */
+    private $priceUnit;
+
 
     /**
      * Get id
@@ -275,6 +282,30 @@ class WorkerOrders
     public function getFree()
     {
         return $this->free;
+    }
+
+    /**
+     * Set priceUnit
+     *
+     * @param float $priceUnit
+     *
+     * @return WorkerOrders
+     */
+    public function setPriceUnit($priceUnit)
+    {
+        $this->priceUnit = $priceUnit;
+
+        return $this;
+    }
+
+    /**
+     * Get priceUnit
+     *
+     * @return float
+     */
+    public function getPriceUnit()
+    {
+        return $this->priceUnit;
     }
 }
 

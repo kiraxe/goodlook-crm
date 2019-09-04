@@ -110,7 +110,7 @@ class DefaultController extends Controller
                 foreach ($order->getWorkerorders() as $workerorder) {
                     $salary += $workerorder->getSalary();
                     $workers_id[$step] = $workerorder->getWorkers()->getId();
-                    $totalExpenses += ($workerorder->getMaterials()->getPriceUnit() * $workerorder->getAmountOfMaterial()) + $workerorder->getSalary() + $interestpayments + $partExpenses;
+                    $totalExpenses += ($workerorder->getPriceUnit() * $workerorder->getAmountOfMaterial()) + $workerorder->getSalary() + $interestpayments + $partExpenses;
                     $step++;
                 }
                 foreach ($order->getManagerorders() as $managerorder) {
