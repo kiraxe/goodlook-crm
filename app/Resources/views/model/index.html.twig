@@ -22,7 +22,7 @@
                         {% for model in models %}
                             <tr>
                                 <td><a href="{{ path('model_show', { 'id': model.id }) }}">{{ model.id }}</a></td>
-                                <td>{{ model.brandId.name }}</td>
+                                <td>{% if model.brandId.name %}{{ model.brandId.name }} {% endif %}</td>
                                 <td>{{ model.name}}</td>
                                 <td>{{ model.year}}</td>
                                 <td width="20%">
