@@ -1,0 +1,167 @@
+@import "../libs/jquery-ui-1.12.1.custom/jquery-ui.min.css";
+@import "fonts.scss";
+@import "media.scss";
+
+%padding-margin-zero {
+    margin: 0;
+    padding: 0;
+}
+
+%inline-block {
+    display: inline-block;
+}
+
+%main {
+    position: relative;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+html {
+    @extend %main;
+}
+
+.nav-link:hover {
+  transition: all 0.4s;
+}
+.nav-item ul.nav-second-level {
+  padding-left: 0;
+}
+.nav-item ul.nav-second-level > .nav-item {
+  padding-left: 20px;
+}
+
+.workorder {
+  display:none;
+}
+#filter-date {
+  margin: 0;
+  padding: 0;
+}
+#filter-date li {
+  display: inline-block!important;
+}
+#filter-date li input[type="submit"] {
+  margin-top: -5px!important;
+}
+textarea[id$="free"],
+label[for$="free"]{
+  display: none;
+}
+textarea[id$="free"].active,
+label[for$="free"].active{
+  display: block;
+}
+label[for$="services_free"] {
+  display: block;
+}
+.b-green {
+  background-color: #28a745;
+}
+.b-red {
+  background-color: #dc3545;
+}
+.b-yellow {
+  background-color: #ffc107;
+}
+
+body {
+   @extend  %main;
+       main {
+              display: flex;
+              height: auto;
+              min-height: 100%;
+              width: 100%;
+              position: relative;
+              -webkit-font-smoothing: subpixel-antialiased;
+
+              &#login {
+                  align-items: center;
+                  width: 100%;
+              }
+
+              .navbar-expand-lg {
+                  #bars {
+                      .fa-bars {
+                          color: #ffffff;
+                          cursor: pointer;
+                          display: none;
+                      }
+                  }
+                  .sidenav {
+                      .fa-angle-right {
+                        float: right;
+                        margin-right: 10px;
+                        margin-top: 5px;
+                        position: relative;
+                        transform: rotate(0deg);
+                        transition-property: transform;
+                        transition-duration: 1s;
+                      }
+                      .fa-angle-right-active {
+                        transform: rotate(90deg);
+                        transition-property: transform;
+                        transition-duration: 1s;
+                      }
+                  }
+                  .logout {
+                      span {
+                        color: #fff;
+                      }
+                  }
+              }
+
+              .content-wrapper {
+                  padding: 4.5rem 0;
+                  height: 100%;
+                  #form {
+                      .form-button {
+                          ul {
+                            @extend  %padding-margin-zero;
+                            li {
+                              @extend %inline-block;
+                            }
+                          }
+                      }
+                  }
+
+                  form[name="kiraxe_admincrmbundle_workers"] .form-button + fieldset legend,
+                  form[name="kiraxe_admincrmbundle_orders"] .form-button + fieldset legend {
+                      display: none;
+                  }
+
+                  #show {
+                      ul {
+                          @extend  %padding-margin-zero;
+                          li {
+                            @extend %inline-block;
+                          }
+                      }
+                  }
+
+                  #index {
+                      ul {
+                          li {
+                            @extend %inline-block;
+                          }
+                      }
+                      table {
+                          ul {
+                              li {
+                                display: block;
+                              }
+                          }
+                      }
+                  }
+              }
+
+              .footer {
+                  position: absolute;
+                  bottom: 0;
+                  width: 100%;
+                  height: 3.5rem;
+                  line-height: 3.5rem;
+                  background-color: #ccc;
+              }
+       }
+}

@@ -117,6 +117,7 @@ class DefaultController extends Controller
                     if ($managerorder->getWorkers()) {
                         $salary += $managerorder->getOpenprice() + $managerorder->getCloseprice();
                         $workers_id[$step] = $managerorder->getWorkers()->getId();
+                        $totalExpenses += $managerorder->getCloseprice() + $managerorder->getOpenprice();
                         $step++;
                     }
                 }

@@ -8,7 +8,7 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="print" href="{{ asset('public/css/print.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/libs/jquery-ui-1.12.1.custom/jquery-ui.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/build/app.css') }}" />
     <script src="https://kit.fontawesome.com/48f9136f03.js"></script>
 </head>
 <body>
@@ -86,168 +86,10 @@
 {% endif %}
 {% block print %}{% endblock %}
 </body>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<style>
-    html,body {
-        position: relative;
-        height: 100%;
-        box-sizing: border-box;
-    }
-    main {
-        display: flex;
-        height: auto;
-        min-height: 100%;
-        width: 100%;
-        position: relative;
-        -webkit-font-smoothing: subpixel-antialiased;
-    }
-    main#login {
-        align-items: center;
-    }
-    #form .form-button ul,
-    #show ul {
-        margin: 0;
-        padding: 0;
-    }
-    #login {
-        width: 100%;
-    }
-    #index ul li,
-    #form .form-button ul li,
-    #show ul li {
-        display: inline-block;
-    }
-    #index table ul li {
-        display: block;
-    }
-    form[name="kiraxe_admincrmbundle_workers"] .form-button + fieldset legend,
-    form[name="kiraxe_admincrmbundle_orders"] .form-button + fieldset legend{
-        display: none;
-    }
-    .content-wrapper {
-        padding: 4.5rem 0;
-        height: 100%;
-    }
-    #bars .fa-bars {
-        color: #ffffff;
-        cursor: pointer;
-        display: none;
-    }
-    .footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 3.5rem;
-        line-height: 3.5rem;
-        background-color: #ccc;
-    }
-    .nav-link:hover {
-        transition: all 0.4s;
-    }
-    .nav-item ul.nav-second-level {
-        padding-left: 0;
-    }
-    .nav-item ul.nav-second-level > .nav-item {
-        padding-left: 20px;
-    }
-    .fa-angle-right {
-        float: right;
-        margin-right: 10px;
-        margin-top: 5px;
-        position: relative;
-        transform: rotate(0deg);
-        transition-property: transform;
-        transition-duration: 1s;
-    }
-    .fa-angle-right-active {
-        transform: rotate(90deg);
-        transition-property: transform;
-        transition-duration: 1s;
-    }
-    .logout span {
-        color: #fff;
-    }
-    .workorder {
-        display:none;
-    }
-    #filter-date {
-        margin: 0;
-        padding: 0;
-    }
-    #filter-date li {
-        display: inline-block!important;
-    }
-    #filter-date li input[type="submit"] {
-        margin-top: -5px!important;
-    }
-    textarea[id$="free"],
-    label[for$="free"]{
-        display: none;
-    }
-    textarea[id$="free"].active,
-    label[for$="free"].active{
-        display: block;
-    }
-    label[for$="services_free"] {
-        display: block;
-    }
-    .b-green {
-        background-color: #28a745;
-    }
-    .b-red {
-        background-color: #dc3545;
-    }
-    .b-yellow {
-        background-color: #ffc107;
-    }
-    @media (min-width: 992px) {
-        .sidenav {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 230px;
-            height: calc(100vh - 3.4rem);
-            margin-top: 3.4rem;
-            background: #343a40;
-            box-sizing: border-box;
-            border-top: 1px solid rgba(0, 0, 0, 0.3);
-        }
-        .navbar-expand-lg .sidenav {
-            flex-direction: column;
-        }
-        .content-wrapper {
-            margin-left: 230px;
-        }
-        .footer {
-            width: calc(100% - 230px);
-            margin-left: 230px;
-        }
-    }
-    @media (max-width: 992px) {
-        #bars .fa-bars {
-            display: block;
-        }
-        .content-wrapper {
-            width: 100%;
-        }
-        .content-wrapper .container {
-            max-width: 100%;
-        }
-        #navbarCollapse {
-            order:3;
-        }
-        .logout {
-            order:1;
-        }
-    }
-</style>
+<script src="{{ asset('public/build/app.js') }}"></script>
 {% block javascripts %}
     <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
-    <script src="{{ asset('public/js/main.js') }}"></script>
-    <script src="{{ asset('public/libs/jquery-ui-1.12.1.custom/jquery-ui.min.js') }}"></script>
 {% endblock %}
 {% block ordersform %}{% endblock %}
 </html>
