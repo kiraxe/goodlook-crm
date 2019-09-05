@@ -126,7 +126,7 @@ class OrdersType extends AbstractType
                 'label' => 'При приеме ДТС имеет следующие повреждения',
                 'required' => false,
             ))
-            ->add('phone',TextType::class ,array('label' => 'Телефона'))
+            ->add('phone',TextType::class ,array('label' => 'Телефон'))
             ->add('email', EmailType::class ,array(
                 'label' => 'E-mail',
                 'required' => false,

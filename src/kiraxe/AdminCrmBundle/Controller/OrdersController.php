@@ -13,6 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use PhpOffice\PhpWord\TemplateProcessor;
@@ -82,6 +83,17 @@ class OrdersController extends Controller
             }
         }
 
+
+        if (!empty($request->query->get('form')['close'])) {
+            $close = $request->query->get('form')['close'];
+            if ($sql == "SELECT o FROM kiraxeAdminCrmBundle:Orders o where") {
+                $sql .= ' o.close =' . $close;
+            } else {
+                $sql .= ' and o.close =' . $close;
+            }
+        }
+
+
         if (empty($request->query->get('form')['dateFrom']) && empty($request->query->get('form')['tel']) && empty($request->query->get('form')['manager']) && empty($request->query->get('form')['number'])) {
             $orders = $em->getRepository('kiraxeAdminCrmBundle:Orders')->findAll();
         } else {
@@ -119,6 +131,15 @@ class OrdersController extends Controller
                 'placeholder' => 'Выберите менеджера',
                 'empty_data' => null,
             ))
+            ->add('close', ChoiceType::class, [
+                'choices'  => [
+                    'Открыт' => true,
+                    'Закрыт' => false,
+                ],
+                'label' => 'Cтатус заказа',
+                'placeholder' => 'Выберите статус заказа',
+                'empty_data' => null,
+            ])
             ->getForm();
 
 

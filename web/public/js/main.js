@@ -299,6 +299,22 @@ $(document).ready(function(){
     })*/
 
 
+
+
+    $('#kiraxe_admincrmbundle_orders_number').on('keypress', function() {
+        var that = this;
+        setTimeout(function() {
+            var res = /[^а-яА-ЯїЇєЄіІёЁ ]/g.exec(that.value);
+            that.value = that.value.replace(res, '');
+        }, 0);
+    });
+
+    $(function(){
+        //2. Получить элемент, к которому необходимо добавить маску
+        $("#kiraxe_admincrmbundle_orders_phone").mask("+7(999) 999-9999");
+    });
+
+
     $('form').on('change', '#kiraxe_admincrmbundle_workers_typeworkers', function(){
         changeManagerType($(this).val());
     });
