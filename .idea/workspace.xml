@@ -1,56 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/CONTRIBUTING.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/demo/datepicker.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/demo/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/gruntfile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/jquery.maskedinput.nuspec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/lib/jquery-1.8.3.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/lib/jquery-1.9.0.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Backspace.Spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Completed.Spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Delete.spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Enter.Spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Escape.Spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Focus.Spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Init.Spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Optional.Spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Paste.Spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Placeholder.spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Raw.Spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Readonly.Spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Setup.Spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Typing.Spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine-species/BSD.LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine-species/jasmine-be-calm.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine-species/jasmine-grammar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine-species/jasmine-reporting.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine-species/version.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine/MIT.LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine/jasmine-html.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine/jasmine.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine/jasmine.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jquery.keymasher.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/matchers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/setup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/src/jquery.maskedinput.js" afterDir="false" />
+    <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="goodlook-crm first commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/orders/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/orders/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/OrdersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/OrdersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/OrdersType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/OrdersType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/css/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/js/main.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -235,7 +188,7 @@
       <workItem from="1552970892153" duration="16263000" />
       <workItem from="1567667436713" duration="3333000" />
       <workItem from="1567674555125" duration="28000" />
-      <workItem from="1567674603065" duration="21566000" />
+      <workItem from="1567674603065" duration="23400000" />
     </task>
     <task id="LOCAL-00001" summary="goodlook-crm first commit">
       <created>1567514895974</created>
@@ -447,7 +400,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567698221381</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="goodlook-crm first commit">
+      <created>1567700757611</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1567700757611</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

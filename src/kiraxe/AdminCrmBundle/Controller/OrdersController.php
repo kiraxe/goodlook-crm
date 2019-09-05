@@ -85,7 +85,13 @@ class OrdersController extends Controller
 
 
         if (!empty($request->query->get('form')['close'])) {
+
             $close = $request->query->get('form')['close'];
+
+            if ($close == 2) {
+                $close = 0;
+            }
+
             if ($sql == "SELECT o FROM kiraxeAdminCrmBundle:Orders o where") {
                 $sql .= ' o.close =' . $close;
             } else {
@@ -93,8 +99,7 @@ class OrdersController extends Controller
             }
         }
 
-
-        if (empty($request->query->get('form')['dateFrom']) && empty($request->query->get('form')['tel']) && empty($request->query->get('form')['manager']) && empty($request->query->get('form')['number'])) {
+        if (empty($request->query->get('form')['dateFrom']) && empty($request->query->get('form')['tel']) && empty($request->query->get('form')['manager']) && empty($request->query->get('form')['number']) && empty($request->query->get('form')['close'])) {
             $orders = $em->getRepository('kiraxeAdminCrmBundle:Orders')->findAll();
         } else {
             $orders = $em->createQuery($sql)->getResult();
@@ -133,12 +138,13 @@ class OrdersController extends Controller
             ))
             ->add('close', ChoiceType::class, [
                 'choices'  => [
-                    'Открыт' => true,
-                    'Закрыт' => false,
+                    'Открыт' => 2,
+                    'Закрыт' => 1,
                 ],
                 'label' => 'Cтатус заказа',
                 'placeholder' => 'Выберите статус заказа',
                 'empty_data' => null,
+                'required' => false,
             ])
             ->getForm();
 
