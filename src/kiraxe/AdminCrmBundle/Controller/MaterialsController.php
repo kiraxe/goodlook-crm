@@ -61,7 +61,7 @@ class MaterialsController extends Controller
                     foreach ($workerorders as $workerorder) {
                         $residue += $workerorder->getAmountOfMaterial() + $workerorder->getMarriage();;
                     }
-                    $materials[$i]->setResidue($materials[$i]->getTotalsize() - $residue);
+                    //$materials[$i]->setResidue($materials[$i]->getTotalsize() - $residue);
                     $em->persist($materials[$i]);
                     $em->flush();
                 }
@@ -70,9 +70,6 @@ class MaterialsController extends Controller
         } else {
             $deleteForm = null;
         }
-
-
-
 
 
         return $this->render('materials/index.html.twig', array(
