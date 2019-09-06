@@ -130,7 +130,7 @@
                             <th>Вид работы</th>
                             <th>Исполнитель</th>
                             <th>Материал</th>
-                            <th>Расход</th>
+                            <!--<th>Расход</th>-->
                             <th>Сумма, без НДС</th>
                         </tr>
                         {% for workerorder in order.workerorders  %}
@@ -146,12 +146,12 @@
                                     {% endif %}</td>
                                 <td>{{ workerorder.workers.name }}</td>
                                 <td>{{ workerorder.materials.name }}</td>
-                                <td>{{ amount }}</sup></td>
+                                <!--<td>{{ amount }}</sup></td>-->
                                 <td>{{ workerorder.price }}</td>
                             </tr>
                         {% endfor %}
                         <tr>
-                            <td colspan="5">Общая сумма:</td>
+                            <td colspan="4">Общая сумма:</td>
                             <td>{{ order.price }}</td>
                         </tr>
                     </table>
