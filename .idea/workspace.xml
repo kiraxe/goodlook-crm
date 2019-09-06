@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ModelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ModelController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +190,7 @@
       <workItem from="1567667436713" duration="3333000" />
       <workItem from="1567674555125" duration="28000" />
       <workItem from="1567674603065" duration="24449000" />
-      <workItem from="1567753867687" duration="6268000" />
+      <workItem from="1567753867687" duration="7800000" />
     </task>
     <task id="LOCAL-00001" summary="goodlook-crm first commit">
       <created>1567514895974</created>
@@ -452,7 +451,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567758223034</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="goodlook-crm first commit">
+      <created>1567761084134</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1567761084134</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

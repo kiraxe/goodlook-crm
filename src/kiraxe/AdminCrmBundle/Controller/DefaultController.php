@@ -119,9 +119,15 @@ class DefaultController extends Controller
                 foreach ($order->getWorkerorders() as $workerorder) {
                     $salary += $workerorder->getSalary();
                     $workers_id[$step] = $workerorder->getWorkers()->getId();
-                    $totalExpenses += $workerorder->getSalary();
-                    $totalExpensesOne += $workerorder->getPriceUnit() * $workerorder->getAmountOfMaterial();
-                    $totalExpensesSecond += $interestpayments;
+
+                    if ($workerorder->getSalary() > 0) {
+                        $totalExpenses += $workerorder->getSalary();
+                        $totalExpensesOne += ($workerorder->getPriceUnit() * $workerorder->getAmountOfMaterial()) + $workerorder->getSalary();
+                        $totalExpensesSecond += $workerorder->getSalary();
+                    } else {
+                        $totalExpensesOne += ($workerorder->getPriceUnit() * $workerorder->getAmountOfMaterial());
+                    }
+
                     $step++;
                 }
                 foreach ($order->getManagerorders() as $managerorder) {
@@ -170,8 +176,8 @@ class DefaultController extends Controller
 
         $earnings = $price - ($totalExpenses + $interestpayments);
         $earningsOne = $price - ($totalExpensesOne + $interestpayments);
-        print_r($totalExpensesSecond);
-        $earningsSecond = $price - ($totalExpensesSecond + $partExpenses + $interestpayments);
+        print_r($totalExpensesOne);
+        $earningsSecond = $price - ($partExpenses + $interestpayments);
 
         return $this->render('default/index.html.twig', array(
             'form' => $form->createView(),
