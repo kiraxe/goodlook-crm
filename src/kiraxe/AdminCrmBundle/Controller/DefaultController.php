@@ -178,7 +178,7 @@ class DefaultController extends Controller
 
         $earnings = $price - ($totalExpenses + $interestpayments);
         $earningsOne = $price - ($totalExpensesOne + $interestpayments);
-        $earningsSecond = $price - ($partExpenses + $interestpayments);
+        $earningsSecond = $price - ($totalExpensesSecond + $partExpenses + $interestpayments);
 
         return $this->render('default/index.html.twig', array(
             'form' => $form->createView(),
