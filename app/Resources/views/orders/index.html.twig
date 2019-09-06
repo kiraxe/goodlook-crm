@@ -56,7 +56,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% for order in orders %}
+                        {% for order in pagination %}
                             <tr>
                                 <td scope="row"><a href="{{ path('orders_show', { 'id': order.id }) }}">{{ order.id }}</a></td>
                                 <td>{% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d H:i:s') }}{% endif %}</td>
@@ -103,6 +103,9 @@
                         {% endfor %}
                         </tbody>
                     </table>
+                </div>
+                <div class="pagination col-md-12">
+                    {{ knp_pagination_render(pagination) }}
                 </div>
                 <div class="col-md-12">
                     <ul style="list-style-type: none; margin:0 0 20px 0; padding:0;">

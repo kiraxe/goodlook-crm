@@ -17,7 +17,7 @@ class ServicesController extends Controller
      * Lists all service entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -30,6 +30,13 @@ class ServicesController extends Controller
         $services = $em->createQuery(
             'SELECT s1, s2 FROM kiraxeAdminCrmBundle:Services s1 JOIN kiraxeAdminCrmBundle:Services s2 WITH s1.id = s2.parent'
         )->getResult();
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $services, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            10 /*limit per page*/
+        );
 
         $deleteForm = [];
 
@@ -56,6 +63,7 @@ class ServicesController extends Controller
             'services' => $services,
             'delete_form' => $deleteForm,
             'tables' => $tableName,
+            'pagination' => $pagination,
             'user' => $user,
             'tableSettingsName' => $tableSettingsName,
             'tableCars' => $tableCars,

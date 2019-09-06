@@ -152,6 +152,13 @@ body {
                               }
                           }
                       }
+                      div.pagination {
+                          padding-left: 15px;
+                          ul.pagination  {
+                              margin-bottom: 0;
+                              margin-top: 5px;
+                          }
+                      }
                   }
               }
 

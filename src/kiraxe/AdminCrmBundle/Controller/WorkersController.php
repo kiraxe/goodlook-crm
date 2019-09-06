@@ -18,7 +18,7 @@ class WorkersController extends Controller
      * Lists all worker entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -29,6 +29,13 @@ class WorkersController extends Controller
         for($i = 0; $i < count($workers); $i++) {
             $deleteForm[$workers[$i]->getName()] = $this->createDeleteForm($workers[$i])->createView();
         }
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $workers, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            10 /*limit per page*/
+        );
 
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
@@ -49,6 +56,7 @@ class WorkersController extends Controller
         return $this->render('workers/index.html.twig', array(
             'workers' => $workers,
             'delete_form' => $deleteForm,
+            'pagination' => $pagination,
             'tables' => $tableName,
             'user' => $user,
             'tableSettingsName' => $tableSettingsName,

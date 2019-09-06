@@ -16,11 +16,18 @@ class ModelController extends Controller
      * Lists all model entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
         $models = $em->getRepository('kiraxeAdminCrmBundle:Model')->findBy(array(), array('brand' => 'ASC'));
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $models, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            10 /*limit per page*/
+        );
 
         $user = $this->getUser();
         $tableName = [];
@@ -44,6 +51,7 @@ class ModelController extends Controller
         return $this->render('model/index.html.twig', array(
             'models' => $models,
             'tables' => $tableName,
+            'pagination' => $pagination,
             'user' => $user,
             'tableSettingsName' => $tableSettingsName,
             'tableCars' => $tableCars,

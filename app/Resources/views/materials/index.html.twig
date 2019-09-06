@@ -34,7 +34,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% for key ,material in materials %}
+                        {% for key ,material in pagination %}
                             <tr>
                                 <!--<td><a href="{{ path('materials_show', { 'id': material.id }) }}">{{ material.id }}</a></td>-->
                                 <td>{{ material.name }}</td>
@@ -68,6 +68,9 @@
                         {% endfor %}
                         </tbody>
                     </table>
+                </div>
+                <div class="pagination col-md-12">
+                    {{ knp_pagination_render(pagination) }}
                 </div>
                 <div class="col-md-12">
                     <ul style="list-style-type: none; margin:0 0 20px 0; padding:0;">

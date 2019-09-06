@@ -16,7 +16,7 @@ class ExpensesController extends Controller
      * Lists all expense entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -44,11 +44,18 @@ class ExpensesController extends Controller
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
 
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $expenses, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            10 /*limit per page*/
+        );
 
         return $this->render('expenses/index.html.twig', array(
             'expenses' => $expenses,
             'delete_form' => $deleteForm,
             'tables' => $tableName,
+            'pagination' => $pagination,
             'user' => $user,
             'tableSettingsName' => $tableSettingsName,
             'tableCars' => $tableCars,

@@ -29,7 +29,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% for model in models %}
+                        {% for model in pagination %}
                             <tr>
                                 <td><a href="{{ path('model_show', { 'id': model.id }) }}">{{ model.id }}</a></td>
                                 <td>{% if model.brandId %}{{ model.brandId.name }} {% endif %}</td>
@@ -58,6 +58,9 @@
                         {% endfor %}
                         </tbody>
                     </table>
+                </div>
+                <div class="pagination col-md-12">
+                    {{ knp_pagination_render(pagination) }}
                 </div>
                 <div class="col-md-12">
                     <ul style="list-style-type: none; margin:0 0 20px 0; padding:0;">

@@ -16,7 +16,7 @@ class MeasureController extends Controller
      * Lists all measure entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -41,10 +41,18 @@ class MeasureController extends Controller
             $deleteForm[$measures[$i]->getName()] = $this->createDeleteForm($measures[$i])->createView();
         }
 
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $measures, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            10 /*limit per page*/
+        );
+
         return $this->render('measure/index.html.twig', array(
             'measures' => $measures,
             'tables' => $tableName,
             'user' => $user,
+            'pagination' => $pagination,
             'tableSettingsName' => $tableSettingsName,
             'delete_form' => $deleteForm,
             'tableCars' => $tableCars,

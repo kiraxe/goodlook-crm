@@ -2,8 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/goodlook-crm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/goodlook-crm.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/css/print.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/css/print.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/bodytype/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/bodytype/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/brand/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/brand/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/expenses/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expenses/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/materials/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/materials/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/measure/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/measure/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/model/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/model/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/orders/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/orders/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/services/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/services/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/user/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/user/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/workers/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/workers/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/BodyTypeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/BodyTypeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/BrandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/BrandController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ExpensesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ExpensesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/MaterialsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/MaterialsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/MeasureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/MeasureController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ModelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ModelController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/OrdersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/OrdersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ServicesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ServicesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/WorkersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/WorkersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/css/main.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,6 +43,20 @@
     <execution>
       <executable path="composer" />
     </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -82,6 +123,8 @@
       <path value="$PROJECT_DIR$/vendor/phpoffice/common" />
       <path value="$PROJECT_DIR$/vendor/zendframework/zend-escaper" />
       <path value="$PROJECT_DIR$/vendor/beberlei/doctrineextensions" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
     </include_path>
   </component>
   <component name="ProjectId" id="1P4Sk6cyO0Dke4uEUC16Rkismqd" />
@@ -189,7 +232,7 @@
       <workItem from="1567667436713" duration="3333000" />
       <workItem from="1567674555125" duration="28000" />
       <workItem from="1567674603065" duration="24449000" />
-      <workItem from="1567753867687" duration="10749000" />
+      <workItem from="1567753867687" duration="16723000" />
     </task>
     <task id="LOCAL-00001" summary="goodlook-crm first commit">
       <created>1567514895974</created>
@@ -478,7 +521,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567764734090</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="goodlook-crm first commit">
+      <created>1567768877293</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1567768877293</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -508,7 +558,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/MaterialsController.php</url>
-          <line>198</line>
+          <line>206</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

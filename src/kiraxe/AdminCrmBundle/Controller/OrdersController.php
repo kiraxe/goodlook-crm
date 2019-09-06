@@ -171,11 +171,19 @@ class OrdersController extends Controller
             $deleteForm[$orders[$i]->getId()] = $this->createDeleteForm($orders[$i])->createView();
         }
 
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $orders, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            10 /*limit per page*/
+        );
+
         return $this->render('orders/index.html.twig', array(
             'form' => $form->createView(),
             'orders' => $orders,
             'delete_form' => $deleteForm,
             'tables' => $tableName,
+            'pagination' => $pagination,
             'user' => $user,
             'tableSettingsName' => $tableSettingsName,
             'tableCars' => $tableCars,

@@ -17,7 +17,7 @@ class MaterialsController extends Controller
      * Lists all material entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -59,7 +59,7 @@ class MaterialsController extends Controller
                     $em->flush();
                 } elseif (count($workerorders) > 0) {
                     foreach ($workerorders as $workerorder) {
-                        $residue += $workerorder->getAmountOfMaterial() + $workerorder->getMarriage();;
+                        $residue += $workerorder->getAmountOfMaterial() + $workerorder->getMarriage();
                     }
                     //$materials[$i]->setResidue($materials[$i]->getTotalsize() - $residue);
                     $em->persist($materials[$i]);
@@ -71,12 +71,20 @@ class MaterialsController extends Controller
             $deleteForm = null;
         }
 
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $materials, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            10 /*limit per page*/
+        );
+
 
         return $this->render('materials/index.html.twig', array(
             'materials' => $materials,
             'arithmeticMea' => $arithmeticMean,
             'tables' => $tableName,
             'user' => $user,
+            'pagination' => $pagination,
             'tableSettingsName' => $tableSettingsName,
             'delete_form' => $deleteForm,
             'tableCars' => $tableCars,

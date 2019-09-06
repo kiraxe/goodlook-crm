@@ -16,7 +16,7 @@ class BrandController extends Controller
      * Lists all brand entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -40,10 +40,18 @@ class BrandController extends Controller
             $deleteForm[$brands[$i]->getName()] = $this->createDeleteForm($brands[$i])->createView();
         }
 
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $brands, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            10 /*limit per page*/
+        );
+
         return $this->render('brand/index.html.twig', array(
             'brands' => $brands,
             'tables' => $tableName,
             'user' => $user,
+            'pagination' => $pagination,
             'tableSettingsName' => $tableSettingsName,
             'tableCars' => $tableCars,
             'delete_form' => $deleteForm

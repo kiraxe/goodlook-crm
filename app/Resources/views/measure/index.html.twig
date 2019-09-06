@@ -27,7 +27,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% for measure in measures %}
+                        {% for measure in pagination %}
                             <tr>
                                 <td><a href="{{ path('materials_show', { 'id': measure.id }) }}">{{ measure.id }}</a></td>
                                 <td>{{ measure.name |raw }}</td>
@@ -54,6 +54,9 @@
                         {% endfor %}
                         </tbody>
                     </table>
+                </div>
+                <div class="pagination col-md-12">
+                    {{ knp_pagination_render(pagination) }}
                 </div>
                 <div class="col-md-12">
                     <ul style="list-style-type: none; margin:0 0 20px 0; padding:0;">

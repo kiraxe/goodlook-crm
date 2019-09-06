@@ -18,7 +18,7 @@ class UserController extends Controller
      * Lists all user entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -44,11 +44,20 @@ class UserController extends Controller
         $tableCars = [];
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $users, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            10 /*limit per page*/
+        );
+
         return $this->render('user/index.html.twig', array(
             'users' => $users,
             'delete_form' => $deleteForm,
             'tables' => $tableName,
             'user' => $user,
+            'pagination' => $pagination,
             'tableSettingsName' => $tableSettingsName,
             'tableCars' => $tableCars,
         ));
