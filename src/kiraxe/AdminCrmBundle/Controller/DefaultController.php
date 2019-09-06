@@ -135,6 +135,8 @@ class DefaultController extends Controller
                         $salary += $managerorder->getOpenprice() + $managerorder->getCloseprice();
                         $workers_id[$step] = $managerorder->getWorkers()->getId();
                         $totalExpenses += $managerorder->getCloseprice() + $managerorder->getOpenprice();
+                        $totalExpensesOne += $managerorder->getCloseprice() + $managerorder->getOpenprice();
+                        $totalExpensesSecond += $managerorder->getCloseprice() + $managerorder->getOpenprice();
                         $step++;
                     }
                 }
@@ -176,14 +178,13 @@ class DefaultController extends Controller
 
         $earnings = $price - ($totalExpenses + $interestpayments);
         $earningsOne = $price - ($totalExpensesOne + $interestpayments);
-        print_r($totalExpensesOne);
         $earningsSecond = $price - ($partExpenses + $interestpayments);
 
         return $this->render('default/index.html.twig', array(
             'form' => $form->createView(),
             'price' => $price,
             'salary' => $salary,
-            'totalExpenses' => $totalExpenses,
+            'totalExpenses' => $partExpenses,
             'earnings' => $earnings,
             'earningsOne' => $earningsOne,
             'earningsSecond' => $earningsSecond,
