@@ -55,6 +55,13 @@ class DefaultController extends Controller
             $sqlExpenses .= " date(e.date) =".$dateFrom;
         }
 
+        if (empty($request->query->get('form')['dateFrom']) && !empty($request->query->get('form')['dateTo'])) {
+            $dateTo = $request->query->get('form')['dateTo'];
+            $dateTo = str_replace("-", "", $dateTo);
+            $sql .= " and date(o.dateTo) =".$dateTo;
+            $sqlExpenses .= " date(e.date) =".$dateTo;
+        }
+
         if (!empty($request->query->get('form')['dateFrom']) && !empty($request->query->get('form')['dateTo'])) {
             $dateFrom = $request->query->get('form')['dateFrom'];
             $dateTo = $request->query->get('form')['dateTo'];
