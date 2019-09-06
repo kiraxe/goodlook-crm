@@ -304,7 +304,7 @@ $(document).ready(function(){
     $('#kiraxe_admincrmbundle_orders_number').on('keypress', function() {
         var that = this;
         setTimeout(function() {
-            var res = /[^а-яА-ЯїЇєЄіІёЁ ]/g.exec(that.value);
+            var res = /[^0-9а-яА-ЯїЇєЄіІёЁ ]/g.exec(that.value);
             that.value = that.value.replace(res, '');
         }, 0);
     });

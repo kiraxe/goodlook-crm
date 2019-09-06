@@ -24,25 +24,31 @@
    }
 }
 @media (max-width: 992px) {
+  body {
+      main {
+          .navbar-expand-lg {
+              #bars {
+                .fa-bars {
+                  display: block!important;
+                }
+              }
 
-    .navbar-expand-lg {
-        #bars {
-            .fa-bars {
-              display: block;
-            }
-        }
-        #navbarCollapse {
-            order:3;
-        }
-        .logout {
-            order:1;
-        }
-    }
+              #navbarCollapse {
+                order: 3;
+              }
 
-    .content-wrapper {
-        .container {
-            max-width: 100%;
-        }
-        width: 100%;
-    }
+              .logout {
+                order: 1;
+              }
+          }
+
+          .content-wrapper {
+              .container {
+                max-width: 100%;
+              }
+
+              width: 100%;
+          }
+      }
+  }
 }

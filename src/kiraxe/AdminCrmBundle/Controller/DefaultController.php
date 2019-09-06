@@ -51,14 +51,14 @@ class DefaultController extends Controller
         if (!empty($request->query->get('form')['dateFrom']) && empty($request->query->get('form')['dateTo'])) {
             $dateFrom = $request->query->get('form')['dateFrom'];
             $dateFrom = str_replace("-", "", $dateFrom);
-            $sql .= " and date(o.dateOpen) =".$dateFrom;
+            $sql .= " and date(o.dateClose) =".$dateFrom;
             $sqlExpenses .= " date(e.date) =".$dateFrom;
         }
 
         if (empty($request->query->get('form')['dateFrom']) && !empty($request->query->get('form')['dateTo'])) {
             $dateTo = $request->query->get('form')['dateTo'];
             $dateTo = str_replace("-", "", $dateTo);
-            $sql .= " and date(o.dateTo) =".$dateTo;
+            $sql .= " and date(o.dateClose) =".$dateTo;
             $sqlExpenses .= " date(e.date) =".$dateTo;
         }
 
@@ -67,7 +67,7 @@ class DefaultController extends Controller
             $dateTo = $request->query->get('form')['dateTo'];
             $dateFrom = str_replace("-", "", $dateFrom);
             $dateTo = str_replace("-", "", $dateTo);
-            $sql .= " and date(o.dateOpen) between " . $dateFrom . " and " . $dateTo;
+            $sql .= " and date(o.dateClose) between " . $dateFrom . " and " . $dateTo;
             $sqlExpenses .= " date(e.date) between " . $dateFrom . " and " . $dateTo;
         }
 
@@ -75,6 +75,8 @@ class DefaultController extends Controller
             $orders = $em->createQuery($sql)->getResult();
             $expenses = $em->createQuery($sqlExpenses)->getResult();
         }
+
+        print_r($sql);
 
         $form = $this->get("form.factory")->createNamedBuilder("form")
             ->setMethod('GET')
@@ -111,7 +113,7 @@ class DefaultController extends Controller
             $step = 0;
             foreach ($orders as $order) {
                 $price += $order->getPrice();
-                if ($order->getPayment() == 2 || $order->getPayment() == 1) {
+                if ($order->getPayment() == 2) {
                     $interestpayments += ($order->getPrice() / 100) * 2.5;
                 }
                 foreach ($order->getWorkerorders() as $workerorder) {
