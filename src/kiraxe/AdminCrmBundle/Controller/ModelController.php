@@ -20,7 +20,7 @@ class ModelController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $models = $em->getRepository('kiraxeAdminCrmBundle:Model')->findAll();
+        $models = $em->getRepository('kiraxeAdminCrmBundle:Model')->findBy(array(), array('brand' => 'ASC'));
 
         $user = $this->getUser();
         $tableName = [];

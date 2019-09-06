@@ -76,8 +76,6 @@ class DefaultController extends Controller
             $expenses = $em->createQuery($sqlExpenses)->getResult();
         }
 
-        print_r($sql);
-
         $form = $this->get("form.factory")->createNamedBuilder("form")
             ->setMethod('GET')
             ->add('dateFrom', TextType::class ,array(
@@ -96,6 +94,8 @@ class DefaultController extends Controller
         $price = 0;
         $salary = 0;
         $totalExpenses = 0;
+        $totalExpensesOne = 0;
+        $totalExpensesSecond = 0;
         $partExpenses = 0;
         $interestpayments = 0;
         $earnings = 0;
@@ -119,7 +119,9 @@ class DefaultController extends Controller
                 foreach ($order->getWorkerorders() as $workerorder) {
                     $salary += $workerorder->getSalary();
                     $workers_id[$step] = $workerorder->getWorkers()->getId();
-                    $totalExpenses += ($workerorder->getPriceUnit() * $workerorder->getAmountOfMaterial()) + $workerorder->getSalary() + $interestpayments + $partExpenses;
+                    $totalExpenses += $workerorder->getSalary();
+                    $totalExpensesOne += $workerorder->getPriceUnit() * $workerorder->getAmountOfMaterial();
+                    $totalExpensesSecond += $interestpayments;
                     $step++;
                 }
                 foreach ($order->getManagerorders() as $managerorder) {
@@ -166,7 +168,10 @@ class DefaultController extends Controller
             }
         }
 
-        $earnings = $price - $totalExpenses;
+        $earnings = $price - ($totalExpenses + $interestpayments);
+        $earningsOne = $price - ($totalExpensesOne + $interestpayments);
+        print_r($totalExpensesSecond);
+        $earningsSecond = $price - ($totalExpensesSecond + $partExpenses + $interestpayments);
 
         return $this->render('default/index.html.twig', array(
             'form' => $form->createView(),
@@ -174,6 +179,8 @@ class DefaultController extends Controller
             'salary' => $salary,
             'totalExpenses' => $totalExpenses,
             'earnings' => $earnings,
+            'earningsOne' => $earningsOne,
+            'earningsSecond' => $earningsSecond,
             'tables' => $tableName,
             'user' => $user,
             'tableSettingsName' => $tableSettingsName,
