@@ -141,6 +141,9 @@ $(document).ready(function(){
         var url = Routing.generate('orders_ajax');
         var sibling = $(this);
         var parent = sibling.parent().parent();
+        $('textarea[id$="free"]').val('');
+        $('input[id$="pricefr"]').val('');
+        $('input[id$="pricefr"]').attr('value', '');
         $.ajax({
             type: "POST",
             url: url,
@@ -178,14 +181,22 @@ $(document).ready(function(){
                     }
                 });
 
-
                 if (services) {
                     parent.find('select[id$="services"]').removeAttr('disabled');
+                    parent.find('select[id$="services"]').removeAttr('data-free');
+                    parent.find('select[id$="services"]').removeAttr('data-pricefr');
+                    parent.find('select[id$="services"]').removeAttr('data-free-pricefr');
                     services.forEach(function (item, i) {
                         if (services[i].id != servicesSel) {
-                            if (services[i].free) {
+                            if (services[i].free && !services[i].pricefr) {
                                 parent.find('select[id$="services"]').append('<option value="' + services[i].id + '">' + services[i].name + '</option>')
                                 parent.find('select[id$="services"]').attr('data-free', services[i].id);
+                            } else if (services[i].pricefr && !services[i].free) {
+                                parent.find('select[id$="services"]').append('<option value="' + services[i].id + '">' + services[i].name + '</option>')
+                                parent.find('select[id$="services"]').attr('data-pricefr', services[i].id);
+                            } else if (services[i].free && services[i].pricefr) {
+                                parent.find('select[id$="services"]').append('<option value="' + services[i].id + '">' + services[i].name + '</option>')
+                                parent.find('select[id$="services"]').attr('data-free-pricefr', services[i].id);
                             } else {
                                 parent.find('select[id$="services"]').append('<option value="' + services[i].id + '">' + services[i].name + '</option>')
                             }
@@ -258,17 +269,34 @@ $(document).ready(function(){
                     parent.find('select[id$="services"]').removeAttr('disabled');
                     services.forEach(function (item, i) {
                         if (services[i].id != servicesSel) {
-                            if (services[i].free) {
+                            if (services[i].free && !services[i].pricefr) {
                                 parent.find('select[id$="services"]').append('<option value="' + services[i].id + '">' + services[i].name + '</option>')
                                 parent.find('select[id$="services"]').attr('data-free', services[i].id);
+                            } else if (services[i].pricefr && !services[i].free) {
+                                parent.find('select[id$="services"]').append('<option value="' + services[i].id + '">' + services[i].name + '</option>')
+                                parent.find('select[id$="services"]').attr('data-pricefr', services[i].id);
+                            } else if (services[i].free && services[i].pricefr) {
+                                parent.find('select[id$="services"]').append('<option value="' + services[i].id + '">' + services[i].name + '</option>')
+                                parent.find('select[id$="services"]').attr('data-free-pricefr', services[i].id);
                             } else {
                                 parent.find('select[id$="services"]').append('<option value="' + services[i].id + '">' + services[i].name + '</option>')
                             }
                         } else {
-                            if (services[i].free) {
+                            if (services[i].free && !services[i].pricefr) {
                                 parent.find('select[id$="services"]').attr('data-free', services[i].id);
                                 $('label[for$="free"]').addClass('active');
                                 $('textarea[id$="free"]').addClass('active');
+                            } else if(services[i].pricefr && !services[i].free) {
+                                parent.find('select[id$="services"]').attr('data-pricefr', services[i].id);
+                                $('label[for$="pricefr"]').addClass('active');
+                                $('input[id$="pricefr"]').addClass('active');
+                            } else if (services[i].free && services[i].pricefr) {
+                                parent.find('select[id$="services"]').attr('data-free', services[i].id);
+                                $('label[for$="free"]').addClass('active');
+                                $('textarea[id$="free"]').addClass('active');
+                                parent.find('select[id$="services"]').attr('data-pricefr', services[i].id);
+                                $('label[for$="pricefr"]').addClass('active');
+                                $('input[id$="pricefr"]').addClass('active');
                             }
                         }
                     });
@@ -371,12 +399,40 @@ $(document).ready(function(){
 
 
     $('form').on('change', 'select[id$="services"]', function(){
-        if ($('select[id$="services"]').val() == $('select[id$="services"]').attr('data-free')) {
+
+        if ($(this).val() == $('select[id$="services"]').attr('data-free')) {
             $('label[for$="free"]').addClass('active');
             $('textarea[id$="free"]').addClass('active');
         } else if ($('textarea[id$="free"]').hasClass('active')) {
             $('label[for$="free"]').removeClass('active');
             $('textarea[id$="free"]').removeClass('active');
+            $('textarea[id$="free"]').val('');
         }
+
+        if ($(this).val() == $('select[id$="services"]').attr('data-pricefr')) {
+            $('label[for$="pricefr"]').addClass('active');
+            $('input[id$="pricefr"]').addClass('active');
+        } else if ($('input[id$="pricefr"]').hasClass('active')) {
+            $('label[for$="pricefr"]').removeClass('active');
+            $('input[id$="pricefr"]').removeClass('active');
+            $('input[id$="pricefr"]').val('');
+            $('input[id$="pricefr"]').attr('value', '');
+        }
+
+        if ($(this).val() == $('select[id$="services"]').attr('data-free-pricefr')) {
+            $('label[for$="free"]').addClass('active');
+            $('textarea[id$="free"]').addClass('active');
+            $('label[for$="pricefr"]').addClass('active');
+            $('input[id$="pricefr"]').addClass('active');
+        } else if ($('input[id$="pricefr"]').hasClass('active') && $('textarea[id$="free"]').hasClass('active')) {
+            $('label[for$="free"]').removeClass('active');
+            $('textarea[id$="free"]').removeClass('active');
+            $('textarea[id$="free"]').val('');
+            $('label[for$="pricefr"]').removeClass('active');
+            $('input[id$="pricefr"]').removeClass('active');
+            $('input[id$="pricefr"]').val('');
+            $('input[id$="pricefr"]').attr('value', '');
+        }
+
     });
 });

@@ -357,6 +357,7 @@ $(document).ready(function(){
     changeManagerType(valueSelectTypeWorker);
 
 
+
     $( function() {
         var dateFormat = "yy-mm-dd",
             from = $( "#form_dateFrom" )

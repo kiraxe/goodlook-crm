@@ -45,11 +45,15 @@ html {
   margin-top: -5px!important;
 }
 textarea[id$="free"],
-label[for$="free"]{
+input[id$="pricefr"],
+label[for$="free"],
+label[for$="pricefr"] {
   display: none;
 }
 textarea[id$="free"].active,
-label[for$="free"].active{
+input[id$="pricefr"].active,
+label[for$="free"].active,
+label[for$="pricefr"].active {
   display: block;
 }
 label[for$="services_free"] {
@@ -122,6 +126,11 @@ body {
                               @extend %inline-block;
                             }
                           }
+                      }
+
+                      input[id$="pricefr"].form-check-input,
+                      label[for$="pricefr"].form-check-label {
+                        display: block!important;
                       }
                   }
 

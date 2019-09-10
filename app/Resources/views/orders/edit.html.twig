@@ -78,9 +78,7 @@
         </div>
     </div>
 {% endblock %}
-{% block ordersform %}
-    <script src="{{ asset('public/js/ordersForm.js') }}"></script>
-{% endblock %}
+{% block ordersform %}{% endblock %}
 {% block print %}
     <div class="workorder">
         <table>
@@ -99,7 +97,7 @@
             </thead>
             <tbody>
             <tr>
-                <td style="padding-top: 20px; padding-bottom: 20px;"><p><b>Заказ-Наряд №{{ order.id }} от {% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d') }}{% endif %}</b></p></td>
+                <td style="padding-top: 20px; padding-bottom: 20px;"><p><b>Заказ-Наряд №{% if order.dateOpen %}{{ order.dateOpen|date('w') }}{% endif %} от {% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d') }}{% endif %}</b></p></td>
             </tr>
             <tr>
                 <td>
@@ -140,12 +138,17 @@
                                 <td>{%  if workerorder.services %}
                                         {% if workerorder.services.free %}
                                             {{ workerorder.free }}
+                                        {% elseif workerorder.services.pricefr  %}
+                                            {{ workerorder.pricefr }}
+                                        {% elseif workerorder.services.pricefr and workerorder.services.free %}
+                                            {{ workerorder.free }}
+                                            {{ workerorder.pricefr }}
                                         {% else %}
                                             {{ workerorder.services.name }}
                                         {% endif %}
                                     {% endif %}</td>
                                 <td>{{ workerorder.workers.name }}</td>
-                                <td>{{ workerorder.materials.name }}</td>
+                                <td>{% if workerorder.materials %}{{ workerorder.materials.name }}{% endif %}</td>
                                 <!--<td>{{ amount }}</sup></td>-->
                                 <td>{{ workerorder.price }}</td>
                             </tr>
@@ -202,7 +205,7 @@
             </thead>
             <tbody>
             <tr>
-                <td style="padding-top: 20px; padding-bottom: 20px;"><p><b>Наряд на работу №{{ order.id }} от {% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d') }}{% endif %}</b></p></td>
+                <td style="padding-top: 20px; padding-bottom: 20px;"><p><b>Наряд на работу №{% if order.dateOpen %}{{ order.dateOpen|date('w') }}{% endif %} от {% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d') }}{% endif %}</b></p></td>
             </tr>
             <tr>
                 <td>
@@ -249,7 +252,7 @@
                                         {% endif %}
                                     {% endif %}</td>
                                 <td>{{ workerorder.workers.name }}</td>
-                                <td>{{ workerorder.materials.name }}</td>
+                                <td>{% if workerorder.materials %}{{ workerorder.materials.name }}{% endif %}</td>
                                 <td>{{ amount }}</sup></td>
                                 <td>{{ workerorder.salary|round(1, 'floor') }}</sup></td>
                                 <td>{{ workerorder.price }}</td>

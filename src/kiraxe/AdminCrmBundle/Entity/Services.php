@@ -59,6 +59,13 @@ class Services
      */
     private $free;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="pricefr", type="boolean")
+     */
+    private $pricefr;
+
 
     public function __construct()
     {
@@ -182,6 +189,32 @@ class Services
     public function getFree()
     {
         return $this->free;
+    }
+
+
+
+    /**
+     * Set pricefr
+     *
+     * @param boolean $pricefr
+     *
+     * @return Services
+     */
+    public function setPricefr($pricefr)
+    {
+        $this->pricefr = $pricefr;
+
+        return $this;
+    }
+
+    /**
+     * Get free
+     *
+     * @return bool
+     */
+    public function getpricefr()
+    {
+        return $this->pricefr;
     }
 
 

@@ -28,7 +28,7 @@ class ServicesController extends Controller
             ->getQuery()->getResult();
          */
         $services = $em->createQuery(
-            'SELECT s1, s2 FROM kiraxeAdminCrmBundle:Services s1 JOIN kiraxeAdminCrmBundle:Services s2 WITH s1.id = s2.parent'
+            'SELECT s1, s2 FROM kiraxeAdminCrmBundle:Services s1 JOIN kiraxeAdminCrmBundle:Services s2 WITH s1.id = s2.parent AND '
         )->getResult();
 
         $paginator  = $this->get('knp_paginator');

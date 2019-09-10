@@ -98,6 +98,13 @@ class WorkerOrders
     private $free;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="pricefr", type="text", nullable=true)
+     */
+    private $pricefr;
+
+    /**
      * @var float
      *
      * @ORM\Column(name="priceUnit", type="float")
@@ -221,7 +228,11 @@ class WorkerOrders
 
     public function setSalary($salary)
     {
-        $this->salary = $salary;
+        if ($this->pricefr) {
+            $this->salary = $this->pricefr;
+        } else {
+            $this->salary = $salary;
+        }
 
         return $this;
     }
@@ -282,6 +293,19 @@ class WorkerOrders
     public function getFree()
     {
         return $this->free;
+    }
+
+
+    public function setPricefr($pricefr)
+    {
+        $this->pricefr = $pricefr;
+
+        return $this;
+    }
+
+    public function getPricefr()
+    {
+        return $this->pricefr;
     }
 
     /**

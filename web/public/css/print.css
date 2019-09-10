@@ -67,6 +67,10 @@
     font-weight: 900;
     font-style: normal;
 }
+body {
+    overflow-x: visible;
+    overflow-y: visible;
+}
 main {
     display: none!important;
 }

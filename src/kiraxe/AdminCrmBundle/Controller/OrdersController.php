@@ -228,10 +228,14 @@ class OrdersController extends Controller
             foreach ($order->getWorkerorders() as $workerorders) {
                 $price += $workerorders->getPrice();
                 $serviceparent = $workerorders->getServicesparent()->getId();
-                $workerorders->setPriceUnit($workerorders->getMaterials()->getPriceUnit());
+                if ($workerorders->getMaterials()) {
+                    $workerorders->setPriceUnit($workerorders->getMaterials()->getPriceUnit());
+                }
                 foreach ($workerorders->getWorkers()->getWorkerService() as $k => $val) {
                     if ($val->getServices()->getId() == $serviceparent) {
-                        $unitprice = $workerorders->getMaterials()->getPriceUnit() * $workerorders->getMarriage();
+                        if ($workerorders->getMaterials()) {
+                            $unitprice = $workerorders->getMaterials()->getPriceUnit() * $workerorders->getMarriage();
+                        }
                         if ($unitprice == 0) {
                             $workerorders->setSalary(($workerorders->getPrice() / 100) * $val->getPercent());
                         } else {
@@ -487,10 +491,14 @@ class OrdersController extends Controller
             foreach ($orders->getWorkerorders() as $workerorders) {
                 $price += $workerorders->getPrice();
                 $serviceparent = $workerorders->getServicesparent()->getId();
-                $workerorders->setPriceUnit($workerorders->getMaterials()->getPriceUnit());
+                if ($workerorders->getMaterials()) {
+                    $workerorders->setPriceUnit($workerorders->getMaterials()->getPriceUnit());
+                }
                 foreach ($workerorders->getWorkers()->getWorkerService() as $k => $val) {
                     if ($val->getServices()->getId() == $serviceparent) {
-                        $unitprice = $workerorders->getMaterials()->getPriceUnit() * $workerorders->getMarriage();
+                        if ($workerorders->getMaterials()) {
+                            $unitprice = $workerorders->getMaterials()->getPriceUnit() * $workerorders->getMarriage();
+                        }
                         if ($unitprice == 0) {
                             $workerorders->setSalary(($workerorders->getPrice() / 100) * $val->getPercent());
                         } else {
@@ -828,7 +836,8 @@ class OrdersController extends Controller
                 $output['services'][$step] = array(
                     'id' => $service->getId(),
                     'name' => $service->getName(),
-                    'free' => $service->getFree()
+                    'free' => $service->getFree(),
+                    'pricefr' => $service->getPricefr()
                 );
                 $step++;
             }

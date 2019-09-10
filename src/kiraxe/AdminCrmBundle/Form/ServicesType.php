@@ -22,6 +22,7 @@ class ServicesType extends AbstractType
 
         $builder->add('name', null ,array('label' => 'Название'))
             ->add('free', null , array('label' => 'Свободный ввод'))
+            ->add('pricefr', null , array('label' => 'Указать зарплату'))
             ->add('parent', EntityType::class , [
                 'class' => 'kiraxe\AdminCrmBundle\Entity\Services',
                 'choice_label' => 'name',
