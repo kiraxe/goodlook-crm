@@ -3,22 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/orders/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/orders/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/services/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/services/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/services/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/services/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/OrdersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/OrdersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ServicesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ServicesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Entity/Services.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Entity/Services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Entity/WorkerOrders.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Entity/WorkerOrders.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/ServicesType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/ServicesType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/WorkerOrdersType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/WorkerOrdersType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/css/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/css/print.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/css/print.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/js/ordersForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/js/ordersForm.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -223,7 +208,7 @@
       <workItem from="1567674603065" duration="24449000" />
       <workItem from="1567753867687" duration="28186000" />
       <workItem from="1568099875527" duration="626000" />
-      <workItem from="1568102693774" duration="14827000" />
+      <workItem from="1568102693774" duration="15536000" />
     </task>
     <task id="LOCAL-00001" summary="goodlook-crm first commit">
       <created>1567514895974</created>
@@ -526,7 +511,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567775167164</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="goodlook-crm first commit">
+      <created>1568130202357</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1568130202357</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
