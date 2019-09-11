@@ -28,7 +28,7 @@
                         </thead>
                         <tbody>
                         {% for service in pagination %}
-                                <tr>
+                            <tr>
                                     <td><a href="{{ path('services_show', { 'id': service.id }) }}">{{ service.id }}</a></td>
                                     <td>
                                         {% if service.parent != null %}

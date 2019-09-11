@@ -31,6 +31,12 @@ class ServicesController extends Controller
             'SELECT s1, s2 FROM kiraxeAdminCrmBundle:Services s1 JOIN kiraxeAdminCrmBundle:Services s2 WITH s1.id = s2.parent'
         )->getResult();
 
+        $servicesNotChild = $em->createQuery(
+            'SELECT s3 FROM kiraxeAdminCrmBundle:Services s3 WHERE s3.childrens IS EMPTY AND s3.parent IS NULL'
+        )->getResult();
+
+        $services = array_merge($services, $servicesNotChild);
+
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $services, /* query NOT result */
