@@ -75,7 +75,6 @@ label[for$="services_free"] {
 b {
    font-family: 'GilroyBold';
 }
-
 body {
    @extend  %main;
        main {
@@ -91,6 +90,12 @@ body {
                  width: 100%;
                }
 
+               #logo {
+                   img {
+                      width: 200px;
+                      height: auto;
+                   }
+               }
               .navbar-expand-lg {
                   #bars {
                       .fa-bars {
