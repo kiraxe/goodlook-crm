@@ -85,7 +85,7 @@
                             <tr>
                                 <th scope="row">Материал</th>
                                 <td scope="col">
-                                    {{ workerorder.materials.name }}
+                                    {% if workerorder.materials %}{{ workerorder.materials.name }}{% endif %}
                                 </td>
                             </tr>
                             <tr>

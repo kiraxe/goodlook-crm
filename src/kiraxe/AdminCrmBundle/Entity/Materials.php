@@ -39,7 +39,7 @@ class Materials
     /**
      * @var float
      *
-     * @ORM\Column(name="priceUnit", type="float")
+     * @ORM\Column(name="priceUnit", type="float", nullable=true)
      */
     private $priceUnit;
 
