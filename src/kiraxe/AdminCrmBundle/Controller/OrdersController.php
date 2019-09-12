@@ -100,7 +100,7 @@ class OrdersController extends Controller
         }
 
         if (empty($request->query->get('form')['dateFrom']) && empty($request->query->get('form')['tel']) && empty($request->query->get('form')['manager']) && empty($request->query->get('form')['number']) && empty($request->query->get('form')['close'])) {
-            $orders = $em->getRepository('kiraxeAdminCrmBundle:Orders')->findBy(array(), array('o.dateOpen' => 'DESC'));
+            $orders = $em->getRepository('kiraxeAdminCrmBundle:Orders')->findBy(array(), array('dateOpen' => 'DESC'));
         } else {
             $orders = $em->createQuery($sql."ORDER BY o.dateOpen DESC")->getResult();
         }
