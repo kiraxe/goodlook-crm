@@ -6,7 +6,7 @@ Encore
     .setOutputPath('web/public/build/')
 
     // публичный путь, используемый веб-сервером для доступа к предыдущему каталогу
-    .setPublicPath('/build')
+    .setPublicPath('public/build')
 
     // создаст public/build/app.js и public/build/app.css
     .addEntry('app', './assets/js/app.js')
