@@ -361,17 +361,66 @@ class OrdersController extends Controller
      * Finds and displays a order entity.
      *
      */
-    public function showAction(Orders $order)
+    public function showAction(Orders $orders)
     {
-        $deleteForm = $this->createDeleteForm($order);
+        $deleteForm = $this->createDeleteForm($orders);
 
         $em = $this->getDoctrine()->getManager();
 
         $originalTags = new ArrayCollection();
 
         // Create an ArrayCollection of the current Tag objects in the database
-        foreach ($order->getWorkerorders() as $workerorders) {
+        foreach ($orders->getWorkerorders() as $workerorders) {
             $originalTags->add($workerorders);
+        }
+
+
+        $step = 0;
+
+
+        foreach ($orders->getWorkerorders() as $order) {
+
+            $workerId[$step] = $order->getWorkers()->getId();
+            $worker[$step] = array(
+                "id" => $order->getWorkers()->getId(),
+                "name" => $order->getWorkers()->getName(),
+                "salary" => $order->getSalary()
+            );
+            $step++;
+
+        }
+
+
+        foreach ($orders->getManagerorders() as $order) {
+            if ($order->getWorkers()) {
+                $workerId[$step] = $order->getWorkers()->getId();
+                $worker[$step] = array(
+                    "id" => $order->getWorkers()->getId(),
+                    "name" => $order->getWorkers()->getName(),
+                    "salary" => $order->getOpenprice() + $order->getCloseprice()
+                );
+                $step++;
+            }
+        }
+
+
+        $workerId = array_unique($workerId);
+        $workerCart = [];
+
+        $step = 0;
+        foreach ($workerId as $w_id) {
+            $workerCart[$step] = array(
+                'id' => $w_id,
+                'name' => null,
+                'salary' => null,
+            );
+            foreach ($worker as $cart) {
+                if ($w_id == $cart['id']) {
+                    $workerCart[$step]['name'] = $cart['name'];
+                    $workerCart[$step]['salary'] += round($cart['salary'], 1);
+                }
+            }
+            $step++;
         }
 
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -390,7 +439,8 @@ class OrdersController extends Controller
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
         return $this->render('orders/show.html.twig', array(
-            'order' => $order,
+            'order' => $orders,
+            'workerCart' => $workerCart,
             'delete_form' => $deleteForm->createView(),
             'tables' => $tableName,
             'workerorders' => $originalTags,
