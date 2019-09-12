@@ -415,7 +415,7 @@ $(document).ready(function(){
 
 
     $('a[data-toggl]').on('click', function(){
-        checkContentPrint($(this).attr('data-toggle'));
+        checkContentPrint($(this).attr('data-toggl'));
     });
 
 });
