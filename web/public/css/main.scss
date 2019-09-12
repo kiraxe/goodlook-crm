@@ -75,6 +75,15 @@ label[for$="services_free"] {
 b {
    font-family: 'GilroyBold';
 }
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255,255,255,1);
+}
+
+.bg-dark {
+  background-color: #000000!important;
+}
+
 body {
    @extend  %main;
        main {
