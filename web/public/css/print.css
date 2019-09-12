@@ -1,4 +1,4 @@
-@font-face {
+/*@font-face {
     font-family: 'GilroyLight';
     src: url('../fonts/Gilroy-Light.eot');
     src: local('../fonts/Gilroy Light'), local('../fonts/Gilroy-Light'),
@@ -66,7 +66,7 @@
     url('../fonts/Gilroy-ExtraBold.ttf') format('truetype');
     font-weight: 900;
     font-style: normal;
-}
+}*/
 body {
     overflow-x: visible;
     overflow-y: visible;
@@ -80,16 +80,16 @@ main {
 
 .workorder {
     color: #000;
-    font-family: 'GilroyRegular';
+    /*font-family: 'GilroyRegular';*/
     width: 1000px;
     margin: 0 auto;
 }
 .workorder p {
     margin: 0;
-    font-family: 'GilroyRegular';
+    /*font-family: 'GilroyRegular';*/
 }
 .workorder b {
-    font-family: 'GilroyBold';
+    /*font-family: 'GilroyBold';*/
 }
 .workorder table {
     width: 100%;

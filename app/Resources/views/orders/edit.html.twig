@@ -49,10 +49,10 @@
                         <div class="formItem" style="display: none;">{{ form_row(edit_form.close, {'attr': {'checked': 'checked'}}) }}</div>
                     {% endif %}
                     <div class="formItem">
-                        <a data-toggle="2" style="margin-top: 20px; display: block;" href='#' onclick="window.checkContentPrint(this.getAttribute('data-toggle'));">Распечатать Наряд на работу</a>
+                        <a data-toggle="2" style="margin-top: 20px; display: block;" href='#'>Распечатать Наряд на работу</a>
                     </div>
                     <div class="formItem">
-                        <a data-toggle="1" style="margin-top: 20px; display: block;" href='#' onclick="window.checkContentPrint(this.getAttribute('data-toggle'));">Распечатать Заказ-наряд</a>
+                        <a data-toggle="1" style="margin-top: 20px; display: block;" href='#'>Распечатать Заказ-наряд</a>
                     </div>
                     <div class="formItem form-button">
                         <ul>
@@ -315,7 +315,7 @@
         </table>
     </div>
     <script type="text/javascript">
-        function checkContentPrint(val) {
+        /*function checkContentPrint(val) {
             var element = document.querySelectorAll(".workorder");
             if (val == 1) {
                 element[0].classList.add('active');
@@ -332,6 +332,6 @@
             window.print();
 
             return false;
-        }
+        }*/
     </script>
 {% endblock %}

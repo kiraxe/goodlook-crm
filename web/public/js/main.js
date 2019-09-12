@@ -393,4 +393,29 @@ $(document).ready(function(){
         }
     } );
 
+    function checkContentPrint(val) {
+
+        var element = document.querySelectorAll(".workorder");
+        if (val == 1) {
+            element[0].classList.add('active');
+            if (element[1].classList.contains('active')) {
+                element[1].classList.remove('active');
+            }
+        } else if (val == 2) {
+            element[1].classList.add('active');
+            if (element[0].classList.contains('active')) {
+                element[0].classList.remove('active');
+            }
+        }
+
+        window.print();
+
+        return false;
+    }
+
+
+    $('a[data-toggle]').on('click', function(){
+        checkContentPrint($(this).attr('data-toggle'));
+    });
+
 });
