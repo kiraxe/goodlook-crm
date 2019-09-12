@@ -2,9 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/node_modules/@fullcalendar/interaction/main.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@fullcalendar/interaction/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@fullcalendar/list/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@fullcalendar/list/main.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@fullcalendar/list/main.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@fullcalendar/list/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@fullcalendar/timegrid/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@fullcalendar/timegrid/main.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@fullcalendar/timegrid/main.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@fullcalendar/timegrid/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/services/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/services/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@fullcalendar/core/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@fullcalendar/core/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@fullcalendar/daygrid/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@fullcalendar/daygrid/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ServicesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ServicesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/css/main.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -210,7 +227,9 @@
       <workItem from="1567753867687" duration="28186000" />
       <workItem from="1568099875527" duration="626000" />
       <workItem from="1568102693774" duration="16168000" />
-      <workItem from="1568185824862" duration="3561000" />
+      <workItem from="1568185824862" duration="4194000" />
+      <workItem from="1568205936547" duration="5036000" />
+      <workItem from="1568272275714" duration="697000" />
     </task>
     <task id="LOCAL-00001" summary="goodlook-crm first commit">
       <created>1567514895974</created>
@@ -527,7 +546,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568130636956</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="goodlook-crm first commit">
+      <created>1568189438566</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1568189438566</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
