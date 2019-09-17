@@ -22,7 +22,13 @@
                 <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/">Главная</a></li>
                 {% if tables %}
                     {% for key, table in tables %}
-                        <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{table}}</a></li>
+                        {% if is_granted('ROLE_SUPER_ADMIN') %}
+                            <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{table}}</a></li>
+                        {% else %}
+                            {% if key != "workers" and key != "expenses"%}
+                                <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{table}}</a></li>
+                            {% endif %}
+                        {% endif  %}
                     {% endfor %}
                 {% endif %}
                 <li class="nav-item">
@@ -43,24 +49,26 @@
                         {% endif %}
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a
-                            class="nav-link nav-link-collapse"
-                            href="#"
-                            id="hasSubItems"
-                            data-toggle="collapse"
-                            data-target="#collapseSubItems4"
-                            aria-controls="collapseSubItems4"
-                            aria-expanded="false"
-                    >Настройки <i class="fas fa-angle-right"></i></a>
-                    <ul class="nav-second-level collapse" id="collapseSubItems4" data-parent="#navAccordion">
-                        {% if tables %}
-                            {% for key, tableSettingsName in tableSettingsName %}
-                                <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{tableSettingsName}}</a></li>
-                            {% endfor %}
-                        {% endif %}
-                    </ul>
-                </li>
+                {% if is_granted('ROLE_SUPER_ADMIN') %}
+                    <li class="nav-item">
+                        <a
+                                class="nav-link nav-link-collapse"
+                                href="#"
+                                id="hasSubItems"
+                                data-toggle="collapse"
+                                data-target="#collapseSubItems4"
+                                aria-controls="collapseSubItems4"
+                                aria-expanded="false"
+                        >Настройки <i class="fas fa-angle-right"></i></a>
+                        <ul class="nav-second-level collapse" id="collapseSubItems4" data-parent="#navAccordion">
+                            {% if tables %}
+                                {% for key, tableSettingsName in tableSettingsName %}
+                                    <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{tableSettingsName}}</a></li>
+                                {% endfor %}
+                            {% endif %}
+                        </ul>
+                    </li>
+                {% endif %}
             </ul>
         </div>
         <div class="logout"><span>Привет,{{ user.username }}</span> <a class="btn btn-light" href="{{ path('kiraxe_admin_crm_logout') }}">Выход</a></div>

@@ -356,7 +356,40 @@ $(document).ready(function(){
 
     changeManagerType(valueSelectTypeWorker);
 
+    /*$( function() {
+        var dateFormat = "yy-mm-dd",
+            from = $( "#kiraxe_admincrmbundle_calendar_date" )
+                .datepicker({
+                    defaultDate: "+1w",
+                    changeMonth: true,
+                    dateFormat: dateFormat,
+                    numberOfMonths: 1
+                })
+                .on( "change", function() {
+                    to.datepicker( "option", "minDate", getDate( this ) );
+                }),
+            to = $( "#kiraxe_admincrmbundle_calendar_datecl" )
+                .datepicker({
+                    defaultDate: "+1w",
+                    changeMonth: true,
+                    dateFormat: dateFormat,
+                    numberOfMonths: 1
+                })
+                .on( "change", function() {
+                    from.datepicker( "option", "maxDate", getDate( this ) );
+                });
 
+        function getDate( element ) {
+            var date;
+            try {
+                date = $.datepicker.parseDate( dateFormat, element.value );
+            } catch( error ) {
+                date = null;
+            }
+
+            return date;
+        }
+    } );*/
 
     $( function() {
         var dateFormat = "yy-mm-dd",
@@ -413,9 +446,34 @@ $(document).ready(function(){
         return false;
     }
 
-
     $('a[data-toggl]').on('click', function(){
         checkContentPrint($(this).attr('data-toggl'));
     });
+
+    $( function() {
+        $( "#dialog" ).dialog({
+            autoOpen: false,
+            width: 330
+        });
+
+        $( "#opener" ).on( "click", function() {
+            $( "#dialog" ).dialog( "open" );
+        });
+    } );
+
+    $('form[name="kiraxe_admincrmbundle_orders"]').submit(function(){
+        if ($('#kiraxe_admincrmbundle_orders_close').prop('checked')) {
+            var dateClose = $('#kiraxe_admincrmbundle_orders_dateClose_date').val();
+            var timeClose = $('#kiraxe_admincrmbundle_orders_dateClose_time').val();
+            var datePayment = $('#kiraxe_admincrmbundle_orders_datePayment_date').val();
+            var timePayment = $('#kiraxe_admincrmbundle_orders_datePayment_time').val();
+
+            if (dateClose == "" || timeClose == "" || datePayment == "" || timePayment == "") {
+                alert('Запоните поля "Дата и время закрытия" и "Дата и время оплаты"');
+                return false;
+            }
+        }
+
+    })
 
 });

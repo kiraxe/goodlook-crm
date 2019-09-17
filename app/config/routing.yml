@@ -30,6 +30,11 @@ kiraxe_admin_crm_model:
     type:     annotation
     methods:  [GET, POST]
 
+kiraxe_admin_crm_calendar:
+    resource: "@kiraxeAdminCrmBundle/Controller/CalendarController.php"
+    type:     annotation
+    methods:  [GET, POST]
+
 kiraxe_admin_crm_logout:
     path: /logout
 

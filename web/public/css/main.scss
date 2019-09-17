@@ -3,6 +3,10 @@
 @import "media.scss";
 @import '../../../node_modules/@fullcalendar/core/main.css';
 @import '../../../node_modules/@fullcalendar/daygrid/main.css';
+@import '../../../node_modules/@fullcalendar/core/main.css';
+@import '../../../node_modules/@fullcalendar/daygrid/main.css';
+@import '../../../node_modules/@fullcalendar/timegrid/main.css';
+
 
 
 %padding-margin-zero {
@@ -76,12 +80,38 @@ b {
    font-family: 'GilroyBold';
 }
 
+.fc-time,
+.fc-title {
+    color: #fff;
+}
+
 .navbar-dark .navbar-nav .nav-link {
   color: rgba(255,255,255,1);
 }
 
 .bg-dark {
   background-color: #000000!important;
+}
+
+#dialog {
+  ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+  }
+  .form-button-edit,
+  .form-button-new {
+      display: none;
+     ul {
+        li {
+          display: inline-block;
+        }
+     }
+  }
+  .form-button-edit.active,
+  .form-button-new.active {
+      display: block;
+  }
 }
 
 body {
@@ -171,6 +201,7 @@ body {
 
                   #index {
                       ul {
+                          list-style-type: none;
                           li {
                             @extend %inline-block;
                           }

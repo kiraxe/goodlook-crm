@@ -1,9 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="goodlook-crm first commit">
+    <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/calendar/ajaxdeletform.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/calendar/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/calendar/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/calendar/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/calendar/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/CalendarController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Entity/Calendar.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/CalendarType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Repository/CalendarRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Resources/config/routing/calendar.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Tests/Controller/CalendarControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/build/images/ui-icons_444444_256x240.d10bc070.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/build/images/ui-icons_555555_256x240.00dd0ec0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/build/images/ui-icons_777620_256x240.4e7e3e14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/build/images/ui-icons_777777_256x240.40bf2579.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/build/images/ui-icons_cc0000_256x240.093a8191.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/build/images/ui-icons_ffffff_256x240.ea4ebe07.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/js/cldr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom.rar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/user/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/user/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/user/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/user/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/security.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/security.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/BodyTypeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/BodyTypeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/BrandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/BrandController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ExpensesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ExpensesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/MaterialsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/MaterialsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/MeasureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/MeasureController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ModelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ModelController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/OrdersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/OrdersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ServicesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ServicesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/WorkersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/WorkersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/OrdersType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/OrdersType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/UserType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/images/ui-icons_444444_256x240.f4ebe485.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/images/ui-icons_555555_256x240.d70c49a1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/images/ui-icons_777620_256x240.03c85664.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/images/ui-icons_777777_256x240.6d28e77d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/images/ui-icons_cc0000_256x240.bd6996f9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/images/ui-icons_ffffff_256x240.e33c878c.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/css/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/images/ui-icons_444444_256x240.png" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/images/ui-icons_444444_256x240.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/images/ui-icons_555555_256x240.png" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/images/ui-icons_555555_256x240.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/images/ui-icons_777620_256x240.png" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/images/ui-icons_777620_256x240.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/images/ui-icons_777777_256x240.png" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/images/ui-icons_777777_256x240.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/images/ui-icons_cc0000_256x240.png" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/images/ui-icons_cc0000_256x240.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/images/ui-icons_ffffff_256x240.png" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/images/ui-icons_ffffff_256x240.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.structure.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.structure.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.structure.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.structure.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.theme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.theme.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.theme.min.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,10 +101,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package.json" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="Sass File" />
         <option value="SCSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -211,14 +277,11 @@
       <workItem from="1568102693774" duration="16168000" />
       <workItem from="1568185824862" duration="4194000" />
       <workItem from="1568205936547" duration="5036000" />
-      <workItem from="1568272275714" duration="16885000" />
-    </task>
-    <task id="LOCAL-00010" summary="goodlook-crm first commit">
-      <created>1567523704115</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1567523704115</updated>
+      <workItem from="1568272275714" duration="26485000" />
+      <workItem from="1568357439760" duration="28867000" />
+      <workItem from="1568618282462" duration="119000" />
+      <workItem from="1568618504956" duration="24470000" />
+      <workItem from="1568704202747" duration="4360000" />
     </task>
     <task id="LOCAL-00011" summary="goodlook-crm first commit">
       <created>1567601617232</created>
@@ -556,7 +619,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568294753608</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="goodlook-crm first commit">
+      <created>1568294980463</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1568294980463</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -586,7 +656,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/MaterialsController.php</url>
-          <line>206</line>
+          <line>210</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

@@ -108,7 +108,7 @@ class OrdersType extends AbstractType
                     return $bodyType->createQueryBuilder('b');
                 },
                 'label' => 'Тип кузова',
-                'required' => false,
+                'required' => true,
                 'placeholder' => 'Выберите тип кузова',
                 'empty_data' => null,
             ])

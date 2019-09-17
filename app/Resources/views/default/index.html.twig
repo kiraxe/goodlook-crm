@@ -25,20 +25,24 @@
                             <tr>
                                 <th>Общая сумма</th>
                                 <th>Общая зарплата</th>
-                                <th>Расход</th>
-                                <th>Выручка-зп-экв</th>
-                                <th>Выручка-зп-матириалы-экв</th>
-                                <th>Чистая прибль</th>
+                                {% if is_granted('ROLE_SUPER_ADMIN') %}
+                                    <th>Расход</th>
+                                    <th>Выручка-зп-экв</th>
+                                    <th>Выручка-зп-матириалы-экв</th>
+                                    <th>Чистая прибль</th>
+                                {% endif %}
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>{{ price }}</td>
                                 <td>{{ salary }}</td>
-                                <td>{{ totalExpenses }}</td>
-                                <td>{{ earnings }}</td>
-                                <td>{{ earningsOne }}</td>
-                                <td>{{ earningsSecond }}</td>
+                                {% if is_granted('ROLE_SUPER_ADMIN') %}
+                                    <td>{{ totalExpenses }}</td>
+                                    <td>{{ earnings }}</td>
+                                    <td>{{ earningsOne }}</td>
+                                    <td>{{ earningsSecond }}</td>
+                                {% endif %}
                             </tr>
                         </tbody>
                     </table>
@@ -65,20 +69,19 @@
                             {% endif %}
                         </tbody>
                     </table>
-                    <table class="table table-bordered">
-                        <thead class="thead-dark">
-                        <tr>
-                            <th>Сумма экваринга</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <td>{{ interestpayments }}</td>
-                        </tbody>
-                    </table>
+                    {% if is_granted('ROLE_SUPER_ADMIN') %}
+                        <table class="table table-bordered">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th>Сумма экваринга</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <td>{{ interestpayments }}</td>
+                            </tbody>
+                        </table>
+                    {% endif %}
                 </div>
-            </div>
-            <div class="row">
-                <div id="calendar"></div>
             </div>
         </div>
     </div>

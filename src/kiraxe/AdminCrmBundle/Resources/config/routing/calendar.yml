@@ -1,0 +1,31 @@
+calendar_index:
+    path:     /
+    defaults: { _controller: "kiraxeAdminCrmBundle:Calendar:index" }
+    methods:  [GET, POST]
+
+calendar_show:
+    path:     /{id}/show
+    defaults: { _controller: "kiraxeAdminCrmBundle:Calendar:show" }
+    methods:  [GET, POST]
+
+calendar_new:
+    path:     /new
+    defaults: { _controller: "kiraxeAdminCrmBundle:Calendar:new" }
+    methods:  [GET, POST]
+
+calendar_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "kiraxeAdminCrmBundle:Calendar:edit" }
+    methods:  [GET, POST]
+
+calendar_ajaxdeletform:
+    path:     /ajaxdeletform
+    defaults: { _controller: "kiraxeAdminCrmBundle:Calendar:ajaxdeletform" }
+    options:
+        expose: true
+    methods:  [GET, POST]
+
+calendar_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "kiraxeAdminCrmBundle:Calendar:delete" }
+    methods:  DELETE

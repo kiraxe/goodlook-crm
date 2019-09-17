@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div id="index">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Календарь</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div id="calendar" class="col-md-12"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div style="display: none;"id="dialog" title="Basic dialog">
+                        {{ form_start(form) }}
+                        <div class="formItem">{{ form_row(form.id) }}</div>
+                        <div class="formItem">{{ form_row(form.name) }}</div>
+                        <div class="formItem">{{ form_row(form.phone) }}</div>
+                        <div class="formItem">{{ form_row(form.date) }}</div>
+                        <div class="formItem">{{ form_row(form.datecl) }}</div>
+                        <div class="formItem">{{ form_row(form.text) }}</div>
+                        <div class="formItem form-button form-button-new active">
+                            <ul>
+                                <li><input style="margin-top: 20px;" class="btn btn-success" type="submit" value="Создать" /></li>
+                            </ul>
+                        </div>
+                        <div class="formItem form-button form-button-edit">
+                            <ul>
+                                <li><input style="margin-top: 20px;" class="btn btn-success" type="submit" value="Сохранить" /></li>
+                                <li class='buttonDelete'><input style="margin-top: 20px;" class="btn btn-danger" type="submit" value="Удалить"></li>
+                            </ul>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                    <ul style="list-style-type: none; margin:0 0 20px 0; padding:0;">
+                        <li>
+                            <a id="opener" style="cursor:pointer; color: #ffffff; display:inline-block; margin-top: 20px;" class="btn btn-primary">Создать заметку</a>
+                        </li>
+                        <li>
+                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('kiraxe_admin_crm_homepage') }}">Назад</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Text</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for calendar in calendar %}
+            <tr>
+                <td><a href="{{ path('calendar_show', { 'id': calendar.id }) }}">{{ calendar.id }}</a></td>
+                <td>{{ calendar.name }}</td>
+                <td>{{ calendar.phone }}</td>
+                <td>{{ calendar.text }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('calendar_show', { 'id': calendar.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('calendar_edit', { 'id': calendar.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('calendar_new') }}">Create a new calendar</a>
+        </li>
+    </ul>-->
+    <script>
+        var notes = '{{ calendars|json_encode(constant('JSON_UNESCAPED_UNICODE'))|raw }}';
+    </script>
+{% endblock %}
