@@ -18,7 +18,7 @@
                     <div class="formItem">{{ form_row(edit_form.name) }}</div>
                     <div class="formItem">{{ form_row(edit_form.brandId) }}</div>
                     <div class="formItem">{{ form_row(edit_form.carId) }}</div>
-                    <div class="formItem">{{ form_row(edit_form.bodyId) }}</div>
+                    <div class="formItem">{% if edit_form.bodyId %}{{ form_row(edit_form.bodyId) }}{% endif %}</div>
                     <div class="formItem">{{ form_row(edit_form.color) }}</div>
                     <div class="formItem">{{ form_row(edit_form.number) }}</div>
                     <div class="formItem">{{ form_row(edit_form.vin) }}</div>
