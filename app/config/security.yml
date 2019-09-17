@@ -42,5 +42,5 @@ security:
                 target: /login
     access_control:
         # require ROLE_ADMIN for /admin*
-        - { path: ^/admin, roles: ROLE_ADMIN }
+        #- { path: ^/admin, roles: ROLE_ADMIN }
         #- { path: ^/admin, roles: ROLE_SUPER_ADMIN }

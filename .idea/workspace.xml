@@ -215,14 +215,7 @@
       <workItem from="1568357439760" duration="28867000" />
       <workItem from="1568618282462" duration="119000" />
       <workItem from="1568618504956" duration="24470000" />
-      <workItem from="1568704202747" duration="4985000" />
-    </task>
-    <task id="LOCAL-00012" summary="goodlook-crm first commit">
-      <created>1567602871437</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1567602871437</updated>
+      <workItem from="1568704202747" duration="5088000" />
     </task>
     <task id="LOCAL-00013" summary="goodlook-crm first commit">
       <created>1567603206903</created>
@@ -560,7 +553,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568708734606</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="goodlook-crm first commit">
+      <created>1568709225995</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1568709225995</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
