@@ -21,7 +21,7 @@ class MaterialsController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $materials = $em->getRepository('kiraxeAdminCrmBundle:Materials')->findAll();
+        $materials = $em->getRepository('kiraxeAdminCrmBundle:Materials')->findBy(array(), array('name' => 'ASC'));
 
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
