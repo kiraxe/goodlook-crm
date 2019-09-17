@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/orders/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/orders/edit.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -216,14 +215,7 @@
       <workItem from="1568618282462" duration="119000" />
       <workItem from="1568618504956" duration="24470000" />
       <workItem from="1568704202747" duration="7901000" />
-      <workItem from="1568722729710" duration="138000" />
-    </task>
-    <task id="LOCAL-00016" summary="goodlook-crm first commit">
-      <created>1567604581537</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1567604581537</updated>
+      <workItem from="1568722729710" duration="345000" />
     </task>
     <task id="LOCAL-00017" summary="goodlook-crm first commit">
       <created>1567605078883</created>
@@ -561,7 +553,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568711531576</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="goodlook-crm first commit">
+      <created>1568722879186</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1568722879187</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
