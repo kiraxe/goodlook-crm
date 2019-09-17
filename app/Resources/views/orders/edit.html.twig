@@ -111,7 +111,7 @@
                 </td>
                 <td style="vertical-align: top;">
                     <p>Марка и модель: <span style="border-bottom: 1px solid #000;">{{ order.brandId.name }} {{ order.carId.name }}</span></p>
-                    <p>Тип кузова: <span style="border-bottom: 1px solid #000;">{% if order.bodyId.name %}{{ order.bodyId.name }}{% endif %}</span></p>
+                    <p>Тип кузова: <span style="border-bottom: 1px solid #000;">{% if order.bodyId %}{{ order.bodyId.name }}{% endif %}</span></p>
                     <p>Цвет: <span style="border-bottom: 1px solid #000;">{{ order.color}}</span></p>
                     <p>Гос. <span style="border-bottom: 1px solid #000;">{{ order.number }}</span></p>
                     <p>VIN: <span style="border-bottom: 1px solid #000;">{{ order.vin }}</span></p>
@@ -219,7 +219,7 @@
                 </td>
                 <td style="vertical-align: top;">
                     <p>Марка и модель: <span style="border-bottom: 1px solid #000;">{{ order.brandId.name }} {{ order.carId.name }}</span></p>
-                    <p>Тип кузова: <span style="border-bottom: 1px solid #000;">{{ order.bodyId.name }}</span></p>
+                    <p>Тип кузова: <span style="border-bottom: 1px solid #000;">{% if order.bodyId %}{{ order.bodyId.name }}{% endif %}</span></p>
                     <p>Цвет: <span style="border-bottom: 1px solid #000;">{{ order.color }}</span></p>
                     <p>Гос. <span style="border-bottom: 1px solid #000;">{{ order.number }}</span></p>
                     <p>VIN: <span style="border-bottom: 1px solid #000;">{{ order.vin }}</span></p>
