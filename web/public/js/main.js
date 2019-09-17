@@ -452,6 +452,7 @@ $(document).ready(function(){
 
     $( function() {
         $( "#dialog" ).dialog({
+            title: "Создать заметку",
             autoOpen: false,
             width: 330
         });

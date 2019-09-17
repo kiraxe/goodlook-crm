@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         locale: 'ru',
         events: result,
         eventLimit: true,
+        eventLimitText: 'больше',
         eventColor: "black",
         buttonText: {
             today: "Сегодня",
@@ -51,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
             $( function() {
 
                 $( "#dialog" ).dialog({
+                    title: "Создать заметку",
                     autoOpen: false,
                     width: 330
                 });
@@ -102,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
             $( function() {
 
                 $( "#dialog" ).dialog({
+                    title: "Редактировать заметку",
                     autoOpen: false,
                     width: 330
                 });
