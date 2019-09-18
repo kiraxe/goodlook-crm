@@ -56,9 +56,9 @@ class OrdersController extends Controller
             $phone = $request->query->get('form')['tel'];
 
             if ($sql == "SELECT o FROM kiraxeAdminCrmBundle:Orders o where") {
-                $sql .= ' o.phone =' . $phone;
+                $sql .= ' o.phone =' . "'" . $phone . "'";
             } else {
-                $sql .= ' and o.phone =' . $phone;
+                $sql .= ' and o.phone =' . "'" . $phone . "'";
             }
 
         }
@@ -77,9 +77,9 @@ class OrdersController extends Controller
         if (!empty($request->query->get('form')['number'])) {
             $number = $request->query->get('form')['number'];
             if ($sql == "SELECT o FROM kiraxeAdminCrmBundle:Orders o where") {
-                $sql .= ' o.number =' . $number;
+                $sql .= ' o.number =' . "'" . $number . "'";
             } else {
-                $sql .= ' and o.number =' . $number;
+                $sql .= ' and o.number =' . "'" . $number . "'";
             }
         }
 
