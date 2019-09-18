@@ -34,11 +34,17 @@
                         </tr>
                         </thead>
                         <tbody>
+                        {% set page = pagination.currentPageNumber() - 1 %}
                         {% for key ,material in pagination %}
                             <tr>
                                 <!--<td><a href="{{ path('materials_show', { 'id': material.id }) }}">{{ material.id }}</a></td>-->
                                 <td>{{ material.name }}</td>
-                                <td class="{% if material.residue < arithmeticMea[key] %}b-red{% elseif material.residue <= ((arithmeticMea[key] / 3) + arithmeticMea[key]) and material.residue > arithmeticMea[key] %}b-yellow{% else %}b-green{% endif %}">{{ material.residue }} {{ material.measureId.getName() }} </td>
+                                {% if page > 0 %}
+                                    {% set index =  page ~ key %}
+                                    <td class="{% if material.residue < arithmeticMea[index] %}b-red{% elseif material.residue <= ((arithmeticMea[index] / 3) + arithmeticMea[index]) and material.residue > arithmeticMea[index] %}b-yellow{% else %}b-green{% endif %}">{{ material.residue }} {{ material.measureId.getName() }}</td>
+                                {% else %}
+                                    <td class="{% if material.residue < arithmeticMea[key] %}b-red{% elseif material.residue <= ((arithmeticMea[key] / 3) + arithmeticMea[key]) and material.residue > arithmeticMea[key] %}b-yellow{% else %}b-green{% endif %}">{{ material.residue }} {{ material.measureId.getName() }}</td>
+                                {% endif %}
                                 <td>{{ material.pricepackage }}</td>
                                 <!--<td>{{ material.serviceId.name }}</td>-->
                                 <td>{{ material.priceUnit }}</td>

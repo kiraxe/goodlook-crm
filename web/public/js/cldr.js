@@ -13,8 +13,9 @@ document.addEventListener('DOMContentLoaded', function() {
         return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2) + " " + ('0' + d.getHours()).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2);
     }
 
-
-    var result = JSON.parse(notes);
+    if (typeof notes != "undefined") {
+        var result = JSON.parse(notes);
+    }
 
     var calendar = new Calendar(calendarEl, {
         plugins: [ dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin ],

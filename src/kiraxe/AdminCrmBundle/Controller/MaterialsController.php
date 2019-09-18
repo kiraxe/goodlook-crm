@@ -47,7 +47,7 @@ class MaterialsController extends Controller
 
             for($i = 0; $i < count($materials); $i++) {
                 $deleteForm[$materials[$i]->getName()] = $this->createDeleteForm($materials[$i])->createView();
-                $arithmeticMean[$i] = $materials[$i]->getQuantitypack() / 2;
+                $arithmeticMean[$i] = $materials[$i]->getTotalsize() / 2;
 
                 $workerorders = $em->createQuery(
                     'SELECT w FROM kiraxeAdminCrmBundle:WorkerOrders w where w.materials ='. $materials[$i]->getId()
@@ -78,7 +78,6 @@ class MaterialsController extends Controller
             $request->query->getInt('page', 1), /*page number*/
             10 /*limit per page*/
         );
-
 
         return $this->render('materials/index.html.twig', array(
             'materials' => $materials,

@@ -166,12 +166,12 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <p><b>Комплектность ДТС, ценные вещи, которые в нем находятся:</b> {{ order.description }}</p>
+                    <p><b>Комплектность ДТС, ценные вещи, которые в нем находятся:</b> {% if order.description %}{{ order.description }}{% endif %}</p>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <p><b>При приеме ДТС имеет следующие повреждения:</b> {{ order.damages }}</p>
+                    <p><b>При приеме ДТС имеет следующие повреждения:</b> {% if order.damages %}{{ order.damages }}{% endif %}</p>
                 </td>
             </tr>
             </tbody>
@@ -292,12 +292,12 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <p><b>Комплектность ДТС, ценные вещи, которые в нем находятся:</b> {{ order.description }}</p>
+                    <p><b>Комплектность ДТС, ценные вещи, которые в нем находятся:</b> {% if order.description %}{{ order.description }}{% endif %}</p>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <p><b>При приеме ДТС имеет следующие повреждения:</b> {{ order.damages }}</p>
+                    <p><b>При приеме ДТС имеет следующие повреждения:</b> {% if order.damages %}{{ order.damages }}{% endif %}</p>
                 </td>
             </tr>
             </tbody>
