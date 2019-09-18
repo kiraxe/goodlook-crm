@@ -66,9 +66,7 @@ $(document).ready(function(){
         })
     });
 
-
-
-    $(window).on('load', function(){
+    $(function(){
         var id = $('select[id$="workers"]').val();
         var url = Routing.generate('orders_ajax');
         var sibling = $('select[id$="workers"]');
@@ -223,7 +221,7 @@ $(document).ready(function(){
 
 
 
-    $(window).on('load', function(){
+    $(function(){
         var id = $('select[id$="servicesparent"]').val();
         var url = Routing.generate('orders_ajax');
         var sibling = $('select[id$="servicesparent"]');
@@ -359,7 +357,7 @@ $(document).ready(function(){
     })
 
 
-    $(window).on('load', function(){
+    $(function(){
         var id = $('#kiraxe_admincrmbundle_orders_brandId').val();
         var url = Routing.generate('orders_ajaxmodel');
         $.ajax({
