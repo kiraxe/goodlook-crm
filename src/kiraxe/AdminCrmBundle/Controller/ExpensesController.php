@@ -122,7 +122,8 @@ class ExpensesController extends Controller
         $form->handleRequest($request);
         $em = $this->getDoctrine()->getManager();
 
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $hasAccess = $this->isGranted('ROLE_SUPER_ADMIN');
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, "Вам доступ запрещен");
         $user = $this->getUser();
         $tableName = [];
         $tableSettingsName = [];
@@ -165,7 +166,8 @@ class ExpensesController extends Controller
         $deleteForm = $this->createDeleteForm($expense);
 
         $em = $this->getDoctrine()->getManager();
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $hasAccess = $this->isGranted('ROLE_SUPER_ADMIN');
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, "Вам доступ запрещен");
         $user = $this->getUser();
         $tableName = [];
         $tableSettingsName = [];
@@ -209,7 +211,8 @@ class ExpensesController extends Controller
             return $this->redirectToRoute('expenses_edit', array('id' => $expense->getId()));
         }
 
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $hasAccess = $this->isGranted('ROLE_SUPER_ADMIN');
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, "Вам доступ запрещен");
         $user = $this->getUser();
         $tableName = [];
         $tableSettingsName = [];
