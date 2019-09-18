@@ -47,7 +47,7 @@ class MaterialsController extends Controller
 
             for($i = 0; $i < count($materials); $i++) {
                 $deleteForm[$materials[$i]->getName()] = $this->createDeleteForm($materials[$i])->createView();
-                $arithmeticMean[$i] = $materials[$i]->getTotalsize() / 2;
+                $arithmeticMean[$i] = $materials[$i]->getQuantitypack() / 2;
 
                 $workerorders = $em->createQuery(
                     'SELECT w FROM kiraxeAdminCrmBundle:WorkerOrders w where w.materials ='. $materials[$i]->getId()
