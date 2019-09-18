@@ -95,7 +95,11 @@
                                                         {% if not order.close %}
                                                             <input style="margin-top: 20px; width:100%;" class="btn btn-danger" type="submit" value="Удалить">
                                                         {% else %}
-                                                            <input style="margin-top: 20px; width:100%;" class="btn btn-danger" type="submit" value="Удалить" disabled>
+                                                            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                                                                <input style="margin-top: 20px; width:100%;" class="btn btn-danger" type="submit" value="Удалить">
+                                                            {% else %}
+                                                                <input style="margin-top: 20px; width:100%;" class="btn btn-danger" type="submit" value="Удалить" disabled>
+                                                            {% endif %}
                                                         {% endif %}
                                                     {{ form_end(value) }}
                                                 {% endif %}
