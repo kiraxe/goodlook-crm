@@ -114,7 +114,7 @@ class DefaultController extends Controller
             foreach ($orders as $order) {
                 $price += $order->getPrice();
                 if ($order->getPayment() == 2) {
-                    $interestpayments += ($order->getPrice() / 100) * 2.5;
+                    $interestpayments += ($order->getPrice() / 100) * 1.85;
                 }
                 foreach ($order->getWorkerorders() as $workerorder) {
                     $salary += $workerorder->getSalary();

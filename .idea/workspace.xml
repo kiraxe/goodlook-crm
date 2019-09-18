@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/js/cldr.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/js/cldr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/css/main.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -219,14 +219,9 @@
       <workItem from="1568618504956" duration="24470000" />
       <workItem from="1568704202747" duration="7901000" />
       <workItem from="1568722729710" duration="479000" />
-      <workItem from="1568732819839" duration="524000" />
-    </task>
-    <task id="LOCAL-00019" summary="goodlook-crm first commit">
-      <created>1567606500283</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1567606500283</updated>
+      <workItem from="1568732819839" duration="1128000" />
+      <workItem from="1568791769412" duration="69000" />
+      <workItem from="1568791867724" duration="1095000" />
     </task>
     <task id="LOCAL-00020" summary="goodlook-crm first commit">
       <created>1567606703976</created>
@@ -564,7 +559,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568723168906</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="goodlook-crm first commit">
+      <created>1568733390821</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1568733390822</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
