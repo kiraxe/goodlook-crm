@@ -4,6 +4,7 @@ namespace kiraxe\AdminCrmBundle\Controller;
 
 use kiraxe\AdminCrmBundle\Entity\Expenses;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -47,6 +48,50 @@ class ExpensesController extends Controller
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
 
+
+
+
+        $sqlExpenses = "SELECT e FROM kiraxeAdminCrmBundle:Expenses e where";
+
+        if (!empty($request->query->get('form')['dateFrom']) && empty($request->query->get('form')['dateTo'])) {
+            $dateFrom = $request->query->get('form')['dateFrom'];
+            $dateFrom = str_replace("-", "", $dateFrom);
+            $sqlExpenses .= " date(e.date) =".$dateFrom;
+        }
+
+        if (empty($request->query->get('form')['dateFrom']) && !empty($request->query->get('form')['dateTo'])) {
+            $dateTo = $request->query->get('form')['dateTo'];
+            $dateTo = str_replace("-", "", $dateTo);
+            $sqlExpenses .= " date(e.date) =".$dateTo;
+        }
+
+        if (!empty($request->query->get('form')['dateFrom']) && !empty($request->query->get('form')['dateTo'])) {
+            $dateFrom = $request->query->get('form')['dateFrom'];
+            $dateTo = $request->query->get('form')['dateTo'];
+            $dateFrom = str_replace("-", "", $dateFrom);
+            $dateTo = str_replace("-", "", $dateTo);
+            $sqlExpenses .= " date(e.date) between " . $dateFrom . " and " . $dateTo;
+        }
+
+        if (!empty($request->query->get('form')['dateFrom'])) {
+            $expenses = $em->createQuery($sqlExpenses)->getResult();
+        }
+
+        $form = $this->get("form.factory")->createNamedBuilder("form")
+            ->setMethod('GET')
+            ->add('dateFrom', TextType::class ,array(
+                'label' => 'с',
+                'required' => false,
+            ))
+            ->add('dateTo', TextType::class ,array(
+                'label' => 'по',
+                'required' => false,
+            ))
+            ->getForm();
+
+
+        $form->handleRequest($request);
+
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $expenses, /* query NOT result */
@@ -56,6 +101,7 @@ class ExpensesController extends Controller
 
         return $this->render('expenses/index.html.twig', array(
             'expenses' => $expenses,
+            'form' => $form->createView(),
             'delete_form' => $deleteForm,
             'tables' => $tableName,
             'pagination' => $pagination,
@@ -174,7 +220,7 @@ class ExpensesController extends Controller
         $tableSettingsName[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
         $tableName[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
         $tableName[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
+        $tableName[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
         $tableCars = [];
         $tableCars[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
         $tableCars[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";

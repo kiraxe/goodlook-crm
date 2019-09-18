@@ -117,7 +117,11 @@
                         </li>
                         <li>
                             {{ form_start(delete_form) }}
-                            <input style="margin-top: 20px;" class="btn btn-danger" type="submit" value="Удалить">
+                            {% if not order.close %}
+                                <input style="margin-top: 20px;" class="btn btn-danger" type="submit" value="Удалить">
+                            {% else %}
+                                <input style="margin-top: 20px;" class="btn btn-danger" type="submit" value="Удалить" disabled>
+                            {% endif %}
                             {{ form_end(delete_form) }}
                         </li>
                         <li>

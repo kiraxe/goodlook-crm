@@ -92,7 +92,11 @@
                                             {% for key, value in delete_form %}
                                                 {% if key == order.id %}
                                                     {{ form_start(value) }}
-                                                    <input style="margin-top: 20px; width:100%;" class="btn btn-danger" type="submit" value="Удалить">
+                                                        {% if not order.close %}
+                                                            <input style="margin-top: 20px; width:100%;" class="btn btn-danger" type="submit" value="Удалить">
+                                                        {% else %}
+                                                            <input style="margin-top: 20px; width:100%;" class="btn btn-danger" type="submit" value="Удалить" disabled>
+                                                        {% endif %}
                                                     {{ form_end(value) }}
                                                 {% endif %}
                                             {% endfor %}
