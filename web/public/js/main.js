@@ -312,6 +312,7 @@ $(document).ready(function(){
     $(function(){
         //2. Получить элемент, к которому необходимо добавить маску
         $("#kiraxe_admincrmbundle_orders_phone").mask("+7(999) 999-9999");
+        $("#form_tel").mask("+7(999) 999-9999");
     });
 
 
