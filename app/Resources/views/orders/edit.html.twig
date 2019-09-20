@@ -135,7 +135,7 @@
                             <!--<th>Расход</th>-->
                             <th>Сумма, без НДС</th>
                         </tr>
-                        {% for workerorder in order.workerorders  %}
+                        {% for workerorder in order.workerorders %}
                             {% set amount =  workerorder.amountOfMaterial + workerorder.marriage  %}
                             <tr>
                                 <td>{{ loop.index }}</td>
