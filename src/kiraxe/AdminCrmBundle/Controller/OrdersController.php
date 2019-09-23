@@ -844,27 +844,31 @@ class OrdersController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         if ($request->get('idWorker') && $request->get('idWorker') != "") {
+
             $id = $request->get('idWorker');
             $workerservice = $em->createQuery(
-                'SELECT w FROM kiraxeAdminCrmBundle:WorkerService w where w.workers ='. $id
+                'SELECT w FROM kiraxeAdminCrmBundle:WorkerService w where w.workers in (' . implode(',', $id) . ')'
             )->getResult();
             $step = 0;
-            foreach($workerservice as $workerservice) {
+            foreach ($workerservice as $workerservice) {
                 $result['workerservice'][$step] = array(
-                  'id' => $workerservice->getServices()->getId(),
+                    'worker_id' => $workerservice->getWorkers()->getId(),
+                    'service_id' => $workerservice->getServices()->getId(),
                 );
                 $step++;
             }
+
 
 
             if($result['workerservice']) {
                 $step = 0;
                 foreach ($result['workerservice'] as $service) {
                     $services_parent = $em->createQuery(
-                        'SELECT sp FROM kiraxeAdminCrmBundle:Services sp where sp.id =' . $service['id']
+                        'SELECT sp FROM kiraxeAdminCrmBundle:Services sp where sp.id =' . $service['service_id']
                     )->getResult();
                     foreach ($services_parent as $parent) {
                         $output['parent'][$step] = array(
+                            'worker_id' => $service['worker_id'],
                             'id' => $parent->getId(),
                             'name' => $parent->getName(),
                         );
@@ -875,19 +879,21 @@ class OrdersController extends Controller
         }
 
         if ($request->get('idSelect') && $request->get('idSelect') != "") {
+
             $id = $request->get('idSelect');
             $services = $em->createQuery(
-                'SELECT s FROM kiraxeAdminCrmBundle:Services s where s.parent =' . $id
+                'SELECT s FROM kiraxeAdminCrmBundle:Services s where s.parent in (' . implode(',', $id) . ')' . 'ORDER BY s.parent ASC'
             )->getResult();
 
             $materials = $em->createQuery(
-                'SELECT m FROM kiraxeAdminCrmBundle:Materials m where m.service =' . $id . 'and m.residue != 0 and m.residue is not null'
+                'SELECT m FROM kiraxeAdminCrmBundle:Materials m where m.service in (' . implode(',', $id) . ')' . 'and m.residue != 0 and m.residue is not null'
             )->getResult();
 
             $output = array();
             $step = 0;
             foreach ($services as $service) {
                 $output['services'][$step] = array(
+                    'parent_id' => $service->getParent()->getId(),
                     'id' => $service->getId(),
                     'name' => $service->getName(),
                     'free' => $service->getFree(),
