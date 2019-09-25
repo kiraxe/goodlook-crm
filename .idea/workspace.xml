@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="goodlook-crm first commit">
+    <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/OrdersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/OrdersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/public/build/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/public/js/ordersForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/js/ordersForm.js" afterDir="false" />
     </list>
@@ -112,7 +111,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../насонов" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -227,14 +226,9 @@
       <workItem from="1568880268512" duration="830000" />
       <workItem from="1568902669520" duration="71000" />
       <workItem from="1568964974912" duration="3954000" />
-      <workItem from="1569237974075" duration="16515000" />
-    </task>
-    <task id="LOCAL-00031" summary="goodlook-crm first commit">
-      <created>1567700757611</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1567700757611</updated>
+      <workItem from="1569237974075" duration="17070000" />
+      <workItem from="1569338964081" duration="78000" />
+      <workItem from="1569398240124" duration="964000" />
     </task>
     <task id="LOCAL-00032" summary="goodlook-crm first commit">
       <created>1567702503116</created>
@@ -572,7 +566,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568969209114</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="goodlook-crm first commit">
+      <created>1569254628750</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1569254628751</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

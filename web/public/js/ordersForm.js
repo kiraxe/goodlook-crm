@@ -153,9 +153,9 @@ $(document).ready(function(){
         var url = Routing.generate('orders_ajax');
         var sibling = $(this);
         var parent = sibling.parent().parent();
-        $('textarea[id$="free"]').val('');
-        $('input[id$="pricefr"]').val('');
-        $('input[id$="pricefr"]').attr('value', '');
+        parent.find('textarea[id$="free"]').val('');
+        parent.find('input[id$="pricefr"]').val('');
+        parent.find('input[id$="pricefr"]').attr('value', '');
         $.ajax({
             type: "POST",
             url: url,
