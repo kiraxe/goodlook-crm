@@ -49,7 +49,11 @@ class MaterialsController extends Controller
                 $deleteForm[$materials[$i]->getName()] = $this->createDeleteForm($materials[$i])->createView();
                 $arithmeticMean[$i] = $materials[$i]->getQuantitypack() / 2;
 
-                $workerorders = $em->createQuery(
+                /*$materials[$i]->setResidue($materials[$i]->getTotalsize());
+                $em->persist($materials[$i]);
+                $em->flush();
+                */
+                /*$workerorders = $em->createQuery(
                     'SELECT w FROM kiraxeAdminCrmBundle:WorkerOrders w where w.materials ='. $materials[$i]->getId()
                 )->getResult();
 
@@ -62,10 +66,10 @@ class MaterialsController extends Controller
                     foreach ($workerorders as $workerorder) {
                         $residue += $workerorder->getAmountOfMaterial() + $workerorder->getMarriage();
                     }
-                    //$materials[$i]->setResidue($materials[$i]->getTotalsize() - $residue);
+                    $materials[$i]->setResidue($materials[$i]->getTotalsize() - $residue);
                     $em->persist($materials[$i]);
                     $em->flush();
-                }
+                }*/
             }
 
         } else {
