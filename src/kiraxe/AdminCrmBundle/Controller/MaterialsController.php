@@ -62,7 +62,7 @@ class MaterialsController extends Controller
                     foreach ($workerorders as $workerorder) {
                         $residue += $workerorder->getAmountOfMaterial() + $workerorder->getMarriage();
                     }
-                    $materials[$i]->setResidue($materials[$i]->getTotalsize() - $residue);
+                    //$materials[$i]->setResidue($materials[$i]->getTotalsize() - $residue);
                     $em->persist($materials[$i]);
                     $em->flush();
                 }
@@ -72,9 +72,9 @@ class MaterialsController extends Controller
             $deleteForm = null;
         }
 
-        foreach ($materials as $material) {
+        /*foreach ($materials as $material) {
             echo $material->getResidue() . "<br/>";
-        }
+        }*/
 
 
         $paginator  = $this->get('knp_paginator');
