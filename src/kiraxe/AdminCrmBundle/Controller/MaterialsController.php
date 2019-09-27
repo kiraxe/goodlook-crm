@@ -61,10 +61,13 @@ class MaterialsController extends Controller
                 } elseif (count($workerorders) > 0) {
                     foreach ($workerorders as $workerorder) {
                         $residue += $workerorder->getAmountOfMaterial() + $workerorder->getMarriage();
+                        //echo "|(id)". $workerorder->getID() . "|(название)" . $materials[$i]->getName() . "|(Общее название)" . $materials[$i]->getTotalsize() . "|('потрачено')" . $workerorder->getAmountOfMaterial() . "|" . $workerorder->getMarriage() . '<br/>';
                     }
+
                     $materials[$i]->setResidue($materials[$i]->getTotalsize() - $residue);
                     $em->persist($materials[$i]);
                     $em->flush();
+                    $residue = 0;
                 }
             }
 
@@ -227,7 +230,7 @@ class MaterialsController extends Controller
             $em->flush();
         } elseif (count($workerorders) > 0) {
             foreach ($workerorders as $workerorder) {
-                $residue += $workerorder->getAmountOfMaterial() + $workerorder->getMarriage();;
+                $residue += $workerorder->getAmountOfMaterial() + $workerorder->getMarriage();
             }
             $material->setResidue($material->getTotalsize() - $residue);
             $em->persist($material);
