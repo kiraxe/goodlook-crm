@@ -228,14 +228,7 @@
       <workItem from="1569237974075" duration="17070000" />
       <workItem from="1569338964081" duration="78000" />
       <workItem from="1569398240124" duration="1072000" />
-      <workItem from="1569576344388" duration="4318000" />
-    </task>
-    <task id="LOCAL-00038" summary="goodlook-crm first commit">
-      <created>1567761084134</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1567761084134</updated>
+      <workItem from="1569576344388" duration="4860000" />
     </task>
     <task id="LOCAL-00039" summary="goodlook-crm first commit">
       <created>1567762639985</created>
@@ -573,7 +566,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569579708202</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="goodlook-crm first commit">
+      <created>1569583923394</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1569583923394</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -603,7 +603,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/MaterialsController.php</url>
-          <line>218</line>
+          <line>214</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
