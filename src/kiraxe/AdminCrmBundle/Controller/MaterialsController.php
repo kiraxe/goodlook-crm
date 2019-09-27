@@ -72,8 +72,10 @@ class MaterialsController extends Controller
             $deleteForm = null;
         }
 
+        foreach ($materials as $material) {
+            echo $material->getResidue() . "<br/>";
+        }
 
-        $materials = $em->getRepository('kiraxeAdminCrmBundle:Materials')->findBy(array(), array('name' => 'ASC'));
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
