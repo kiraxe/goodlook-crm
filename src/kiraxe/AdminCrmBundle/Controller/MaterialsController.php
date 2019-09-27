@@ -72,15 +72,18 @@ class MaterialsController extends Controller
             $deleteForm = null;
         }
 
+
+        $materialsUpdate = $em->getRepository('kiraxeAdminCrmBundle:Materials')->findBy(array(), array('name' => 'ASC'));
+
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
-            $materials, /* query NOT result */
+            $materialsUpdate, /* query NOT result */
             $request->query->getInt('page', 1), /*page number*/
             10 /*limit per page*/
         );
 
         return $this->render('materials/index.html.twig', array(
-            'materials' => $materials,
+            'materials' => $materialsUpdate,
             'arithmeticMea' => $arithmeticMean,
             'tables' => $tableName,
             'user' => $user,
