@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (typeof notes != "undefined") {
 
-        try {
+        //try {
             result = JSON.parse(notes);
-        } catch(e) {
-            result = notes;
-        }
+        //} catch(e) {
+            //result = notes;
+        //}
     }
 
     var calendar = new Calendar(calendarEl, {
