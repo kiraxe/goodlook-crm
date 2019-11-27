@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="">
+    <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="goodlook-crm first commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/js/cldr.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/js/cldr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/materials/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/materials/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ExpensesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ExpensesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/MaterialsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/MaterialsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/OrdersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/OrdersController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +113,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../goodlook-crm" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -229,14 +232,13 @@
       <workItem from="1569338964081" duration="78000" />
       <workItem from="1569398240124" duration="1072000" />
       <workItem from="1569576344388" duration="6600000" />
-      <workItem from="1569828271708" duration="2333000" />
-    </task>
-    <task id="LOCAL-00044" summary="goodlook-crm first commit">
-      <created>1568130202357</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1568130202357</updated>
+      <workItem from="1569828271708" duration="2988000" />
+      <workItem from="1569833233447" duration="17000" />
+      <workItem from="1570534693866" duration="36000" />
+      <workItem from="1574841253546" duration="3214000" />
+      <workItem from="1574844910899" duration="2209000" />
+      <workItem from="1574848982790" duration="563000" />
+      <workItem from="1574856024145" duration="3036000" />
     </task>
     <task id="LOCAL-00045" summary="goodlook-crm first commit">
       <created>1568130636956</created>
@@ -574,7 +576,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569830751183</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="goodlook-crm first commit">
+      <created>1569831250848</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1569831250848</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -604,7 +613,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/MaterialsController.php</url>
-          <line>217</line>
+          <line>219</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

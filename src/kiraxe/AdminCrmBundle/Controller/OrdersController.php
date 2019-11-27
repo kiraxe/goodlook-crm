@@ -68,7 +68,7 @@ class OrdersController extends Controller
             $manager = $request->query->get('form')['manager'];
 
             if ($sql == "SELECT o FROM kiraxeAdminCrmBundle:Orders o where") {
-                $sql .= ' o.workeropen =' . $manager . 'or o.workerclose =' . $manager;
+                $sql .= ' (o.workeropen =' . $manager . ' or o.workerclose =' . $manager . ")";
             } else {
                 $sql .= ' and (o.workeropen =' . $manager . " or o.workerclose =" .$manager . ")";
             }
@@ -98,6 +98,8 @@ class OrdersController extends Controller
                 $sql .= ' and o.close =' . $close;
             }
         }
+
+        print_r($sql);
 
         if (empty($request->query->get('form')['dateFrom']) && empty($request->query->get('form')['tel']) && empty($request->query->get('form')['manager']) && empty($request->query->get('form')['number']) && empty($request->query->get('form')['close'])) {
             $orders = $em->getRepository('kiraxeAdminCrmBundle:Orders')->findBy(array(), array('dateOpen' => 'DESC'));

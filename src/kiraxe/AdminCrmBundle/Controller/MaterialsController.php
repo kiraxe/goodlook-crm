@@ -200,7 +200,9 @@ class MaterialsController extends Controller
         $editForm->handleRequest($request);
 
         $em = $this->getDoctrine()->getManager();
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        //$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        //$user = $this->getUser();
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, "Вам доступ запрещен");
         $user = $this->getUser();
         $residue = 0;
         $tableName = [];

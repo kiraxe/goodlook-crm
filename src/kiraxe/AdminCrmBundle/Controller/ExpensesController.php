@@ -21,7 +21,7 @@ class ExpensesController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $expenses = $em->getRepository('kiraxeAdminCrmBundle:Expenses')->findAll();
+        $expenses = $em->getRepository('kiraxeAdminCrmBundle:Expenses')->findBy(array(),array('date' => 'DESC'));//findAll();
 
         $deleteForm = [];
 
