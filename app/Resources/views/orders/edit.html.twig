@@ -46,7 +46,11 @@
                     {% if not order.close %}
                         <div class="formItem">{{ form_row(edit_form.close) }}</div>
                     {% else %}
-                        <div class="formItem" style="display: none;">{{ form_row(edit_form.close, {'attr': {'checked': 'checked'}}) }}</div>
+                        {% if is_granted('ROLE_SUPER_ADMIN') %}
+                            <div class="formItem">{{ form_row(edit_form.close) }}</div>
+                        {% else %}
+                            <div class="formItem" style="display: none;">{{ form_row(edit_form.close, {'attr': {'checked': 'checked'}}) }}</div>
+                        {% endif %}
                     {% endif %}
                     <div class="formItem">
                         <a data-toggl="2" style="margin-top: 20px; display: block;" href='#'>Распечатать Наряд на работу</a>
@@ -60,7 +64,11 @@
                                 {% if not order.close %}
                                     <input style="margin-top: 20px;" class="btn btn-success" type="submit" value="Сохранить" />
                                 {% else %}
-                                    <input style="margin-top: 20px;" class="btn btn-success" type="submit" value="Сохранить" disabled />
+                                    {% if is_granted('ROLE_SUPER_ADMIN') %}
+                                        <input style="margin-top: 20px;" class="btn btn-success" type="submit" value="Сохранить"/>
+                                    {% else %}
+                                        <input style="margin-top: 20px;" class="btn btn-success" type="submit" value="Сохранить" disabled />
+                                    {% endif %}
                                 {% endif %}
                                 {{ form_end(edit_form) }}
                             </li>
