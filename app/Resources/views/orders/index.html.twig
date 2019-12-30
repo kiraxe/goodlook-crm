@@ -73,7 +73,7 @@
                                     {% endif %}
                                 </td>
                                 <td>{{ order.name }}</td>
-                                <td>{{ order.brandId.name }}</td>
+                                <td>{% if order.brandId  %}{{ order.brandId.name }}{% endif %}</td>
                                 <td>{{ order.carId.name }}</td>
                                 <td>{% if order.bodyId  %}{{ order.bodyId.name }}{% endif %}</td>
                                 <td>{{ order.number }}</td>
