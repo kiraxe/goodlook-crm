@@ -349,7 +349,7 @@ class OrdersController extends Controller
                 }
             }
 
-            //$clienteles = $em->getRepository('kiraxeAdminCrmBundle:Clientele')->findAll();
+            $clienteles = $em->getRepository('kiraxeAdminCrmBundle:Clientele')->findAll();
             //$orders = $em->getRepository('kiraxeAdminCrmBundle:Orders')->findAll();
 
             /*$cls = array();
