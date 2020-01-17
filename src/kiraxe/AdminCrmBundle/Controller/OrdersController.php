@@ -204,7 +204,7 @@ class OrdersController extends Controller
         $order = new Orders();
         $managerorder = new ManagerOrders();
         $managerordersecond = new ManagerOrders();
-        //$client = new Clientele();
+        $client = new Clientele();
         $form = $this->createForm('kiraxe\AdminCrmBundle\Form\OrdersType', $order);
         $form->handleRequest($request);
 
@@ -349,10 +349,10 @@ class OrdersController extends Controller
                 }
             }
 
-            $clienteles = $em->getRepository('kiraxeAdminCrmBundle:Clientele')->findAll();
-            $orders = $em->getRepository('kiraxeAdminCrmBundle:Orders')->findAll();
+            //$clienteles = $em->getRepository('kiraxeAdminCrmBundle:Clientele')->findAll();
+            //$orders = $em->getRepository('kiraxeAdminCrmBundle:Orders')->findAll();
 
-            $cls = array();
+            /*$cls = array();
 
             foreach ( $orders as $ord) {
                 $avto = $ord->getBrandId()->getName() ." ". $ord->getCarId()->getName() ." ". $ord->getBodyId()->getName() ." ". $ord->getColor();
@@ -396,22 +396,22 @@ class OrdersController extends Controller
 
                 $em->persist($client);
             }
+            */
 
 
 
+            $flug = false;
+            $avto = $order->getBrandId()->getName() ." ". $order->getCarId()->getName() ." ". $order->getBodyId()->getName() ." ". $order->getColor();
 
-            //$flug = false;
-            //$avto = $order->getBrandId()->getName() ." ". $order->getCarId()->getName() ." ". $order->getBodyId()->getName() ." ". $order->getColor();
-
-            /*foreach ($clienteles as $clientele) {
+            foreach ($clienteles as $clientele) {
                 if ($clientele->getName() == $order->getName() && $clientele->getAvto() == $avto) {
                     $flug = false;
                 } else {
                     $flug = true;
                 }
-            }*/
+            }
 
-            /*if ($flug) {
+            if ($flug) {
 
                 $client->setName($order->getName());
                 $client->setAvto($avto);
@@ -421,14 +421,14 @@ class OrdersController extends Controller
                 $client->setEmail($order->getEmail());
 
                 $em->persist($client);
-            }*/
+            }
 
 
 
             $em->persist($order);
             $em->flush();
 
-            //return $this->redirectToRoute('orders_show', array('id' => $order->getId()));
+            return $this->redirectToRoute('orders_show', array('id' => $order->getId()));
         }
 
         return $this->render('orders/new.html.twig', array(
