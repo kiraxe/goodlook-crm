@@ -32,6 +32,13 @@ orders_ajaxmodel:
         expose: true
     methods:  [GET, POST]
 
+orders_ajaxautocomplete:
+    path:     /ajaxautocomplete
+    defaults: { _controller: "kiraxeAdminCrmBundle:Orders:ajaxautocomplete" }
+    options:
+        expose: true
+    methods:  [GET, POST]
+
 orders_delete:
     path:     /{id}/delete
     defaults: { _controller: "kiraxeAdminCrmBundle:Orders:delete" }

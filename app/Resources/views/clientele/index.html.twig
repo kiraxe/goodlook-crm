@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="index">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Список клиентов</h1>
+                </div>
+                <div class="col-md-12">
+                    <ul style="list-style-type: none; margin:0 0 20px 0; padding:0;">
+                        <li>
+                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('clientele_new') }}">Создать нового клиента</a>
+                        </li>
+                        <li>
+                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('kiraxe_admin_crm_homepage') }}">Назад</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-12">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col" >Id</th>
+                            <th scope="col" >ФИО</th>
+                            <th scope="col">Авто</th>
+                            <th scope="col">Номер</th>
+                            <th scope="col">vin</th>
+                            <th scope="col">Телефон</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Действие</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for clientele in pagination %}
+                            <tr>
+                                <td><a href="{{ path('clientele_show', { 'id': clientele.id }) }}">{{ clientele.id }}</a></td>
+                                <td>{{ clientele.name }}</td>
+                                <td>{{ clientele.avto }}</td>
+                                <td>{{ clientele.number }}</td>
+                                <td>{{ clientele.vin }}</td>
+                                <td>{{ clientele.phone }}</td>
+                                <td>{{ clientele.email }}</td>
+                                <td width="20%">
+                                    <ul style="list-style-type: none; margin:0; padding:0;">
+                                        <li>
+                                            <a style="display:block; margin-top: 20px;" class="btn btn-info" href="{{ path('clientele_show', { 'id': clientele.id }) }}">Показать</a>
+                                        </li>
+                                        <li>
+                                            <a style="display:block; margin-top: 20px;" class="btn btn-success" href="{{ path('clientele_edit', { 'id': clientele.id }) }}">Редактировать</a>
+                                        </li>
+                                        <li>
+                                            {% for key, value in delete_form %}
+                                                {% if key == clientele.name %}
+                                                    {{ form_start(value) }}
+                                                    <input style="margin-top: 20px; width:100%;" class="btn btn-danger" type="submit" value="Удалить">
+                                                    {{ form_end(value) }}
+                                                {% endif %}
+                                            {% endfor %}
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination col-md-12">
+                    {{ knp_pagination_render(pagination) }}
+                </div>
+                <div class="col-md-12">
+                    <ul style="list-style-type: none; margin:0 0 20px 0; padding:0;">
+                        <li>
+                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('clientele_new') }}">Создать нового клиента</a>
+                        </li>
+                        <li>
+                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('kiraxe_admin_crm_homepage') }}">Назад</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

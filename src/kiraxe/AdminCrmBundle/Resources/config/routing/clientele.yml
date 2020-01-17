@@ -1,0 +1,24 @@
+clientele_index:
+    path:     /
+    defaults: { _controller: "kiraxeAdminCrmBundle:Clientele:index" }
+    methods:  GET
+
+clientele_show:
+    path:     /{id}/show
+    defaults: { _controller: "kiraxeAdminCrmBundle:Clientele:show" }
+    methods:  GET
+
+clientele_new:
+    path:     /new
+    defaults: { _controller: "kiraxeAdminCrmBundle:Clientele:new" }
+    methods:  [GET, POST]
+
+clientele_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "kiraxeAdminCrmBundle:Clientele:edit" }
+    methods:  [GET, POST]
+
+clientele_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "kiraxeAdminCrmBundle:Clientele:delete" }
+    methods:  DELETE

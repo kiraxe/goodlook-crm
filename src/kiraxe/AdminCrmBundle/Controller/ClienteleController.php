@@ -2,83 +2,80 @@
 
 namespace kiraxe\AdminCrmBundle\Controller;
 
-use kiraxe\AdminCrmBundle\Entity\Measure;
+use kiraxe\AdminCrmBundle\Entity\Clientele;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Measure controller.
+ * Clientele controller.
  *
  */
-class MeasureController extends Controller
+class ClienteleController extends Controller
 {
     /**
-     * Lists all measure entities.
+     * Lists all clientele entities.
      *
      */
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $deleteForm = null;
 
-        $measures = $em->getRepository('kiraxeAdminCrmBundle:Measure')->findAll();
+        $clientele = $em->getRepository('kiraxeAdminCrmBundle:Clientele')->findAll();
 
-        //$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        $hasAccess = $this->isGranted('ROLE_SUPER_ADMIN');
-        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, "Вам доступ запрещен");
         $user = $this->getUser();
         $tableName = [];
         $tableSettingsName = [];
+        $tableCars = [];
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
         $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName()] = "Материалы";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
         $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
+        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars = [];
+        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
-        for($i = 0; $i < count($measures); $i++) {
-            $deleteForm[$measures[$i]->getName()] = $this->createDeleteForm($measures[$i])->createView();
+        for($i = 0; $i < count($clientele); $i++) {
+            $deleteForm[$clientele[$i]->getName()] = $this->createDeleteForm($clientele[$i])->createView();
         }
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
-            $measures, /* query NOT result */
+            $clientele, /* query NOT result */
             $request->query->getInt('page', 1), /*page number*/
             10 /*limit per page*/
         );
 
-        return $this->render('measure/index.html.twig', array(
-            'measures' => $measures,
+        return $this->render('clientele/index.html.twig', array(
+            'clientele' => $clientele,
             'tables' => $tableName,
             'user' => $user,
             'pagination' => $pagination,
             'tableSettingsName' => $tableSettingsName,
-            'delete_form' => $deleteForm,
             'tableCars' => $tableCars,
+            'delete_form' => $deleteForm
         ));
     }
 
     /**
-     * Creates a new measure entity.
+     * Creates a new clientele entity.
      *
      */
     public function newAction(Request $request)
     {
-        $measure = new Measure();
-        $form = $this->createForm('kiraxe\AdminCrmBundle\Form\MeasureType', $measure);
+        $clientele = new Clientele();
+        $form = $this->createForm('kiraxe\AdminCrmBundle\Form\ClienteleType', $clientele);
         $form->handleRequest($request);
 
         $em = $this->getDoctrine()->getManager();
-        $hasAccess = $this->isGranted('ROLE_SUPER_ADMIN');
-        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, "Вам доступ запрещен");
         $user = $this->getUser();
         $tableName = [];
         $tableSettingsName = [];
+        $tableCars = [];
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
         $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
@@ -86,43 +83,39 @@ class MeasureController extends Controller
         $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars = [];
+        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
         if ($form->isSubmitted() && $form->isValid()) {
-            $em->persist($measure);
+            $em->persist($clientele);
             $em->flush();
 
-            return $this->redirectToRoute('measure_show', array('id' => $measure->getId()));
+            return $this->redirectToRoute('clientele_show', array('id' => $clientele->getId()));
         }
 
-        return $this->render('measure/new.html.twig', array(
-            'measure' => $measure,
+        return $this->render('clientele/new.html.twig', array(
+            'clientele' => $clientele,
             'form' => $form->createView(),
             'tables' => $tableName,
             'user' => $user,
             'tableSettingsName' => $tableSettingsName,
-            'tableCars' => $tableCars,
+            'tableCars' => $tableCars
         ));
     }
 
     /**
-     * Finds and displays a measure entity.
+     * Finds and displays a clientele entity.
      *
      */
-    public function showAction(Measure $measure)
+    public function showAction(Clientele $clientele)
     {
-        $deleteForm = $this->createDeleteForm($measure);
-
         $em = $this->getDoctrine()->getManager();
-        $hasAccess = $this->isGranted('ROLE_SUPER_ADMIN');
-        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, "Вам доступ запрещен");
         $user = $this->getUser();
         $tableName = [];
         $tableSettingsName = [];
+        $tableCars = [];
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
         $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
@@ -130,39 +123,39 @@ class MeasureController extends Controller
         $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars = [];
+        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
-        return $this->render('measure/show.html.twig', array(
-            'measure' => $measure,
-            'delete_form' => $deleteForm->createView(),
+
+        $deleteForm = $this->createDeleteForm($clientele);
+
+        return $this->render('clientele/show.html.twig', array(
+            'clientele' => $clientele,
             'tables' => $tableName,
             'user' => $user,
             'tableSettingsName' => $tableSettingsName,
             'tableCars' => $tableCars,
+            'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-     * Displays a form to edit an existing measure entity.
+     * Displays a form to edit an existing clientele entity.
      *
      */
-    public function editAction(Request $request, Measure $measure)
+    public function editAction(Request $request, Clientele $clientele)
     {
-        $deleteForm = $this->createDeleteForm($measure);
-        $editForm = $this->createForm('kiraxe\AdminCrmBundle\Form\MeasureType', $measure);
+        $deleteForm = $this->createDeleteForm($clientele);
+        $editForm = $this->createForm('kiraxe\AdminCrmBundle\Form\ClienteleType', $clientele);
         $editForm->handleRequest($request);
 
         $em = $this->getDoctrine()->getManager();
-        //$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        $hasAccess = $this->isGranted('ROLE_SUPER_ADMIN');
-        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, "Вам доступ запрещен");
         $user = $this->getUser();
         $tableName = [];
         $tableSettingsName = [];
+        $tableCars = [];
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
         $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
@@ -170,58 +163,57 @@ class MeasureController extends Controller
         $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars = [];
+        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('measure_edit', array('id' => $measure->getId()));
+            return $this->redirectToRoute('clientele_edit', array('id' => $clientele->getId()));
         }
 
-        return $this->render('measure/edit.html.twig', array(
-            'measure' => $measure,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+        return $this->render('clientele/edit.html.twig', array(
+            'clientele' => $clientele,
             'tables' => $tableName,
             'user' => $user,
             'tableSettingsName' => $tableSettingsName,
             'tableCars' => $tableCars,
+            'edit_form' => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-     * Deletes a measure entity.
+     * Deletes a clientele entity.
      *
      */
-    public function deleteAction(Request $request, Measure $measure)
+    public function deleteAction(Request $request, Clientele $clientele)
     {
-        $form = $this->createDeleteForm($measure);
+        $form = $this->createDeleteForm($clientele);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($measure);
+            $em->remove($clientele);
             $em->flush();
         }
 
-        return $this->redirectToRoute('measure_index');
+        return $this->redirectToRoute('clientele_index');
     }
 
     /**
-     * Creates a form to delete a measure entity.
+     * Creates a form to delete a clientele entity.
      *
-     * @param Measure $measure The measure entity
+     * @param Clientele $clientele The clientele entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(Measure $measure)
+    private function createDeleteForm(Clientele $clientele)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('measure_delete', array('id' => $measure->getId())))
+            ->setAction($this->generateUrl('clientele_delete', array('id' => $clientele->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

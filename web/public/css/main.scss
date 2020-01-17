@@ -183,6 +183,24 @@ body {
                           }
                       }
 
+                      .formItem {
+                          position: relative;
+                          .autocompleteContainer {
+                              background-color: #fff;
+                              border: 1px solid #000;
+                              border-radius: 10px;
+                              display: none;
+                              position: absolute;
+                              bottom: -115px;
+                              padding: 20px;
+                              z-index: 99;
+                              .autocompleteItem {
+                                  cursor: pointer;
+                                  padding: 5px;
+                              }
+                          }
+                      }
+
                       input[id$="pricefr"].form-check-input,
                       label[for$="pricefr"].form-check-label {
                         display: block!important;

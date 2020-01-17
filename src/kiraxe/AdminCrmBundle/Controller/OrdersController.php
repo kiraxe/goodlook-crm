@@ -8,6 +8,9 @@ use kiraxe\AdminCrmBundle\Entity\ManagerOrders;
 use kiraxe\AdminCrmBundle\Entity\Materials;
 use kiraxe\AdminCrmBundle\Entity\Orders;
 use kiraxe\AdminCrmBundle\Entity\Workers;
+use kiraxe\AdminCrmBundle\Entity\Clientele;
+use kiraxe\AdminCrmBundle\Entity\Brand;
+use kiraxe\AdminCrmBundle\Entity\BodyType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -99,8 +102,6 @@ class OrdersController extends Controller
             }
         }
 
-        print_r($sql);
-
         if (empty($request->query->get('form')['dateFrom']) && empty($request->query->get('form')['tel']) && empty($request->query->get('form')['manager']) && empty($request->query->get('form')['number']) && empty($request->query->get('form')['close'])) {
             $orders = $em->getRepository('kiraxeAdminCrmBundle:Orders')->findBy(array(), array('dateOpen' => 'DESC'));
         } else {
@@ -164,6 +165,7 @@ class OrdersController extends Controller
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
         $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
+        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
         $tableCars = [];
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
@@ -202,6 +204,7 @@ class OrdersController extends Controller
         $order = new Orders();
         $managerorder = new ManagerOrders();
         $managerordersecond = new ManagerOrders();
+        //$client = new Clientele();
         $form = $this->createForm('kiraxe\AdminCrmBundle\Form\OrdersType', $order);
         $form->handleRequest($request);
 
@@ -222,6 +225,7 @@ class OrdersController extends Controller
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
         $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
+        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
         $tableCars = [];
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
@@ -345,10 +349,86 @@ class OrdersController extends Controller
                 }
             }
 
+            $clienteles = $em->getRepository('kiraxeAdminCrmBundle:Clientele')->findAll();
+            $orders = $em->getRepository('kiraxeAdminCrmBundle:Orders')->findAll();
+
+            $cls = array();
+
+            foreach ( $orders as $ord) {
+                $avto = $ord->getBrandId()->getName() ." ". $ord->getCarId()->getName() ." ". $ord->getBodyId()->getName() ." ". $ord->getColor();
+                $cls[] = [
+                    'id' => $ord->getId(),
+                    'name' => $ord->getName(),
+                    'avto' => $avto,
+                    'number' => $ord->getNumber(),
+                    'vin' => $ord->getVin(),
+                    'phone' => $ord->getPhone(),
+                    'email' => $ord->getEmail()
+                ];
+            }
+
+            $taken = array();
+
+            foreach($cls as $key => $item) {
+                if(!in_array($item['number'], $taken)) {
+                    $taken[] = $item['number'];
+                } else {
+                    unset($cls[$key]);
+                }
+            }
+
+            foreach($cls as $key => $item) {
+                if(!in_array($item['vin'], $taken)) {
+                    $taken[] = $item['vin'];
+                } else {
+                    unset($cls[$key]);
+                }
+            }
+
+            foreach ( $cls as $cl) {
+                $client = new Clientele();
+                $client->setName($cl['name']);
+                $client->setAvto($cl['avto']);
+                $client->setNumber($cl['number']);
+                $client->setVin($cl['vin']);
+                $client->setPhone($cl['phone']);
+                $client->setEmail($cl['email']);
+
+                $em->persist($client);
+            }
+
+
+
+
+            //$flug = false;
+            //$avto = $order->getBrandId()->getName() ." ". $order->getCarId()->getName() ." ". $order->getBodyId()->getName() ." ". $order->getColor();
+
+            /*foreach ($clienteles as $clientele) {
+                if ($clientele->getName() == $order->getName() && $clientele->getAvto() == $avto) {
+                    $flug = false;
+                } else {
+                    $flug = true;
+                }
+            }*/
+
+            /*if ($flug) {
+
+                $client->setName($order->getName());
+                $client->setAvto($avto);
+                $client->setNumber($order->getNumber());
+                $client->setVin($order->getVin());
+                $client->setPhone($order->getPhone());
+                $client->setEmail($order->getEmail());
+
+                $em->persist($client);
+            }*/
+
+
+
             $em->persist($order);
             $em->flush();
 
-            return $this->redirectToRoute('orders_show', array('id' => $order->getId()));
+            //return $this->redirectToRoute('orders_show', array('id' => $order->getId()));
         }
 
         return $this->render('orders/new.html.twig', array(
@@ -438,6 +518,7 @@ class OrdersController extends Controller
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
         $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
+        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
         $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
         $tableCars = [];
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
@@ -796,6 +877,7 @@ class OrdersController extends Controller
         $tableSettingsName[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
         $tableName[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
         $tableName[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
+        $tableName[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
         $tableName[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
         $tableCars = [];
         $tableCars[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
@@ -967,7 +1049,7 @@ class OrdersController extends Controller
             }
         } else {
 
-            $brand = $em->getRepository('kiraxeAdminCrmBundle:Brand')->findAll();
+            $brand = $em->getRepository('kiraxeAdminCrmBundle:Model')->findAll();
 
             $output = array();
             $step = 0;
@@ -986,6 +1068,42 @@ class OrdersController extends Controller
         $response->setContent(json_encode($output));
         return $response;
 
+    }
+
+    public function ajaxautocompleteAction(Request $request) {
+
+        $data = file_get_contents('php://input');
+        $data = json_decode($data);
+        $output = array();
+
+        $value = $data->param;
+
+        $em = $this->getDoctrine()->getManager();
+
+        if ($value != "") {
+            $clienteles = $em->createQuery(
+                'SELECT c FROM kiraxeAdminCrmBundle:Clientele c where c.name like ' . ':value'
+            )->setParameter('value', '%' . $value . '%')->getResult();
+
+            $step = 0;
+            foreach ($clienteles as $clientele) {
+                $output['clientele'][$step] = array(
+                    'name' => $clientele->getName(),
+                    'avto' => $clientele->getAvto(),
+                    'number' => $clientele->getNumber(),
+                    'vin' => $clientele->getVin(),
+                    'phone' => $clientele->getPhone(),
+                    'email' => $clientele->getEmail()
+                );
+                $step++;
+            }
+        }
+
+        $response = new Response();
+        $response->headers->set('Content-Type', 'application/json');
+        $response->setContent(json_encode($output));
+
+        return $response;
     }
 
     /**

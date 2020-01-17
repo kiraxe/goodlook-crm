@@ -80,7 +80,7 @@ class OrdersType extends AbstractType
                 'allow_delete' => true,
                 'label' => 'Сотрудник и вид работы'
             ])
-            ->add('name', null ,array('label' => 'ФИО владельца авто'))
+            ->add('name', null ,array('label' => 'ФИО владельца авто', 'attr'=> ['class' => "ajax-autocomplete"]))
             ->add('brandId', EntityType::class , [
                 'class' => 'kiraxe\AdminCrmBundle\Entity\Brand',
                 'choice_label' => 'name',
@@ -88,7 +88,8 @@ class OrdersType extends AbstractType
                     return $brand->createQueryBuilder('b');
                 },
                 'label' => 'Бренд автомобиля',
-                'required' => false,
+                'required' => true,
+                'attr'=> ['class' => "brandAvto"],
                 'placeholder' => 'Выберите бренд',
                 'empty_data' => null,
             ])
@@ -97,8 +98,10 @@ class OrdersType extends AbstractType
                 'query_builder' => function (EntityRepository $model) {
                     return $model->createQueryBuilder('m');
                 },
+                'required' => true,
                 'choice_label' => 'name',
                 'label' => 'Модель автомобиля',
+                'attr'=> ['class' => "modelAvto"],
                 'placeholder' => 'Выберите модель автомобиля'
             ])
             ->add('bodyId', EntityType::class , [
@@ -109,13 +112,15 @@ class OrdersType extends AbstractType
                 },
                 'label' => 'Тип кузова',
                 'required' => true,
+                'attr'=> ['class' => "bodyId"],
                 'placeholder' => 'Выберите тип кузова',
                 'empty_data' => null,
             ])
-            ->add('color', TextType::class ,array('label' => 'Цвет'))
-            ->add('number', TextType::class ,array('label' => 'Номер авто'))
+            ->add('color', TextType::class ,array('label' => 'Цвет', 'attr'=> ['class' => "colorAvto"],))
+            ->add('number', TextType::class ,array('label' => 'Номер авто', 'attr'=> ['class' => "numberAvto"],))
             ->add('vin', TextType::class ,array(
                 'label' => 'VIN',
+                'attr'=> ['class' => "vinAvto"],
                 'required' => false,
             ))
             ->add('description', TextareaType::class ,array(
@@ -126,9 +131,10 @@ class OrdersType extends AbstractType
                 'label' => 'При приеме ДТС имеет следующие повреждения',
                 'required' => false,
             ))
-            ->add('phone',TextType::class ,array('label' => 'Телефон'))
+            ->add('phone',TextType::class ,array('label' => 'Телефон', 'attr'=> ['class' => "phone"]))
             ->add('email', EmailType::class ,array(
                 'label' => 'E-mail',
+                'attr'=> ['class' => "email"],
                 'required' => false,
             ))
             ->add('payment',ChoiceType::class ,array(

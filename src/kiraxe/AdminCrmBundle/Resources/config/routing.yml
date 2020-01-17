@@ -42,6 +42,10 @@ kiraxe_admin_crm_calendar:
     resource: "@kiraxeAdminCrmBundle/Resources/config/routing/calendar.yml"
     prefix:   /calendar
 
+kiraxe_admin_crm_clientele:
+    resource: "@kiraxeAdminCrmBundle/Resources/config/routing/clientele.yml"
+    prefix:   /clientele
+
 kiraxe_admin_crm_homepage:
     path:     /
     defaults: { _controller: kiraxeAdminCrmBundle:Default:index }
