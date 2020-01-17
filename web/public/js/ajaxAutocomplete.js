@@ -45,7 +45,7 @@ element.addEventListener('keyup', function(event) {
                         div.append(this[key]['name'] + "-" + this[key]['avto'] + ' ' + this[key]['number'] );
                         div.className = "autocompleteItem";
                         wrapperDiv.append(div);
-                        if (element.value == "" || element.value == this[key]['name']) {
+                        if (element.value == this[key]['name']) {
                             wrapperDiv.style.display = "none";
                         } else {
                             wrapperDiv.style.display = "block";
@@ -55,6 +55,12 @@ element.addEventListener('keyup', function(event) {
 
 
                 this.after(wrapperDiv);
+
+                if (element.value == "") {
+                    wrapperDiv.style.display = "none";
+                } else {
+                    wrapperDiv.style.display = "block";
+                }
 
                 for(let i = 0; i < wrapperDiv.children.length; i++) {
                     wrapperDiv.children[i].addEventListener('click', function(){
