@@ -80,7 +80,7 @@ class OrdersType extends AbstractType
                 'allow_delete' => true,
                 'label' => 'Сотрудник и вид работы'
             ])
-            ->add('name', null ,array('label' => 'ФИО владельца авто', 'attr'=> ['class' => "ajax-autocomplete"]))
+            ->add('name', null ,array('label' => 'ФИО владельца авто', 'attr'=> ['class' => "ajax-autocomplete nameAvto", 'data-type' => 'name']))
             ->add('brandId', EntityType::class , [
                 'class' => 'kiraxe\AdminCrmBundle\Entity\Brand',
                 'choice_label' => 'name',
@@ -117,10 +117,10 @@ class OrdersType extends AbstractType
                 'empty_data' => null,
             ])
             ->add('color', TextType::class ,array('label' => 'Цвет', 'attr'=> ['class' => "colorAvto"],))
-            ->add('number', TextType::class ,array('label' => 'Номер авто', 'attr'=> ['class' => "numberAvto"],))
+            ->add('number', TextType::class ,array('label' => 'Номер авто', 'attr'=> ['class' => "numberAvto ajax-autocomplete", 'data-type' => 'number'],))
             ->add('vin', TextType::class ,array(
                 'label' => 'VIN',
-                'attr'=> ['class' => "vinAvto"],
+                'attr'=> ['class' => "vinAvto ajax-autocomplete", 'data-type' => 'vin'],
                 'required' => false,
             ))
             ->add('description', TextareaType::class ,array(
@@ -131,7 +131,7 @@ class OrdersType extends AbstractType
                 'label' => 'При приеме ДТС имеет следующие повреждения',
                 'required' => false,
             ))
-            ->add('phone',TextType::class ,array('label' => 'Телефон', 'attr'=> ['class' => "phone"]))
+            ->add('phone',TextType::class ,array('label' => 'Телефон', 'attr'=> ['class' => "phone ajax-autocomplete" , 'data-type' => 'phone']))
             ->add('email', EmailType::class ,array(
                 'label' => 'E-mail',
                 'attr'=> ['class' => "email"],

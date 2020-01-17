@@ -404,7 +404,7 @@ class OrdersController extends Controller
             $avto = $order->getBrandId()->getName() ." ". $order->getCarId()->getName() ." ". $order->getBodyId()->getName() ." ". $order->getColor();
 
             foreach ($clienteles as $clientele) {
-                if ($clientele->getName() == $order->getName() && $clientele->getAvto() == $avto) {
+                if (($clientele->getName() == $order->getName() && $clientele->getNumber() == $order->getNumber()) || ($clientele->getName() == $order->getName() && $clientele->getVin() == $order->getVin()) || ($clientele->getName() == $order->getName() && $clientele->getPhone() == $order->getPhone())) {
                     $flug = false;
                 } else {
                     $flug = true;
@@ -1077,12 +1077,13 @@ class OrdersController extends Controller
         $output = array();
 
         $value = $data->param;
+        $data_type = "c.".$data->data_type;
 
         $em = $this->getDoctrine()->getManager();
 
         if ($value != "") {
             $clienteles = $em->createQuery(
-                'SELECT c FROM kiraxeAdminCrmBundle:Clientele c where c.name like ' . ':value'
+                'SELECT c FROM kiraxeAdminCrmBundle:Clientele c where '.$data_type. ' like ' . ':value'
             )->setParameter('value', '%' . $value . '%')->getResult();
 
             $step = 0;
