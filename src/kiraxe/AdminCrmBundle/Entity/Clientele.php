@@ -38,14 +38,14 @@ class Clientele
     /**
      * @var string
      *
-     * @ORM\Column(name="number", type="string", length=255, unique=true)
+     * @ORM\Column(name="number", type="string", length=255)
      */
     private $number;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="vin", type="string", length=255, unique=true, nullable=true)
+     * @ORM\Column(name="vin", type="string", length=255, nullable=true)
      */
     private $vin;
 
