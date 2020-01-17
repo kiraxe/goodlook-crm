@@ -87,28 +87,57 @@ for (let i = 0; i < element.length; i++) {
                                 Object.keys(this[key]).forEach(function (key) {
                                     if (self.value == this[key][self.getAttribute('data-type')]) {
 
-                                        let arrayParamsAvto = this[key]['avto'].split(' ');
+                                        //let arrayParamsAvto = this[key]['avto'].split(' ');
 
+                                        let selectedParam,
+                                            regex;
+
+                                        let newAvto = this[key]['avto'];
 
                                         for (let i = 0; i < brandAvto.children.length; i++) {
-                                            if (brandAvto.children[i].innerText == arrayParamsAvto[0]) {
+                                            regex = new RegExp(brandAvto.children[i].innerText,'i');
+                                            selectedParam = regex.exec(this[key]['avto']);
+
+                                            if (brandAvto.children[i].innerText == selectedParam) {
                                                 brandAvto.children[i].setAttribute('selected', 'selected');
                                             }
+
+                                            regex = new RegExp(selectedParam,'i');
+                                            newAvto = newAvto.replace(selectedParam , '');
+
                                         }
 
                                         for (let i = 0; i < modelAvto.children.length; i++) {
-                                            if (modelAvto.children[i].innerText == arrayParamsAvto[1]) {
+
+                                            regex = new RegExp(modelAvto.children[i].innerText,'i');
+                                            selectedParam = regex.exec(this[key]['avto']);
+
+
+
+                                            if (modelAvto.children[i].innerText == selectedParam) {
                                                 modelAvto.children[i].setAttribute('selected', 'selected');
                                             }
+
+                                            regex = new RegExp(selectedParam,'i');
+                                            newAvto = newAvto.replace(selectedParam , '');
                                         }
 
                                         for (let i = 0; i < bodyId.children.length; i++) {
-                                            if (bodyId.children[i].innerText == arrayParamsAvto[2]) {
+
+                                            regex = new RegExp(bodyId.children[i].innerText,'i');
+                                            selectedParam = regex.exec(this[key]['avto']);
+
+                                            if (bodyId.children[i].innerText == selectedParam) {
                                                 bodyId.children[i].setAttribute('selected', 'selected');
                                             }
+
+                                            regex = new RegExp(selectedParam,'i');
+                                            newAvto = newAvto.replace(selectedParam , '');
                                         }
 
-                                        colorAvto.value = arrayParamsAvto[3];
+                                        newAvto = newAvto.replace(/\s/g, '');
+
+                                        colorAvto.value = newAvto;
                                         nameAvto.value = this[key]['name'];
                                         numberAvto.value = this[key]['number'];
                                         vinAvto.value = this[key]['vin'];
