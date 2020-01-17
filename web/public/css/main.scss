@@ -191,10 +191,14 @@ body {
                               border-radius: 10px;
                               display: none;
                               position: absolute;
-                              top: 5px;
+                              top: 90px;
                               padding: 20px;
+                              height: 400px;
+                              width: 400px;
+                              overflow-y: scroll;
                               z-index: 99;
                               .autocompleteItem {
+                                  border-bottom: 1px solid #000;
                                   cursor: pointer;
                                   padding: 5px;
                               }

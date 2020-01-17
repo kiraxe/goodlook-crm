@@ -45,18 +45,14 @@ element.addEventListener('keyup', function(event) {
                         div.append(this[key]['name'] + "-" + this[key]['avto'] + ' ' + this[key]['number'] );
                         div.className = "autocompleteItem";
                         wrapperDiv.append(div);
-                        if (element.value == this[key]['name']) {
-                            wrapperDiv.style.display = "none";
-                        } else {
-                            wrapperDiv.style.display = "block";
-                        }
+
                     }, this[key]);
                 }, clients);
 
 
                 this.after(wrapperDiv);
 
-                if (element.value == "") {
+                if (element.value == "" || wrapperDiv.children.length == 0) {
                     wrapperDiv.style.display = "none";
                 } else {
                     wrapperDiv.style.display = "block";
