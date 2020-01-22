@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
     </list>
@@ -257,14 +256,7 @@
       <workItem from="1579250153515" duration="19210000" />
       <workItem from="1579521515044" duration="244000" />
       <workItem from="1579685382475" duration="5472000" />
-      <workItem from="1579698518908" duration="6207000" />
-    </task>
-    <task id="LOCAL-00061" summary="goodlook-crm first commit">
-      <created>1568709225995</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1568709225995</updated>
+      <workItem from="1579698518908" duration="6860000" />
     </task>
     <task id="LOCAL-00062" summary="goodlook-crm first commit">
       <created>1568709326412</created>
@@ -602,7 +594,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579707582600</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="goodlook-crm first commit">
+      <created>1579707891773</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1579707891773</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -636,10 +635,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="277" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1579092553890" />
-    <state x="598" y="118" key="CommitChangelistDialog2" timestamp="1579707579842">
+    <state x="598" y="118" key="CommitChangelistDialog2" timestamp="1579707888768">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="598" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1579707579842" />
+    <state x="598" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1579707888768" />
     <state x="740" y="277" key="FileChooserDialogImpl" timestamp="1577709198734">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
