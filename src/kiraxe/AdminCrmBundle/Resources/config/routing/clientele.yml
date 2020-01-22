@@ -22,3 +22,7 @@ clientele_delete:
     path:     /{id}/delete
     defaults: { _controller: "kiraxeAdminCrmBundle:Clientele:delete" }
     methods:  DELETE
+clientele_export:
+    path:     /export
+    defaults: { _controller: "kiraxeAdminCrmBundle:Clientele:export" }
+

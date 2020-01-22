@@ -5,6 +5,8 @@ namespace kiraxe\AdminCrmBundle\Controller;
 use kiraxe\AdminCrmBundle\Entity\Clientele;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use League\Csv\CharsetConverter;
+
 
 /**
  * Clientele controller.
@@ -217,5 +219,28 @@ class ClienteleController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    public function exportAction() {
+
+        $em = $this->getDoctrine()->getManager();
+        $clientele = $em->getRepository('kiraxeAdminCrmBundle:Clientele')->findAll();
+
+        $encoder = (new CharsetConverter())
+            ->inputEncoding('utf-8')
+            ->outputEncoding('Windows-1251')
+        ;
+
+        $writer = $this->container->get('egyg33k.csv.writer');
+        $csv = $writer::createFromFileObject(new \SplTempFileObject());
+        $csv->addFormatter($encoder);
+        $csv->setDelimiter(";");
+        $csv->insertOne(['ФИО', 'Авто', 'Номер', 'VIN', 'Телефон', 'Почта']);
+        foreach ( $clientele as $client) {
+            $csv->insertOne([$client->getName(), $client->getAvto(), $client->getNumber(), $client->getVin(), $client->getPhone(), $client->getEmail()]);
+        }
+        $csv->output('clientele.csv');
+
+        exit;
     }
 }

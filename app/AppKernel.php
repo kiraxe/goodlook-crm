@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new kiraxe\AdminCrmBundle\kiraxeAdminCrmBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new \Egyg33k\CsvBundle\Egyg33kCsvBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
