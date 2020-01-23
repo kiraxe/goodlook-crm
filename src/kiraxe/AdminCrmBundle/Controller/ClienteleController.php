@@ -231,6 +231,8 @@ class ClienteleController extends Controller
             ->outputEncoding('Windows-1251')
         ;
 
+        $today = date("d.m.y");
+
         $writer = $this->container->get('egyg33k.csv.writer');
         $csv = $writer::createFromFileObject(new \SplTempFileObject());
         $csv->addFormatter($encoder);
@@ -239,7 +241,7 @@ class ClienteleController extends Controller
         foreach ( $clientele as $client) {
             $csv->insertOne([$client->getName(), $client->getAvto(), $client->getNumber(), $client->getVin(), $client->getPhone(), $client->getEmail()]);
         }
-        $csv->output('clientele.csv');
+        $csv->output('clientele_'.$today.'.csv');
 
         exit;
     }
