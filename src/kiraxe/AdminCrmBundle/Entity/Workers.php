@@ -75,6 +75,13 @@ class Workers
      */
     private $workerorders;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="workeractive", type="boolean", options={"default":1})
+     */
+    private $workeractive;
+
     public function __construct()
     {
         $this->workerservice = new ArrayCollection();
@@ -244,4 +251,31 @@ class Workers
     {
         $this->managerpercent->removeElement($managerpercent);
     }
+
+
+    /**
+     * Get workeractive
+     *
+     * @return int
+     */
+    public function getWorkeractive()
+    {
+        return $this->workeractive;
+    }
+
+    /**
+     * Set phone
+     *
+     * @param string $workeractive
+     *
+     * @return Workers
+     */
+    public function setWorkeractive($workeractive)
+    {
+        $this->workeractive = $workeractive;
+
+        return $this;
+    }
+
+
 }

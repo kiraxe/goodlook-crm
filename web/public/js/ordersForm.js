@@ -61,7 +61,7 @@ $(document).ready(function(){
                 }
             },
             error: function(jqXHR, textStatus, errorThrown){
-                console.log(textStatus);
+                console.log(textStatus + errorThrown);
             }
         })
     });
@@ -140,7 +140,7 @@ $(document).ready(function(){
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    console.log(textStatus);
+                    console.log(textStatus + errorThrown);
                 }
             })
         });
@@ -227,7 +227,7 @@ $(document).ready(function(){
 
             },
             error: function(jqXHR, textStatus, errorThrown){
-                console.log(textStatus);
+                console.log(textStatus + errorThrown);
             }
         });
     })
@@ -342,7 +342,7 @@ $(document).ready(function(){
 
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    console.log(textStatus);
+                    console.log(textStatus + errorThrown);
                 }
             });
         })
@@ -381,7 +381,7 @@ $(document).ready(function(){
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    console.log(textStatus);
+                    console.log(textStatus + errorThrown);
                 }
             });
         })
@@ -420,7 +420,7 @@ $(document).ready(function(){
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    console.log(textStatus);
+                    console.log(textStatus + errorThrown);
                 }
             });
         })

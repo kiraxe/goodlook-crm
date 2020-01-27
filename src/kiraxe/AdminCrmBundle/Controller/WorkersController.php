@@ -22,7 +22,7 @@ class WorkersController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $workers = $em->getRepository('kiraxeAdminCrmBundle:Workers')->findAll();
+        $workers = $em->getRepository('kiraxeAdminCrmBundle:Workers')->findBy(['workeractive' => '1']);
 
         $deleteForm = [];
 
