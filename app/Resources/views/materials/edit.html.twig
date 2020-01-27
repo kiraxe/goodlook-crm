@@ -16,7 +16,7 @@
                     <div class="formItem">{{ form_row(edit_form.totalsize) }}</div>
                     <div class="formItem">
                         <label>Остаток</label>
-                        <p>{{ material.residue }} {{ material.measureId.getName() }}</p>
+                        <p>{{ material.residue }} {% if material.measureId %}{{ material.measureId.getName() }}{% endif %}</p>
                     </div>
                     <div class="formItem">{{ form_row(edit_form.measureId) }}</div>
                     <div class="formItem">{{ form_row(edit_form.serviceId) }}</div>
