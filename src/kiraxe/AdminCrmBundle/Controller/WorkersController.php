@@ -302,7 +302,8 @@ class WorkersController extends Controller
         $id = $workers->getId();
         $em = $this->getDoctrine()->getManager();
         $sql = "SELECT o FROM kiraxeAdminCrmBundle:Orders o where o.workeropen = ". $id ." or o.workerclose = " . $id;
-        $orders = $em->createQuery($sql)->getResult();
+        $workers->setWorkeractive(false);
+        /*$orders = $em->createQuery($sql)->getResult();
         if ($orders) {
             foreach($orders as $result) {
 
@@ -322,15 +323,16 @@ class WorkersController extends Controller
                     }
                 }
             }
-        }
+        }*/
         $form = $this->createDeleteForm($workers);
         $form->handleRequest($request);
-        $workerservice = $workers->getWorkerService();
-        $managerpercent = $workers->getManagerPercent();
-        $workerorders = $workers->getWorkerOrders();
+        //$workerservice = $workers->getWorkerService();
+        //$managerpercent = $workers->getManagerPercent();
+        //$workerorders = $workers->getWorkerOrders();
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            foreach($workerservice as $service) {
+
+            /*foreach($workerservice as $service) {
                 $em->persist($service);
                 $em->remove($service);
             }
@@ -343,9 +345,12 @@ class WorkersController extends Controller
             foreach($workerorders as $workerorders) {
                 $em->persist($workerorders);
                 $em->remove($workerorders);
-            }
+            }*/
 
-            $em->remove($workers);
+
+
+            //$em->remove($workers);
+            $em->persist($workers);
             $em->flush();
         }
 

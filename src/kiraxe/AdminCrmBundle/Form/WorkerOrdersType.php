@@ -25,7 +25,7 @@ class WorkerOrdersType extends AbstractType
             ->add('workers', EntityType::class , [
                 'class' => 'kiraxe\AdminCrmBundle\Entity\Workers',
                 'query_builder' => function (EntityRepository $workers) {
-                    return $workers->createQueryBuilder('w')->where("w.typeworkers = 0")->andWhere('w.workeractive = 1');
+                    return $workers->createQueryBuilder('w')->where("w.typeworkers = 0");
                 },
                 'choice_label' => 'name',
                 'placeholder' => 'Выберите сотрудника',
