@@ -38,7 +38,7 @@ class OrdersType extends AbstractType
                 'class' => 'kiraxe\AdminCrmBundle\Entity\Workers',
                 'choice_label' => 'name',
                 'query_builder' => function (EntityRepository $workeropen) {
-                    return $workeropen->createQueryBuilder('w')->where("w.typeworkers = 1");
+                    return $workeropen->createQueryBuilder('w')->where("w.typeworkers = 1")->andWhere('w.workeractive = 1');
                 },
                 'label' => 'Открытие заказа',
                 'required' => false,
@@ -65,7 +65,7 @@ class OrdersType extends AbstractType
                 'class' => 'kiraxe\AdminCrmBundle\Entity\Workers',
                 'choice_label' => 'name',
                 'query_builder' => function (EntityRepository $workerclose) {
-                    return $workerclose->createQueryBuilder('w')->where("w.typeworkers = 1");
+                    return $workerclose->createQueryBuilder('w')->where("w.typeworkers = 1")->andWhere('w.workeractive = 1');
                 },
                 'label' => 'Закрытие заказа',
                 'required' => false,
