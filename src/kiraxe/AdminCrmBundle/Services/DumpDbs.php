@@ -10,7 +10,7 @@ class DumpDbs
 {
     private $pdoConnection;
     private $file;
-    public $fileName;
+    private $fileName;
     private $dbname;
 
     public function __construct($host, $port, $dbname, $user, $password, $charset)

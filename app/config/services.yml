@@ -42,15 +42,16 @@ services:
         bind:
             $authenticationUtils: '@security.authentication_utils'
 
-    kiraxe\AdminCrmBundle\Services\DumpDbs:
-        autowire: true
-        arguments:
-            $host: '%database_host%'
-            $port: '%database_port%'
-            $dbname: '%database_name%'
-            $user: '%database_user%'
-            $password: '%database_password%'
-            $charset: UTF8
+    #kiraxe\AdminCrmBundle\Services\DumpDbs\Dump\MysqlDb
+    #kiraxe\AdminCrmBundle\Services\DumpDbs:
+    #    autowire: true
+    #    arguments:
+    #        $host: '%database_host%'
+    #        $port: '%database_port%'
+    #        $dbname: '%database_name%'
+    #        $user: '%database_user%'
+    #        $password: '%database_password%'
+    #        $charset: UTF8
 
 
     # add more services, or override services that need manual wiring

@@ -195,6 +195,7 @@ class DefaultController extends Controller
         echo '<br/>';
         echo 1398760 - (575604.13450292 + 703764 + 16399.51);
         */
+
         return $this->render('default/index.html.twig', array(
             'form' => $form->createView(),
             'price' => $price,
