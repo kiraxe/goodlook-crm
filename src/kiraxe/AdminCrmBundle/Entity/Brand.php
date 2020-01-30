@@ -30,6 +30,14 @@ class Brand
 
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="active", type="boolean", options={"default":1})
+     */
+    private $active;
+
+
+    /**
      * Get id
      *
      * @return int
@@ -61,6 +69,30 @@ class Brand
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Get active
+     *
+     * @return int
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set active
+     *
+     * @param string $active
+     *
+     * @return Brand
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
     }
 }
 

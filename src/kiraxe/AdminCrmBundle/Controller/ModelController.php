@@ -20,7 +20,7 @@ class ModelController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $models = $em->getRepository('kiraxeAdminCrmBundle:Model')->findBy(array(), array('brand' => 'ASC'));
+        $models = $em->getRepository('kiraxeAdminCrmBundle:Model')->findBy(array('active' => '1'), array('brand' => 'ASC'));
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
@@ -195,7 +195,8 @@ class ModelController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($model);
+            $model->setActive(false);
+            //$em->remove($model);
             $em->flush();
         }
 

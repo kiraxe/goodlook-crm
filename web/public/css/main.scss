@@ -173,6 +173,12 @@ body {
               .content-wrapper {
                   padding: 4.5rem 0;
                   height: 100%;
+                  .buttonRecover {
+                      display: none;
+                      &.active {
+                          display:block;
+                      }
+                  }
                   #form {
                       .form-button {
                           ul {
@@ -185,6 +191,9 @@ body {
 
                       .formItem {
                           position: relative;
+                          &.hidden {
+                              display: none;
+                          }
                           .autocompleteContainer {
                               background-color: #fff;
                               border: 1px solid #000;

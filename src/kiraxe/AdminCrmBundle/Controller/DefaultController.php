@@ -212,4 +212,53 @@ class DefaultController extends Controller
             'interestpayments'  => $interestpayments           
         ));
     }
+
+
+    /**
+     * @Route("/", name="admin_ajaxautocom", methods={"GET"})
+     */
+    public function ajaxautocomAction(Request $request) {
+
+        $data = file_get_contents('php://input');
+        $data = json_decode($data);
+        $output = array();
+
+        $value = $data->param;
+        $obj = $data->obj;
+        $recover = $data->recover;
+        $em = $this->getDoctrine()->getManager();
+
+        if ($value != "" && !$recover) {
+            $res = $em->createQuery('SELECT c FROM kiraxeAdminCrmBundle:'.$obj.' c where c.name like ' . ':value' . ' and c.active = 0')
+                ->setParameter('value', '%' . $value . '%')->getResult();
+
+            $step = 0;
+            foreach ($res as $re) {
+                $output[$obj][$step] = array(
+                    'name' => $re->getName(),
+                );
+                $step++;
+            }
+        }
+
+        if ($value != "" && $recover) {
+
+            $res = $em->getRepository('kiraxeAdminCrmBundle:'.$obj.'')->findOneBy(array('active' => '0', 'name' => $value));
+
+            if ($res->getParent()) {
+                $res->getParent()->setActive(true);
+            }
+
+            $res->setActive(true);
+            $em->persist($res);
+            $em->flush();
+        }
+
+        $response = new Response();
+        $response->headers->set('Content-type', 'application/json');
+        $response->setContent(json_encode($output));
+
+        return $response;
+
+    }
 }

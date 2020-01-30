@@ -28,11 +28,11 @@ class ServicesController extends Controller
             ->getQuery()->getResult();
          */
         $services = $em->createQuery(
-            'SELECT s1, s2 FROM kiraxeAdminCrmBundle:Services s1 JOIN kiraxeAdminCrmBundle:Services s2 WITH s1.id = s2.parent ORDER BY s2.parent ASC'
+            'SELECT s1, s2 FROM kiraxeAdminCrmBundle:Services s1 JOIN kiraxeAdminCrmBundle:Services s2 WITH s1.id = s2.parent WHERE s1.active = 1 AND s2.active = 1 ORDER BY s2.parent ASC'
         )->getResult();
 
         $servicesNotChild = $em->createQuery(
-            'SELECT s3 FROM kiraxeAdminCrmBundle:Services s3 WHERE s3.childrens IS EMPTY AND s3.parent IS NULL'
+            'SELECT s3 FROM kiraxeAdminCrmBundle:Services s3 WHERE s3.childrens IS EMPTY AND s3.active = 1 AND s3.parent IS NULL'
         )->getResult();
 
         $services = array_merge($services, $servicesNotChild);
@@ -221,14 +221,21 @@ class ServicesController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            if ($service->getParent()) {
+            /*if ($service->getParent()) {
                 $service->setParent(null);
-            }
-            foreach($service->getWorkerOrders() as $order) {
+            }*/
+            /*foreach($service->getWorkerOrders() as $order) {
                 $order->setServices(null);
                 $order->setServicesparent(null);
+            }*/
+
+            if ($service->getChildrens()) {
+                foreach ($service->getChildrens() as $children) {
+                    $children->setActive(false);
+                }
             }
-            $em->remove($service);
+            $service->setActive(false);
+            //$em->remove($service);
             $em->flush();
         }
 

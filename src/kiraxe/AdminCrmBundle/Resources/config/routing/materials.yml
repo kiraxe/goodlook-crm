@@ -1,6 +1,8 @@
 materials_index:
     path:     /
     defaults: { _controller: "kiraxeAdminCrmBundle:Materials:index" }
+    options:
+        expose: true
     methods:  GET
 
 materials_show:

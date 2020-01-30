@@ -20,7 +20,7 @@ class BodyTypeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $bodyTypes = $em->getRepository('kiraxeAdminCrmBundle:BodyType')->findAll();
+        $bodyTypes = $em->getRepository('kiraxeAdminCrmBundle:BodyType')->findBy(['active' => '1']);
 
 
         $user = $this->getUser();
@@ -198,7 +198,8 @@ class BodyTypeController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($bodyType);
+            $bodyType->setActive(false);
+            //$em->remove($bodyType);
             $em->flush();
         }
 

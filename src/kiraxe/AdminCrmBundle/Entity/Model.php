@@ -53,6 +53,13 @@ class Model
     }
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="active", type="boolean", options={"default":1})
+     */
+    private $active;
+
+    /**
      * Set brand
      *
      * @param integer $brand
@@ -122,6 +129,30 @@ class Model
     public function getYear()
     {
         return $this->year;
+    }
+
+    /**
+     * Get active
+     *
+     * @return int
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set active
+     *
+     * @param string $active
+     *
+     * @return Model
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
     }
 }
 

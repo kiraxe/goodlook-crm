@@ -1,6 +1,8 @@
 brand_index:
     path:     /
     defaults: { _controller: "kiraxeAdminCrmBundle:Brand:index" }
+    options:
+        expose: true
     methods:  GET
 
 brand_show:

@@ -1,6 +1,8 @@
 services_index:
     path:     /
     defaults: { _controller: "kiraxeAdminCrmBundle:Services:index" }
+    options:
+        expose: true
     methods:  GET
 
 services_show:

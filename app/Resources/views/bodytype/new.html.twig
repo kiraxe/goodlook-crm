@@ -17,8 +17,17 @@
                         </ul>
                     </div>
                     {{ form_end(form) }}
+                    <div class="buttonRecover"><a class="btn btn-success" href="{{ path('materials_index') }}">Восстановить</a></div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="{{ asset('public/js/ajaxAutocom.js') }}"></script>
+    <script type="text/javascript">
+        "use strict";
+
+        let obj = new AjaxAutocom('#kiraxe_admincrmbundle_bodytype_name', 'BodyType', 'admin_ajaxautocom', '.formItem');
+        obj.init();
+
+    </script>
 {% endblock %}

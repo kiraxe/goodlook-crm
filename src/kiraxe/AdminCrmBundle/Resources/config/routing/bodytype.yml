@@ -1,6 +1,8 @@
 bodytype_index:
     path:     /
     defaults: { _controller: "kiraxeAdminCrmBundle:BodyType:index" }
+    options:
+        expose: true
     methods:  GET
 
 bodytype_show:

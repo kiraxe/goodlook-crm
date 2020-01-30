@@ -97,6 +97,14 @@ class Materials
     private $workerorders;
 
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="active", type="boolean", options={"default":1})
+     */
+    private $active;
+
+
     public function __construct()
     {
         $this->services = new ArrayCollection();
@@ -362,6 +370,31 @@ class Materials
     public function getResidue()
     {
         return $this->residue;
+    }
+
+
+    /**
+     * Get active
+     *
+     * @return int
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set active
+     *
+     * @param string $active
+     *
+     * @return Materials
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
     }
 
 }

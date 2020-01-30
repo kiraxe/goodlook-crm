@@ -66,6 +66,13 @@ class Services
      */
     private $pricefr;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="active", type="boolean", options={"default":1})
+     */
+    private $active;
+
 
     public function __construct()
     {
@@ -215,6 +222,31 @@ class Services
     public function getpricefr()
     {
         return $this->pricefr;
+    }
+
+
+    /**
+     * Get active
+     *
+     * @return int
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set active
+     *
+     * @param string $active
+     *
+     * @return Services
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
     }
 
 

@@ -20,7 +20,7 @@ class BrandController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $brands = $em->getRepository('kiraxeAdminCrmBundle:Brand')->findAll();
+        $brands = $em->getRepository('kiraxeAdminCrmBundle:Brand')->findBy(['active' => '1']);
 
         $user = $this->getUser();
         $tableName = [];
@@ -192,7 +192,8 @@ class BrandController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($brand);
+            $brand->setActive(false);
+            //$em->remove($brand);
             $em->flush();
         }
 

@@ -20,7 +20,7 @@ class MeasureController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $measures = $em->getRepository('kiraxeAdminCrmBundle:Measure')->findAll();
+        $measures = $em->getRepository('kiraxeAdminCrmBundle:Measure')->findBy(['active' => '1']);
 
         //$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $hasAccess = $this->isGranted('ROLE_SUPER_ADMIN');
@@ -204,7 +204,8 @@ class MeasureController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($measure);
+            $measure->setActive(false);
+            //$em->remove($measure);
             $em->flush();
         }
 

@@ -2,10 +2,12 @@
 
 namespace kiraxe\AdminCrmBundle\Controller;
 
+//use http\Env\Response;
 use kiraxe\AdminCrmBundle\Entity\Materials;
 use kiraxe\AdminCrmBundle\Entity\Orders;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Material controller.
@@ -21,7 +23,7 @@ class MaterialsController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $materials = $em->getRepository('kiraxeAdminCrmBundle:Materials')->findBy(array(), array('name' => 'ASC'));
+        $materials = $em->getRepository('kiraxeAdminCrmBundle:Materials')->findBy(array('active' => '1'), array('name' => 'ASC'));
 
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
@@ -278,7 +280,8 @@ class MaterialsController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($material);
+            $material->setActive(false);
+            //$em->remove($material);
             $em->flush();
         }
 

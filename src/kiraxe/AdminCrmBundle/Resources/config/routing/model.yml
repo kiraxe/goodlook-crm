@@ -1,6 +1,8 @@
 model_index:
     path:     /
     defaults: { _controller: "kiraxeAdminCrmBundle:Model:index" }
+    options:
+        expose: true
     methods:  GET
 
 model_show:

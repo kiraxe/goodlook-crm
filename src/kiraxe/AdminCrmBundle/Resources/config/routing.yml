@@ -49,3 +49,10 @@ kiraxe_admin_crm_clientele:
 kiraxe_admin_crm_homepage:
     path:     /
     defaults: { _controller: kiraxeAdminCrmBundle:Default:index }
+
+admin_ajaxautocom:
+    path:     /ajaxautocom
+    defaults: { _controller: "kiraxeAdminCrmBundle:Default:ajaxautocom" }
+    options:
+        expose: true
+    methods:  [GET, POST]

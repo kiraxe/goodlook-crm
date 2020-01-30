@@ -264,7 +264,7 @@ class Workers
     }
 
     /**
-     * Set phone
+     * Set workeractive
      *
      * @param string $workeractive
      *

@@ -19,7 +19,7 @@ class ExpensesController extends Controller
      * Lists all expense entities.
      *
      */
-    public function indexAction(Request $request, DumpDbs $dbs)
+    public function indexAction(Request $request)
     {
         //$dbs->openFile('my_dump');
         //print_r($dbs->getDump());

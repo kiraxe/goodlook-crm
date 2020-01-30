@@ -28,6 +28,13 @@ class BodyType
      */
     private $name;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="active", type="boolean", options={"default":1})
+     */
+    private $active;
+
 
     /**
      * Get id
@@ -61,6 +68,30 @@ class BodyType
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Get active
+     *
+     * @return int
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set active
+     *
+     * @param string $active
+     *
+     * @return BodyType
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
     }
 }
 
