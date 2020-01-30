@@ -77,6 +77,31 @@ class OrdersController extends Controller
             }
         }
 
+        if (!empty($request->query->get('form')['worker'])) {
+
+            $wr = $request->query->get('form')['worker'];
+            $wrs = $em->getRepository('kiraxeAdminCrmBundle:WorkerOrders')->findBy(array('workers' => $wr));
+            $wr_ar = [];
+
+
+            $step = 0;
+            foreach ($wrs as $item) {
+                $wr_ar[$step] = $item->getOrders()->getId();
+                $step++;
+            }
+
+            $wr_ar = array_unique($wr_ar);
+
+            $wr_ar = implode("','", $wr_ar);
+
+
+            if ($sql == "SELECT o FROM kiraxeAdminCrmBundle:Orders o where") {
+                $sql .= ' o.id IN ('."'".$wr_ar. "'" .") ";
+            } else {
+                $sql .= ' and o.id IN ('."'".$wr_ar. "'" .") ";
+            }
+        }
+
         if (!empty($request->query->get('form')['number'])) {
             $number = $request->query->get('form')['number'];
             if ($sql == "SELECT o FROM kiraxeAdminCrmBundle:Orders o where") {
@@ -102,7 +127,7 @@ class OrdersController extends Controller
             }
         }
 
-        if (empty($request->query->get('form')['dateFrom']) && empty($request->query->get('form')['tel']) && empty($request->query->get('form')['manager']) && empty($request->query->get('form')['number']) && empty($request->query->get('form')['close'])) {
+        if (empty($request->query->get('form')['dateFrom']) && empty($request->query->get('form')['tel']) && empty($request->query->get('form')['manager']) && empty($request->query->get('form')['number']) && empty($request->query->get('form')['close']) && empty($request->query->get('form')['worker'])) {
             $orders = $em->getRepository('kiraxeAdminCrmBundle:Orders')->findBy(array(), array('dateOpen' => 'DESC'));
         } else {
             $orders = $em->createQuery($sql."ORDER BY o.dateOpen DESC")->getResult();
@@ -137,6 +162,17 @@ class OrdersController extends Controller
                 'label' => 'Сортировка по менеджеру',
                 'required' => false,
                 'placeholder' => 'Выберите менеджера',
+                'empty_data' => null,
+            ))
+            ->add('worker', EntityType::class , array(
+                'class' => 'kiraxe\AdminCrmBundle\Entity\Workers',
+                'choice_label' => 'name',
+                'query_builder' => function (EntityRepository $worker) {
+                    return $worker->createQueryBuilder('w')->where("w.typeworkers = 0");
+                },
+                'label' => 'Сортировка по работнику',
+                'required' => false,
+                'placeholder' => 'Выберите работник',
                 'empty_data' => null,
             ))
             ->add('close', ChoiceType::class, [
