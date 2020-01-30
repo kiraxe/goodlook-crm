@@ -107,7 +107,7 @@
                         <a data-toggl="2" style="margin-top: 20px; display: block;" href='#'>Распечатать Наряд на работу</a>
                     </div>
                     <div class="formItem">
-                        <a data-toggl="1" style="margin-top: 20px; display: block;" href='#'>Распечатать Заказ-наряд</a>
+                        <a data-toggl="1" style="margin-top: 20px; display: block;" href='#'>Распечатать {% if not order.close %} предварительный {% endif %} Заказ-наряд</a>
                     </div>
                 </div>
                 <div class="col-lg-12">
@@ -155,7 +155,7 @@
             </thead>
             <tbody>
             <tr>
-                <td style="padding-top: 20px; padding-bottom: 20px;"><p><b>Заказ-Наряд №{% if order.dateOpen %}{{ order.dateOpen|date('w') }}{% endif %} от {% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d') }}{% endif %}</b></p></td>
+                <td style="padding-top: 20px; padding-bottom: 20px;"><p><b>{% if not order.close %}Предварительный {% endif %} Заказ-Наряд №{% if order.dateOpen %}{{ order.dateOpen|date('w') }}{% endif %} от {% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d') }}{% endif %}</b></p></td>
             </tr>
             <tr>
                 <td>
