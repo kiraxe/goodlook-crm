@@ -89,6 +89,7 @@ class ModelController extends Controller
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
         if ($form->isSubmitted() && $form->isValid()) {
+            $model->setActive(true);
             $em->persist($model);
             $em->flush();
 

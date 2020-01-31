@@ -91,6 +91,7 @@ class ServicesController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $service->setActive(true);
             $em = $this->getDoctrine()->getManager();
             $em->persist($service);
             $em->flush();

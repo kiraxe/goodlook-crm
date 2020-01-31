@@ -92,6 +92,7 @@ class WorkersController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $workers->setWorkeractive(true);
             $em = $this->getDoctrine()->getManager();
             $em->persist($workers);
             $em->flush();

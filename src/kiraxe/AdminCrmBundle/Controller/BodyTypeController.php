@@ -90,6 +90,7 @@ class BodyTypeController extends Controller
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $bodyType->setActive(true);
             $em->persist($bodyType);
             $em->flush();
 

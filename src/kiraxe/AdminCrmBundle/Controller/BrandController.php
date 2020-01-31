@@ -86,6 +86,7 @@ class BrandController extends Controller
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
         if ($form->isSubmitted() && $form->isValid()) {
+            $brand->setActive(true);
             $em->persist($brand);
             $em->flush();
 

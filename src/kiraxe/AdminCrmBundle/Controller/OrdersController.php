@@ -110,6 +110,7 @@ class OrdersController extends Controller
                 $sql .= ' and o.number =' . "'" . $number . "'";
             }
         }
+        
 
 
         if (!empty($request->query->get('form')['close'])) {

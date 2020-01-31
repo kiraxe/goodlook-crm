@@ -140,6 +140,8 @@ class MaterialsController extends Controller
             $price = $priceUnit * $material->getTotalsize();
             $material->setPrice(round($price, 1));
 
+            $material->setActive(true);
+
             $em->persist($material);
 
             $em->flush();
