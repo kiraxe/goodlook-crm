@@ -4,17 +4,18 @@
 namespace kiraxe\AdminCrmBundle\Services\DbDump\Dump;
 
 use kiraxe\AdminCrmBundle\Services\DbDump\Dump\DbDump;
-use kiraxe\AdminCrmBundle\Services\DbDump\Dump\MysqlFileDump;
+use kiraxe\AdminCrmBundle\Services\DbDump\Dump\MysqlDump;
+use kiraxe\AdminCrmBundle\Services\DbDump\Config\Config;
 use PDO;
 
 class MysqlDb extends DbDump
 {
 
-    public function __construct(MysqlFileDump $render, Config $config)
+    public function __construct(MysqlDump $render)
     {
         parent::__construct($render);
-        $option = $config->getOptions();
-        $params = $config->getDbParams();
+        $option = Config::getOptions();
+        $params = Config::getDbParams();
         $host = $params['mysql']['host'];
         $dbname = $params['mysql']['name'];
         $port = $params['mysql']['port'];
@@ -22,7 +23,7 @@ class MysqlDb extends DbDump
         $user =  $params['mysql']['user'];
         $password = $params['mysql']['password'];
         $dns = "mysql:host=$host;dbname=$dbname;charset=$charset;port=$port";
-        $this->dbconnection = new PDO($dns, $user, $password, $option);
+        $this->pdoconnection = new PDO($dns, $user, $password, $option);
         $this->dbname = $dbname;
     }
 
@@ -39,9 +40,11 @@ class MysqlDb extends DbDump
     public function getDump(): array
 
     {
-        $connect = $this->pdoconnection;
+        $connect = $this->getPdoConnection();
 
         $tables = $this->dbrender->getTableAllName($connect);
+
+        $dbname = $this->getDbname();
 
         $result = [];
 
@@ -50,9 +53,9 @@ class MysqlDb extends DbDump
 
             $result[$step] = $this->dbrender->getCreateTable($connect, $table);
 
-            $result[$step] = $this->dbrender->getPrimaryTable($connect, $table);
+            $result[$step] = $this->dbrender->getPrimaryTable($connect, $table, $dbname);
 
-            $result[$step] = $this->dbrender->getKeyTable($connect, $table);
+            $result[$step] = $this->dbrender->getKeyTable($connect, $table, $dbname);
 
             $result[$step] = $this->dbrender->getDumpDBTables($connect, $table);
 

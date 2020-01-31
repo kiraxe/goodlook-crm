@@ -6,7 +6,7 @@ use PDO;
 
 class Config {
 
-    private $parameters = [
+    private static $parameters = [
         'mysql' => [
             'host' => '127.0.0.1',
             'port' => null,
@@ -17,7 +17,7 @@ class Config {
         ]
     ];
 
-    private $option = [
+    private static $option = [
         'mysql' => [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
@@ -25,11 +25,11 @@ class Config {
         ]
     ];
 
-    public function getDbParams() : array {
-        return $this->parameters;
+    public static function getDbParams() : array {
+        return self::$parameters;
     }
 
-    public function getOptions(): array {
-        return $this->option;
+    public static function getOptions(): array {
+        return self::$option;
     }
 }

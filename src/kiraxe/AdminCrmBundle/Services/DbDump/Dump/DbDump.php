@@ -2,7 +2,7 @@
 
 namespace kiraxe\AdminCrmBundle\Services\DbDump\Dump;
 
-use kiraxe\AdminCrmBundle\Services\DbDump\DumpInterface\FileDump;
+use kiraxe\AdminCrmBundle\Services\DbDump\DumpInterface\Dump;
 use PDO;
 
 
@@ -13,15 +13,13 @@ abstract class DbDump
     protected $dbrender;
     protected $pdoconnection;
     protected $dbname;
-    protected $file;
-    protected $fileName;
 
-    public function __construct(FileDump $render)
+    public function __construct(Dump $render)
     {
         $this->dbrender = $render;
     }
 
-    public function changeDb(FileDump $render) : void {
+    public function changeDb(Dump $render) : void {
         $this->dbrender = $render;
     }
 

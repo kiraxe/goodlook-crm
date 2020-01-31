@@ -5,6 +5,11 @@ namespace kiraxe\AdminCrmBundle\Controller;
 use kiraxe\AdminCrmBundle\Entity\Brand;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+//use kiraxe\AdminCrmBundle\Services\DbDump\Dump\MysqlDb;
+//use kiraxe\AdminCrmBundle\Services\DbDump\Dump\MysqlDump;
+//use kiraxe\AdminCrmBundle\Services\DbDump\FileWriter\WriterSql;
+//use kiraxe\AdminCrmBundle\Services\DbDump\FileWriter\WriterSqlPart;
+
 
 /**
  * Brand controller.
@@ -19,6 +24,22 @@ class BrandController extends Controller
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+
+
+        //$impDump = new MysqlDump();
+        //$absDump = new MysqlDb($impDump);
+
+        //$impWr = new WriterSqlPart();
+        //$absWr = new WriterSql($impWr, $absDump);
+
+        //$absWr->openFile('Mydump');
+
+        //$file = $absWr->getFile();
+
+        //print_r($file);
+
+
+
 
         $brands = $em->getRepository('kiraxeAdminCrmBundle:Brand')->findBy(['active' => '1']);
 

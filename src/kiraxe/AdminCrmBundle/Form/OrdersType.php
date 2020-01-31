@@ -130,9 +130,10 @@ class OrdersType extends AbstractType
             ->add('damages', TextareaType::class ,array(
                 'label' => 'При приеме ДТС имеет следующие повреждения',
                 'required' => false,
-                'attr' => array(
+                'data' => 'Автомобиль загрязнен. Фотофиксация после мойки кузова автомобиля.',
+                /*'attr' => array(
                     'placeholder' => 'Автомобиль загрязнен. Фотофиксация после мойки кузова автомобиля.'
-                )
+                )*/
             ))
             ->add('phone',TextType::class ,array('label' => 'Телефон', 'attr'=> ['class' => "phone ajax-autocomplete" , 'data-type' => 'phone']))
             ->add('email', EmailType::class ,array(
