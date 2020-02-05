@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/UserController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,28 +283,7 @@
       <workItem from="1580719331506" duration="12729000" />
       <workItem from="1580742559508" duration="3173000" />
       <workItem from="1580807774366" duration="20337000" />
-      <workItem from="1580886675694" duration="9311000" />
-    </task>
-    <task id="LOCAL-00085" summary="goodlook-crm first commit">
-      <created>1569579627090</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1569579627090</updated>
-    </task>
-    <task id="LOCAL-00086" summary="goodlook-crm first commit">
-      <created>1569579708202</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1569579708202</updated>
-    </task>
-    <task id="LOCAL-00087" summary="goodlook-crm first commit">
-      <created>1569583923394</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1569583923394</updated>
+      <workItem from="1580886675694" duration="9568000" />
     </task>
     <task id="LOCAL-00088" summary="goodlook-crm first commit">
       <created>1569584457568</created>
@@ -629,7 +607,28 @@
       <option name="project" value="LOCAL" />
       <updated>1580896219485</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="goodlook-crm first commit">
+      <created>1580896340807</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1580896340807</updated>
+    </task>
+    <task id="LOCAL-00135" summary="goodlook-crm first commit">
+      <created>1580896482572</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1580896482572</updated>
+    </task>
+    <task id="LOCAL-00136" summary="goodlook-crm first commit">
+      <created>1580896545239</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1580896545239</updated>
+    </task>
+    <option name="localTasksCounter" value="137" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -679,10 +678,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="277" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580821510132" />
-    <state x="598" y="118" key="CommitChangelistDialog2" timestamp="1580896480572">
+    <state x="598" y="118" key="CommitChangelistDialog2" timestamp="1580896542937">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="598" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580896480572" />
+    <state x="598" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580896542937" />
     <state x="740" y="277" key="FileChooserDialogImpl" timestamp="1580385467581">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
