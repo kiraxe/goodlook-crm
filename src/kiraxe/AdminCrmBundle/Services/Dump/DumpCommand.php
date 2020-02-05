@@ -31,7 +31,7 @@ class DumpCommand extends Command
     {
         $basePath = $this->progect_dir;
 
-        $message = shell_exec('bash '.$basePath.'\dump.sh');
+        $message = shell_exec('bash '.$basePath.'/dump.sh');
 
         $output->writeln($message);
     }
