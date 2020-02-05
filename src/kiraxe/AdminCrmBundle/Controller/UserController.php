@@ -264,6 +264,8 @@ class UserController extends Controller
         $application->run($input, $output);
         $content = $output->fetch();
 
+        print_r($content);
+
         //if ($content) {
 
             $filename = date('Y-m-d_H-i-s');
