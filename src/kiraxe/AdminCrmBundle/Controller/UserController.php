@@ -273,7 +273,7 @@ class UserController extends Controller
 
             //$response = new Response($content);
 
-            //$stream  = new Stream($publicResourcesFolderPath.$content);
+            $stream  = new Stream($publicResourcesFolderPath.$content);
             $response = new BinaryFileResponse($publicResourcesFolderPath.$content);
 
             $response->headers->set('Content-Type', 'text/plain');
