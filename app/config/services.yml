@@ -42,7 +42,10 @@ services:
         bind:
             $authenticationUtils: '@security.authentication_utils'
 
-    #kiraxe\AdminCrmBundle\Services\DumpDbs\Dump\MysqlDb
+    kiraxe\AdminCrmBundle\Services\Dump\DumpCommand:
+        autowire: true
+        arguments:
+            $progect_dir: '%kernel.project_dir%'
     #kiraxe\AdminCrmBundle\Services\DumpDbs:
     #    autowire: true
     #    arguments:

@@ -37,18 +37,28 @@ class MysqlDb extends DbDump
         return $this->dbname;
     }
 
-    public function getDump(): array
-
+    public function getDump($value, $table = null)
     {
         $connect = $this->getPdoConnection();
-
-        $tables = $this->dbrender->getTableAllName($connect);
-
         $dbname = $this->getDbname();
 
-        $result = [];
 
-        $step = 0;
+        switch ($value) {
+            case "tables":
+                $result = $this->dbrender->getTableAllName($connect);
+                break;
+            case "create":
+                $result = $this->dbrender->getCreateTable($connect, $table);
+                break;
+            case "insert":
+                $result = $this->dbrender->getDumpDBTables($connect, $table);
+                break;
+            case "key":
+                $result = $this->dbrender->getKeyTable($connect, $table, $dbname);
+                break;
+        }
+
+        /*$step = 0;
         foreach ($tables as $table) {
 
             $result[$step] = $this->dbrender->getCreateTable($connect, $table);
@@ -61,7 +71,7 @@ class MysqlDb extends DbDump
 
             $step++;
 
-        }
+        }*/
 
         return $result;
     }

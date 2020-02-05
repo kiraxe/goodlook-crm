@@ -36,9 +36,13 @@ class BrandController extends Controller
 
         //$file = $absWr->getFile();
 
-        //print_r($file);
+        //echo $file;
 
 
+
+        //$basePath = $this->getParameter('kernel.project_dir');
+        //$output = shell_exec('bash '.$basePath.'\dump.sh');
+        //echo $output;
 
 
         $brands = $em->getRepository('kiraxeAdminCrmBundle:Brand')->findBy(['active' => '1']);

@@ -27,16 +27,34 @@ class WriterSql extends Writer
     {
         $text = "";
 
+        $tables = $this->mysqlDb->getDump('tables');
+
         $text = $this->render->getTitle($this->mysqlDb);
 
-        fwrite($this->getFile(), $text);
+        foreach ( $tables as $table) {
+            $text .= $this->render->getstructureTable($table);
+            $text .= $this->render->getCreate($table);
+            $text .= $this->mysqlDb->getDump('create', $table);
+            $text .= $this->render->getDumpDb($table);
+            $value = $this->mysqlDb->getDump('insert', $table);
+            $text .= $this->render->getInsert($table, $value);
+            $text .= $this->render->getValues($value);
+        }
+
+        foreach ( $tables as $table) {
+            $text .= $this->render->getIndex($table);
+            $tableKey = $this->mysqlDb->getDump('key', $table);
+            $text .= $this->render->getAlter($tableKey, $table);
+        }
+
+        fwrite($this->file, $text);
 
         fclose($this->file);
     }
 
     public function getFile()
     {
-        //$this->writeFile();
+        $this->writeFile();
         $file = readfile($this->getFileName());
         unlink($this->getFileName());
         return $file;
@@ -51,6 +69,4 @@ class WriterSql extends Writer
     {
         $this->fileName = $filename;
     }
-
-
 }

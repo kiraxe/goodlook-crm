@@ -1,7 +1,7 @@
 <?php
 
 
-namespace kiraxe\AdminCrmBundle\Services;
+namespace kiraxe\AdminCrmBundle\Services\DbDump;
 
 use PDO;
 

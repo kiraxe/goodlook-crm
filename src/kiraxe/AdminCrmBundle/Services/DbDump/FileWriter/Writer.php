@@ -23,6 +23,4 @@ abstract class Writer
     abstract public function getFile();
     abstract public function getFileName();
     abstract public function setFileName($filename);
-
-
 }

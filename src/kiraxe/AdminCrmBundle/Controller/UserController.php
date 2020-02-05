@@ -5,6 +5,16 @@ namespace kiraxe\AdminCrmBundle\Controller;
 use kiraxe\AdminCrmBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Output\BufferedOutput;
+use Symfony\Component\HttpKernel\KernelInterface;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+use Symfony\Component\HttpFoundation\File\Stream;
+
+
 
 
 
@@ -19,13 +29,15 @@ class UserController extends Controller
      * Lists all user entities.
      *
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request, KernelInterface $kernel)
     {
         $em = $this->getDoctrine()->getManager();
 
         $users = $em->getRepository('kiraxeAdminCrmBundle:User')->findAll();
 
         $deleteForm = [];
+
+
 
         for($i = 0; $i < count($users); $i++) {
             $deleteForm[$users[$i]->getUsername()] = $this->createDeleteForm($users[$i])->createView();
@@ -235,7 +247,49 @@ class UserController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('user_delete', array('id' => $user->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
+
+    }
+
+    public function getdumpAction(Request $request, KernelInterface $kernel) {
+
+        $application = new Application($kernel);
+        $application->setAutoExit(false);
+
+        $input = new ArrayInput(array(
+            'command' => 'mysql:dump',
+        ));
+
+        $output = new BufferedOutput();
+        $application->run($input, $output);
+        $content = $output->fetch();
+
+        //if ($content) {
+
+            $filename = date('Y-m-d_H-i-s');
+
+            //$publicResourcesFolderPath = $this->getParameter('kernel.project_dir') . '\web\public\crontab\\';
+
+            $response = new Response($content);
+
+            /*$stream  = new Stream($publicResourcesFolderPath.$content);
+            $response = new BinaryFileResponse($stream);
+
+            $response->headers->set('Content-Type', 'text/plain');
+            $response->setContentDisposition(
+                ResponseHeaderBag::DISPOSITION_ATTACHMENT,
+                $content
+            );*/
+
+            $disposition = $response->headers->makeDisposition(
+                ResponseHeaderBag::DISPOSITION_ATTACHMENT,
+                $filename.'.sql'
+            );
+
+            $response->headers->set('Content-Disposition', $disposition);
+
+        //}
+
+        return $response;
     }
 }

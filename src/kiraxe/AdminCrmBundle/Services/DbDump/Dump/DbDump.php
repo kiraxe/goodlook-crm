@@ -25,7 +25,7 @@ abstract class DbDump
 
     abstract public function getPdoConnection(): PDO;
 
-    abstract public function getDump() : array;
+    abstract public function getDump($value, $table = null);
 
     abstract public function getDbname() : string;
 

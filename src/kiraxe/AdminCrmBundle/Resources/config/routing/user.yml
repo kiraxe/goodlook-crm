@@ -22,3 +22,9 @@ user_delete:
     path:     /{id}/delete
     defaults: { _controller: "kiraxeAdminCrmBundle:User:delete" }
     methods:  DELETE
+user_getdump:
+    path:     /getdump
+    defaults: { _controller: "kiraxeAdminCrmBundle:User:getdump" }
+    options:
+        expose: true
+    methods:  [GET, POST]
