@@ -284,14 +284,7 @@
       <workItem from="1580719331506" duration="12729000" />
       <workItem from="1580742559508" duration="3173000" />
       <workItem from="1580807774366" duration="20337000" />
-      <workItem from="1580886675694" duration="9196000" />
-    </task>
-    <task id="LOCAL-00084" summary="goodlook-crm first commit">
-      <created>1569579259797</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1569579259797</updated>
+      <workItem from="1580886675694" duration="9311000" />
     </task>
     <task id="LOCAL-00085" summary="goodlook-crm first commit">
       <created>1569579627090</created>
@@ -629,7 +622,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580896127571</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="goodlook-crm first commit">
+      <created>1580896219485</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1580896219485</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -679,10 +679,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="277" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580821510132" />
-    <state x="598" y="118" key="CommitChangelistDialog2" timestamp="1580896125376">
+    <state x="598" y="118" key="CommitChangelistDialog2" timestamp="1580896217668">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="598" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580896125376" />
+    <state x="598" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580896217668" />
     <state x="740" y="277" key="FileChooserDialogImpl" timestamp="1580385467581">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -264,7 +264,7 @@ class UserController extends Controller
         $application->run($input, $output);
         $content = $output->fetch();
 
-        //if ($content) {
+        if ($content) {
 
             $filename = date('Y-m-d_H-i-s');
 
@@ -288,7 +288,7 @@ class UserController extends Controller
 
             $response->headers->set('Content-Disposition', $disposition);
 
-        //}
+        }
 
         return $response;
     }
