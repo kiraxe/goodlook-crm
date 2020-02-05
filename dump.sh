@@ -13,4 +13,4 @@ cd $ROOT/web/public/crontab
 
 mysqldump -B "$dbname" -u "$dbuser" --password="$dbpassword" > "$filename"
 
-cat $filename;
+echo $filename

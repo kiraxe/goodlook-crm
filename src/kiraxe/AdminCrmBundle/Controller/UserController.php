@@ -264,29 +264,30 @@ class UserController extends Controller
         $application->run($input, $output);
         $content = $output->fetch();
 
+        echo $content;
         //if ($content) {
 
-            $filename = date('Y-m-d_H-i-s');
+            //$filename = date('Y-m-d_H-i-s');
 
-            //$publicResourcesFolderPath = $this->getParameter('kernel.project_dir') . '\web\public\crontab\\';
+            $publicResourcesFolderPath = $this->getParameter('kernel.project_dir') . '\web\public\crontab\\';
 
-            $response = new Response($content);
+            //$response = new Response($content);
 
-            /*$stream  = new Stream($publicResourcesFolderPath.$content);
+            $stream  = new Stream($publicResourcesFolderPath.$content);
             $response = new BinaryFileResponse($stream);
 
             $response->headers->set('Content-Type', 'text/plain');
             $response->setContentDisposition(
                 ResponseHeaderBag::DISPOSITION_ATTACHMENT,
                 $content
-            );*/
-
-            $disposition = $response->headers->makeDisposition(
-                ResponseHeaderBag::DISPOSITION_ATTACHMENT,
-                $filename.'.sql'
             );
 
-            $response->headers->set('Content-Disposition', $disposition);
+            /*$disposition = $response->headers->makeDisposition(
+                ResponseHeaderBag::DISPOSITION_ATTACHMENT,
+                $filename.'.sql'
+            );*/
+
+            //$response->headers->set('Content-Disposition', $disposition);
 
         //}
 
