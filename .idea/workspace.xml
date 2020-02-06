@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2020-02-05_16-48-20.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/orders/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/orders/edit.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dump.sh" beforeDir="false" afterPath="$PROJECT_DIR$/dump.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Services/Dump/DumpCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Services/Dump/DumpCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/crontab/2020-02-05_12-57-03.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -291,14 +286,7 @@
       <workItem from="1580807774366" duration="20337000" />
       <workItem from="1580886675694" duration="22242000" />
       <workItem from="1580972876662" duration="6854000" />
-      <workItem from="1580986693525" duration="1039000" />
-    </task>
-    <task id="LOCAL-00096" summary="goodlook-crm first commit">
-      <created>1577702810480</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1577702810480</updated>
+      <workItem from="1580986693525" duration="2657000" />
     </task>
     <task id="LOCAL-00097" summary="goodlook-crm first commit">
       <created>1579254844116</created>
@@ -636,7 +624,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580911999521</updated>
     </task>
-    <option name="localTasksCounter" value="145" />
+    <task id="LOCAL-00145" summary="goodlook-crm first commit">
+      <created>1580987757670</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1580987757671</updated>
+    </task>
+    <option name="localTasksCounter" value="146" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -686,10 +681,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="277" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580821510132" />
-    <state x="598" y="118" key="CommitChangelistDialog2" timestamp="1580911997570">
+    <state x="598" y="118" key="CommitChangelistDialog2" timestamp="1580987754141">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="598" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580911997570" />
+    <state x="598" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580987754141" />
     <state x="740" y="277" key="FileChooserDialogImpl" timestamp="1580385467581">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
