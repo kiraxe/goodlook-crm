@@ -269,7 +269,7 @@ class UserController extends Controller
 
         //$publicResourcesFolderPath = $this->getParameter('kernel.project_dir') . '\web\public\crontab\\';
 
-        $response = new Response('dsfdsfasfdsfsdfdsf');
+        $response = new Response($content);
 
         /*$stream  = new Stream($publicResourcesFolderPath.$content);
            $response = new BinaryFileResponse($publicResourcesFolderPath.$content);
