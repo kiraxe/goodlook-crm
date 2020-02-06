@@ -33,14 +33,14 @@ class DumpCommand extends Command
 
         $message=shell_exec('bash '.$basePath.'/dump.sh');
 
-        if ($output->isDebug()) {
+        /*if ($output->isDebug()) {
             $output->writeln([$message]);
         }
 
         if ($output->isVerbose()) {
             $output->writeln([$message]);
-        }
+        }*/
 
-        //$output->writeln([$message]);
+        $output->writeln([$message]);
     }
 }
