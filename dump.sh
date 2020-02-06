@@ -18,5 +18,3 @@ mysqldump -u "$dbuser" --password="$dbpassword" "$dbname" -r "$filename"
 
 cat $filename
 
-rm $filename
-
