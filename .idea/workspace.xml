@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dump.sh" beforeDir="false" afterPath="$PROJECT_DIR$/dump.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config_dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config_dev.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -286,14 +286,7 @@
       <workItem from="1580807774366" duration="20337000" />
       <workItem from="1580886675694" duration="22242000" />
       <workItem from="1580972876662" duration="6854000" />
-      <workItem from="1580986693525" duration="2750000" />
-    </task>
-    <task id="LOCAL-00098" summary="goodlook-crm first commit">
-      <created>1579255194576</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1579255194577</updated>
+      <workItem from="1580986693525" duration="3699000" />
     </task>
     <task id="LOCAL-00099" summary="goodlook-crm first commit">
       <created>1579255482280</created>
@@ -631,7 +624,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580989362945</updated>
     </task>
-    <option name="localTasksCounter" value="147" />
+    <task id="LOCAL-00147" summary="goodlook-crm first commit">
+      <created>1580989455228</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1580989455229</updated>
+    </task>
+    <option name="localTasksCounter" value="148" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -681,10 +681,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="277" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580821510132" />
-    <state x="598" y="118" key="CommitChangelistDialog2" timestamp="1580989361172">
+    <state x="598" y="118" key="CommitChangelistDialog2" timestamp="1580989453562">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="598" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580989361172" />
+    <state x="598" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580989453562" />
     <state x="740" y="277" key="FileChooserDialogImpl" timestamp="1580385467581">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
