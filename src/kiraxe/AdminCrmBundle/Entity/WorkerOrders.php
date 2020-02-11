@@ -229,7 +229,15 @@ class WorkerOrders
     public function setSalary($salary)
     {
         if ($this->pricefr) {
-            $this->salary = $this->pricefr;
+            if ($this->marriage && !$this->fine) {
+                $this->salary = $this->pricefr - $this->marriage;
+            } elseif (!$this->marriage && $this->fine) {
+                $this->salary = $this->pricefr - $this->fine;
+            } elseif ($this->marriage && $this->fine) {
+                $this->salary = ($this->pricefr - $this->fine) - $this->marriage;
+            } else {
+                $this->salary = $this->pricefr;
+            }
         } else {
             $this->salary = $salary;
         }
