@@ -160,3 +160,9 @@ for (let i = 0; i < element.length; i++) {
 
 }
 
+document.addEventListener('click', function(e){
+    if (e.target.getAttribute('class') != 'autocompleteContainer') {
+        wrapperDiv.style.display = "none";
+    }
+})
+

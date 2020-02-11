@@ -2,7 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/addDump.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/SqlType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Services/Dump/DumpCommandAdd.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Services/FileUploader/FileUploader.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/orders/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/orders/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/user/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/user/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/services.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/services.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Resources/config/routing/user.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Resources/config/routing/user.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Services/Dump/DumpCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Services/Dump/DumpCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/crontab/2020-02-06_15-30-16.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/crontab/2020-02-06_15-30-36.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/js/ajaxAutocomplete.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/js/ajaxAutocomplete.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,15 +147,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\OSPanel\domains\localhost\goodlook-crm\src\kiraxe\AdminCrmBundle\Resources\config\routing" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\OSPanel\domains\localhost\gl\web\public" />
       <recent name="C:\OSPanel\domains\localhost\gl\src\kiraxe\AdminCrmBundle\Services\DbDump" />
       <recent name="C:\OSPanel\domains\localhost\gl\src\kiraxe\AdminCrmBundle\Services\DbDump\Dump" />
       <recent name="C:\OSPanel\domains\localhost\gl\src\kiraxe\AdminCrmBundle\Services\DbDump\interface" />
       <recent name="C:\OSPanel\domains\localhost\gl\src\kiraxe\AdminCrmBundle\Services\DbDump\class" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\OSPanel\domains\localhost\goodlook-crm\src\kiraxe\AdminCrmBundle\Resources\config\routing" />
     </key>
   </component>
   <component name="RunManager">
@@ -285,14 +299,15 @@
       <workItem from="1580807774366" duration="20337000" />
       <workItem from="1580886675694" duration="22242000" />
       <workItem from="1580972876662" duration="6854000" />
-      <workItem from="1580986693525" duration="9329000" />
-    </task>
-    <task id="LOCAL-00121" summary="goodlook-crm first commit">
-      <created>1580135895743</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
-      <option name="project" value="LOCAL" />
-      <updated>1580135895744</updated>
+      <workItem from="1580986693525" duration="10149000" />
+      <workItem from="1581002524881" duration="849000" />
+      <workItem from="1581059096502" duration="25418000" />
+      <workItem from="1581318383980" duration="10668000" />
+      <workItem from="1581340697604" duration="91000" />
+      <workItem from="1581341076422" duration="3000" />
+      <workItem from="1581341174846" duration="2000" />
+      <workItem from="1581341242381" duration="5000" />
+      <workItem from="1581405358713" duration="5315000" />
     </task>
     <task id="LOCAL-00122" summary="goodlook-crm first commit">
       <created>1580283560789</created>
@@ -630,7 +645,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580995973047</updated>
     </task>
-    <option name="localTasksCounter" value="170" />
+    <task id="LOCAL-00170" summary="goodlook-crm first commit">
+      <created>1580996217516</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1580996217516</updated>
+    </task>
+    <option name="localTasksCounter" value="171" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -676,34 +698,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="714" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580471016813" />
-    <state x="690" y="277" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1580821510132">
+    <state x="690" y="277" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1581068364916">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="277" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580821510132" />
-    <state x="598" y="118" key="CommitChangelistDialog2" timestamp="1580995971494">
+    <state x="690" y="277" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1581068364916" />
+    <state x="598" y="118" key="CommitChangelistDialog2" timestamp="1580996215835">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="598" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580995971494" />
+    <state x="598" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580996215835" />
     <state x="740" y="277" key="FileChooserDialogImpl" timestamp="1580385467581">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="277" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580385467581" />
-    <state x="542" y="442" key="NewPhpClassDialog" timestamp="1580832154601">
+    <state x="542" y="442" key="NewPhpClassDialog" timestamp="1581091237195">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="542" y="442" key="NewPhpClassDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580832154601" />
+    <state x="542" y="442" key="NewPhpClassDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1581091237195" />
     <state x="794" y="452" key="NewPhpFileDialog" timestamp="1580204543138">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="452" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580204543138" />
-    <state x="668" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1580986706719">
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1581064680556">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="668" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580986706719" />
-    <state x="2365" y="146" width="586" height="693" key="find.popup" timestamp="1579700871386">
-      <screen x="1920" y="0" width="1280" height="984" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1581064680556" />
+    <state x="668" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1581405495607">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="154" width="586" height="732" key="find.popup/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1579695116704" />
+    <state x="668" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1581405495607" />
+    <state x="667" y="154" width="586" height="732" key="find.popup" timestamp="1581322340575">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="154" width="586" height="732" key="find.popup/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1581322340575" />
     <state x="2365" y="146" width="586" height="693" key="find.popup/0.0.1920.1040/1920.0.1280.984@1920.0.1280.984" timestamp="1579700871386" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1580739703031">
       <screen x="0" y="0" width="1920" height="1040" />

@@ -3,6 +3,7 @@
 namespace kiraxe\AdminCrmBundle\Controller;
 
 use kiraxe\AdminCrmBundle\Entity\User;
+use kiraxe\AdminCrmBundle\Form\SqlType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
@@ -13,7 +14,7 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\HttpFoundation\File\Stream;
-
+use kiraxe\AdminCrmBundle\Services\FileUploader\FileUploader;
 
 
 
@@ -29,13 +30,38 @@ class UserController extends Controller
      * Lists all user entities.
      *
      */
-    public function indexAction(Request $request, KernelInterface $kernel)
+    public function indexAction(Request $request, KernelInterface $kernel, FileUploader $fileUploader)
     {
         $em = $this->getDoctrine()->getManager();
 
         $users = $em->getRepository('kiraxeAdminCrmBundle:User')->findAll();
 
         $deleteForm = [];
+
+        $form = $this->createForm(SqlType::class);
+        $form->handleRequest($request);
+
+        $publicResourcesFolderPath = $this->getParameter('kernel.project_dir');
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $brochureFile = $form->get('brochure')->getData();
+            if ($brochureFile) {
+                $brochureFileName = $fileUploader->upload($brochureFile);
+
+                $application = new Application($kernel);
+                $application->setAutoExit(false);
+
+                $input = new ArrayInput(array(
+                    'command' => 'mysql:addDump',
+                    'filename' => $brochureFileName
+                ));
+
+                $output = new BufferedOutput();
+                $application->run($input, $output);
+                $content = $output->fetch();
+            }
+        }
 
 
 
@@ -70,6 +96,7 @@ class UserController extends Controller
         );
 
         return $this->render('user/index.html.twig', array(
+            'form' => $form->createView(),
             'users' => $users,
             'delete_form' => $deleteForm,
             'tables' => $tableName,
@@ -263,7 +290,6 @@ class UserController extends Controller
         $output = new BufferedOutput();
         $application->run($input, $output);
         $content = $output->fetch();
-
 
         $filename = date('Y-m-d_H-i-s');
 

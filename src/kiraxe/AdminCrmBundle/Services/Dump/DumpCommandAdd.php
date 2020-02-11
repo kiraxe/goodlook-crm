@@ -6,11 +6,12 @@ namespace kiraxe\AdminCrmBundle\Services\Dump;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Input\InputArgument;
 
 
 
 
-class DumpCommand extends Command
+class DumpCommandAdd extends Command
 {
     protected $progect_dir;
 
@@ -23,15 +24,19 @@ class DumpCommand extends Command
     protected function configure()
     {
         $this
-            ->setName('mysql:dump')
-            ->setDescription('Create dump file');
+            ->setName('mysql:AddDump')
+            ->setDescription('Create dump file')
+            ->addArgument('filename', InputArgument::REQUIRED, 'filename');
     }
 
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $basePath = $this->progect_dir;
 
-        $message=shell_exec('bash '.$basePath.'/dump.sh');
+        $filename = $input->getArgument('filename');
+
+        $message=shell_exec('bash '.$basePath."/addDump.sh $filename");
+
         /*if ($output->isDebug()) {
             $output->writeln([$message]);
         }

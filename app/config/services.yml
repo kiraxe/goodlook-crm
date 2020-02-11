@@ -42,7 +42,16 @@ services:
         bind:
             $authenticationUtils: '@security.authentication_utils'
 
+    kiraxe\AdminCrmBundle\Services\FileUploader\FileUploader:
+        arguments:
+            $targetDirectory: '%kernel.project_dir%\web\public\crontab\'
+
     kiraxe\AdminCrmBundle\Services\Dump\DumpCommand:
+        autowire: true
+        arguments:
+            $progect_dir: '%kernel.project_dir%'
+
+    kiraxe\AdminCrmBundle\Services\Dump\DumpCommandAdd:
         autowire: true
         arguments:
             $progect_dir: '%kernel.project_dir%'

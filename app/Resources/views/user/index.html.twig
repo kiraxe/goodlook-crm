@@ -19,6 +19,18 @@
                             <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('kiraxe_admin_crm_homepage') }}">Назад</a>
                         </li>
                     </ul>
+                    <table>
+                        <tr>
+                            <td>
+                                {{ form_start(form) }}
+                                <ul id="filter-date">
+                                    <li>{{ form_row(form.brochure)}}</li>
+                                    <li><input style="margin-top: 20px;" class="btn btn-secondary" type="submit" value="Отправить" /></li>
+                                </ul>
+                                {{ form_end(form) }}
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div class="col-md-12">
                     <table class="table table-bordered">
