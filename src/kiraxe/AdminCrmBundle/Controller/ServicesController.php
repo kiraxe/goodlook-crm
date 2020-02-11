@@ -64,7 +64,7 @@ class ServicesController extends Controller
         $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
 
         for($i = 0; $i < count($services); $i++) {
-            $deleteForm[$services[$i]->getName()] = $this->createDeleteForm($services[$i])->createView();
+            $deleteForm[$services[$i]->getId()] = $this->createDeleteForm($services[$i])->createView();
         }
 
         return $this->render('services/index.html.twig', array(

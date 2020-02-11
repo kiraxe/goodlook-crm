@@ -47,7 +47,7 @@
                                             </li>
                                             <li>
                                                 {% for key, value in delete_form %}
-                                                    {% if key == service.name %}
+                                                    {% if key == service.id %}
                                                         {{ form_start(value) }}
                                                         <input style="margin-top: 20px; width:100%;" class="btn btn-danger" type="submit" value="Удалить">
                                                         {{ form_end(value) }}

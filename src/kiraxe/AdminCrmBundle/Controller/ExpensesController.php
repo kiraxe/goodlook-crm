@@ -31,7 +31,7 @@ class ExpensesController extends Controller
         $deleteForm = [];
 
         for($i = 0; $i < count($expenses); $i++) {
-            $deleteForm[$expenses[$i]->getName()] = $this->createDeleteForm($expenses[$i])->createView();
+            $deleteForm[$expenses[$i]->getId()] = $this->createDeleteForm($expenses[$i])->createView();
         }
 
         //$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');

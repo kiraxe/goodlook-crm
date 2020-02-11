@@ -2,21 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/addDump.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/SqlType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Services/Dump/DumpCommandAdd.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Services/FileUploader/FileUploader.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/orders/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/orders/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/user/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/user/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/services.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/services.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Resources/config/routing/user.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Resources/config/routing/user.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Services/Dump/DumpCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Services/Dump/DumpCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/crontab/2020-02-06_15-30-16.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/crontab/2020-02-06_15-30-36.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/js/ajaxAutocomplete.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/js/ajaxAutocomplete.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/expenses/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expenses/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/services/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/services/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ExpensesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ExpensesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ServicesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ServicesController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -307,14 +297,7 @@
       <workItem from="1581341076422" duration="3000" />
       <workItem from="1581341174846" duration="2000" />
       <workItem from="1581341242381" duration="5000" />
-      <workItem from="1581405358713" duration="5315000" />
-    </task>
-    <task id="LOCAL-00122" summary="goodlook-crm first commit">
-      <created>1580283560789</created>
-      <option name="number" value="00122" />
-      <option name="presentableId" value="LOCAL-00122" />
-      <option name="project" value="LOCAL" />
-      <updated>1580283560789</updated>
+      <workItem from="1581405358713" duration="8053000" />
     </task>
     <task id="LOCAL-00123" summary="goodlook-crm first commit">
       <created>1580371702282</created>
@@ -652,7 +635,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580996217516</updated>
     </task>
-    <option name="localTasksCounter" value="171" />
+    <task id="LOCAL-00171" summary="goodlook-crm first commit">
+      <created>1581411673862</created>
+      <option name="number" value="00171" />
+      <option name="presentableId" value="LOCAL-00171" />
+      <option name="project" value="LOCAL" />
+      <updated>1581411673863</updated>
+    </task>
+    <option name="localTasksCounter" value="172" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -702,10 +692,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="277" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1581068364916" />
-    <state x="598" y="118" key="CommitChangelistDialog2" timestamp="1580996215835">
+    <state x="598" y="118" key="CommitChangelistDialog2" timestamp="1581411669188">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="598" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580996215835" />
+    <state x="598" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1581411669188" />
     <state x="740" y="277" key="FileChooserDialogImpl" timestamp="1580385467581">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
